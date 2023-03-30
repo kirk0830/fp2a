@@ -1,0 +1,1614 @@
+{
+    "corresponding": {
+        "__description__": [
+            "column 1: qe parameter",
+            "column 2: cp2k parameter",
+            "column 3: comments and ps."
+        ],
+        "suffix": [
+            "NaN",
+            "NaN",
+            "not quite important, so omitted"
+        ],
+        "ntype": [
+            "ntyp",
+            "NaN",
+            "cp2k does not need to define number of atom types"
+        ],
+        "calculation": [
+            "control/calculation",
+            "global/run_type",
+            "c'est ca"
+        ],
+        "esolver_type": [
+            "NaN",
+            "NaN",
+            "not exactly that no corresponding. QE can only supports ksdft, for cp2k, it should be force_eval/method"
+        ],
+        "symmetry": [
+            "NaN",
+            "NaN",
+            "in cp2k force_eval/kpoints/symmetry, where spglib will be called to determine the symmetry in kspace"
+        ],
+        "kpar": [
+            "NaN",
+            "force_eval/dft/kpoints/parallel_group_size",
+            "abacus: divide all processors into kpar groups, cp2k: Number of processors to be used for a single kpoint."
+        ],
+        "bndpar": [
+            "NaN",
+            "NaN",
+            "abacus manual: divide all processors into bndpar groups, and bands (only stochastic orbitals now) will be distributed among each group. It should be larger than 0."
+        ],
+        "latname": [
+            "system/ibrav",
+            "force_eval/subsys/cell/symmetry",
+            "c'est ca"
+        ],
+        "init_wfc": [
+            "electron/starting_wfc",
+            "force_eval/dft/scf/scf_guess",
+            "c'est ca"
+        ],
+        "init_chg": [
+            "NaN",
+            "NaN",
+            "abacus manual: initialization of charge density"
+        ],
+        "init_vel": [
+            "system/ion_velocities",
+            "force_eval/subsys/velocity",
+            "qe and cp2k read this parameter from input script"
+        ],
+        "nelec": [
+            "NaN",
+            "NaN",
+            "not provided"
+        ],
+        "nupdown": [
+            "NaN",
+            "NaN",
+            "much more complicated than singly set this parameter in qe and cp2k..."
+        ],
+        "dft_functional": [
+            "input_dft",
+            "force_eval/dft/xc/xc_functional",
+            "c'est ca"
+        ],
+        "xc_tempreature": [
+            "NaN",
+            "NaN",
+            "abacus supports finite temperature dft"
+        ],
+        "pseudo_rcut": [
+            "NaN",
+            "NaN",
+            "cutoff of radial integration of pseudopotential, not heard possible in qe and cp2k"
+        ],
+        "pseudo_mesh": [
+            "NaN",
+            "NaN",
+            "whether use abacus-provided mesh for realspace radial integration of pseudopotential, not heard possible in qe and cp2k"
+        ],
+        "mem_saver": [
+            "disk_io",
+            "global/save_mem",
+            "in qe the 'disk_io' parameter is for controlling io on hard disk, but if set to medium, medium memory cost, set to low, high memory cost. in cp2k, there is also another parameter when calculating hybrid functional: force_eval/dft/xc/hf/memory/max_memory"
+        ],
+        "diago_proc": [
+            "NaN",
+            "NaN",
+            "abacus manual: If set to a positive number, then it specifies the number of threads used for carrying out diagonalization. Must be less than or equal to total number of MPI threads. Also, when cg diagonalization is used, diago_proc must be the same as the total number of MPI threads. If set to 0, then it will be set to the number of MPI threads. Normally, it is fine just leave it to the default value. Only used for pw base."
+        ],
+        "nbspline": [
+            "NaN",
+            "NaN",
+            "abacus manual: If set to a natural number, a Cardinal B-spline interpolation will be used to calculate Structure Factor. nbspline represents the order of B-spline basis and a larger one can get more accurate results but cost more. It is turned off by default."
+        ],
+        "kspacing": [
+            "NaN",
+            "NaN",
+            "abacus manual: Set the smallest allowed spacing between k points, unit in 1/bohr"
+        ],
+        "min_dist_coef": [
+            "NaN",
+            "NaN",
+            "abacus manual: a factor related to the allowed minimum distance between two atoms"
+        ],
+        "symmetry_prec": [
+            "NaN",
+            "NaN",
+            "abacus manual: The accuracy for symmetry judgment. The unit is Bohr."
+        ],
+        "device": [
+            "NaN",
+            "NaN",
+            "abacus manual: Specifies the computing device for ABACUS."
+        ],
+        "stru_file": [
+            "atomic_positions",
+            "force_eval/subsys/topology/coord_file_name",
+            "qe requires provide all coordinates in input script, cp2k can define structure both in force_eval/subsys/coord section or in a separate file"
+        ],
+        "kpoint_file": [
+            "kpoints",
+            "force_eval/dft/kpoints/kpoint or scheme",
+            "c'est ca"
+        ],
+        "pseudo_dir": [
+            "pseudo_dir",
+            "force_eval/dft/pesudo_file_name",
+            "c'est ca"
+        ],
+        "orbital_dir": [
+            "outdir",
+            "NaN",
+            "cp2k will output all orbitals in present directory in wfn file"
+        ],
+        "read_file_dir": [
+            "NaN",
+            "wfn_restart_file_name",
+            "in qe it is the same as outdir. therefore for qe it is always a good idea that do not touch anything in outdir"
+        ],
+        "wannier_card": [
+            "NaN",
+            "NaN",
+            "abacus manual: Relevant when using ABACUS with wannier90. Tells the name of the input file related to wannier90."
+        ],
+        "ecutwfc": [
+            "ecutwfc",
+            "force_eval/dft/mgrid/cutoff",
+            "c'est ca"
+        ],
+        "nx": [
+            "nr1s",
+            "NaN",
+            "qe also as another parameter 'nr1' for hard part of 3-d FFT of charge density, while for cp2k, fft-revelant parameters are not found :("
+        ],
+        "ny": [
+            "nr2s",
+            "NaN",
+            "qe also as another parameter 'nr2' for hard part of 3-d FFT of charge density, while for cp2k, fft-revelant parameters are not found :("
+        ],
+        "nz": [
+            "nr3s",
+            "NaN",
+            "qe also as another parameter 'nr3' for hard part of 3-d FFT of charge density, while for cp2k, fft-revelant parameters are not found :("
+        ],
+        "pw_seed": [
+            "NaN",
+            "NaN",
+            "abacus manual: Only useful for plane wave basis only now. It is the random seed to initialize wave functions. Only positive integers are available."
+        ],
+        "pw_diag_thr": [
+            "diago_thr_init",
+            "NaN",
+            "for cp2k the similar settings are in force_eval/dft/scf/diagonalization section, but no such a parameter is found"
+        ],
+        "pw_diag_nmax": [
+            "diago_cg_maxiter",
+            "NaN",
+            "qe also has another parameter called 'diago_ppcg_maxiter', is for ppcg diagonalization method, while cp2k does not have such developed diagonalization technique..."
+        ],
+        "pw_diag_ndim": [
+            "diago_david_ndim",
+            "NaN",
+            "c'est ca"
+        ],
+        "nb2d": [
+            "NaN",
+            "NaN",
+            "abacus manual: In LCAO calculations, we arrange the total number of processors in an 2D array, so that we can partition the wavefunction matrix (number of bands*total size of atomic orbital basis) and distribute them in this 2D array. When the system is large, we group processors into sizes of nb2d, so that multiple processors take care of one row block (a group of atomic orbitals) in the wavefunction matrix. If set to 0, nb2d will be automatically set in the program according to the size of atomic orbital basis."
+        ],
+        "lmaxmax": [
+            "NaN",
+            "NaN",
+            "abacus manual: If not equals to 2, then the maximum l channels on LCAO is set to lmaxmax. If 2, then the number of l channels will be read from the LCAO data sets. Normally no input should be supplied for this variable so that it is kept as its default."
+        ],
+        "lcao_ecut": [
+            "NaN",
+            "NaN",
+            "abacus manual: Energy cutoff when calculating LCAO two-center integrals. In Ry."
+        ],
+        "lcao_dk": [
+            "NaN",
+            "NaN",
+            "abacus manual: Delta k for 1D integration in LCAO"
+        ],
+        "lcal_dr": [
+            "NaN",
+            "NaN",
+            "abacus manual: Delta r for 1D integration in LCAO"
+        ],
+        "lcao_rmax": [
+            "NaN",
+            "NaN",
+            "abacus manual: Max R for 1D two-center integration table"
+        ],
+        "search_radius": [
+            "NaN",
+            "NaN",
+            "abacus manual: Set the search radius for finding neighbouring atoms. If set to -1, then the radius will be set to maximum of projector and orbital cut-off."
+        ],
+        "search_pbc": [
+            "NaN",
+            "NaN",
+            "abacus manual: In searching for neighbouring atoms, if set to 1, then periodic images will also be searched. If set to 0, then periodic images will not be searched."
+        ],
+        "bx": [
+            "NaN",
+            "NaN",
+            "abacus manual: In the matrix operation of grid integral, bx grids (in x directions) are treated as a whole as a matrix element. A different value will affect the calculation speed."
+        ],
+        "by": [
+            "NaN",
+            "NaN",
+            "abacus manual: In the matrix operation of grid integral, by grids (in y directions) are treated as a whole as a matrix element. A different value will affect the calculation speed."
+        ],
+        "bz": [
+            "NaN",
+            "NaN",
+            "abacus manual: In the matrix operation of grid integral, bz grids (in z directions) are treated as a whole as a matrix element. A different value will affect the calculation speed."
+        ],
+        "basis_type": [
+            "NaN",
+            "NaN",
+            "abacus available: pw, lcao_in_pw and lcao. For qe, it is pw and for cp2k it will be gto+pw, similar with lcao_in_pw. it is also possible to use purely the pw in cp2k if use sirius extension."
+        ],
+        "ks_solver": [
+            "diagonalization",
+            "force_eval/dft/scf/diagonalization/algorithm .OR. force_eval/dft/scf/ot/minimizer",
+            "for qe there are more options for pw: ppcg, paro and rmm-paro. for cp2k, diagonalization is just one of methods for solving ks equation, the other choice is ot, Orbital Transformation method, but it is not encouraged for metal system, and encouraged for insulator system."
+        ],
+        "nbands": [
+            "nbnd",
+            "force_eval/dft/added_mos",
+            "added_mos is for adding addtional orbitals, not for defining total number of bands to calculate. For both abacus and qe, nbands is somewhat smart to determine its value, while for cp2k, there will always be warning like MOs are insufficient for smearing method."
+        ],
+        "nbands_istate": [
+            "NaN",
+            "force_eval/dft/print/pdos/nlumo",
+            "i guess i did not fully understand this parameter, but in qe, it seems that it is the parameter in pp.x rather than pw.x, in cp2k, no matter what does 'density' the word in description mean, it will be in force_eval/dft/print section. for printing cube file, it will be e_density_cube section, for printing density of states, it will be pdos section."
+        ],
+        "nspin": [
+            "nspin",
+            "force_eval/dft/uks",
+            "totally the same for qe but different for cp2k. uks T means nspin=2, otherwise nspin=1. for non-collinear case...I have not heard about this in cp2k."
+        ],
+        "smearing_method": [
+            "occupation .AND. smearing",
+            "force_eval/dft/scf/smear/method",
+            "for qe, there are more options for pw: fermi-dirac, marzari-vanderbilt, gaussian, methfessel-paxton, and fixed occupations. but one should first select 'smearing' in occupation keyword, then specify different kind of smearing. for cp2k, only fermi-dirac is supported."
+        ],
+        "smearing_sigma": [
+            "degauss",
+            "force_eval/dft/scf/smear/electronic_temperature",
+            "there is also another parameter in abacus called smearing_sigma_temp, corresponds directly to the electronic_temperature in cp2k"
+        ],
+        "mixing_type": [
+            "mixing_mode",
+            "force_eval/dft/scf/mixing/method",
+            "c'est ca"
+        ],
+        "mixing_beta": [
+            "mixing_beta",
+            "force_eval/dft/scf/mixing/alpha",
+            "abacus can automatically set this parameter if set to -10.0 manually. for detailed information, see this parameter in https://abacus.deepmodeling.com/en/latest/advanced/input_files/input-main.html#electronic-structure-sdft"
+        ],
+        "mixing_ndim": [
+            "mixing_ndim",
+            "force_eval/dft/scf/mixing/n_buffer",
+            "c'est ca"
+        ],
+        "mixing_gg0": [
+            "NaN",
+            "force_eval/dft/scf/mixing/beta",
+            "in qe, kerker mixing is not supported and... in actual calculations I did not find any advantages using this mixing scheme. in cp2k, beta is not exactly the same as mixing_gg0."
+        ],
+        "mixing_tau": [
+            "NaN",
+            "NaN",
+            "abacus manual: Only relevant for meta-GGA calculations. If set to true, then the kinetic energy density will also be mixed. It seems for general cases, SCF converges fine even without this mixing. However, if there is difficulty in converging SCF for meta-GGA, it might be helpful to turn this on."
+        ],
+        "mixing_dftu": [
+            "NaN",
+            "NaN",
+            "abacus manual: Only relevant for DFT+U calculations. If set to true, then the occupation matrices will also be mixed by plain mixing. From experience this is not very helpful if the +U calculation does not converge."
+        ],
+        "gamma_only": [
+            "gamma",
+            "NaN",
+            "in cp2k if gamma-point only calculation is needed, directly avoiding use of kpoints section.and for gamma-only calculation, ot always shows superior performance than diagonalization."
+        ],
+        "printe": [
+            "NaN",
+            "NaN",
+            "this parameter must exist in cp2k but is not necessary for general use... so it is actually omitted"
+        ],
+        "scf_nmax": [
+            "electron_maxstep",
+            "force_eval/dft/scf/max_scf",
+            "c'est ca"
+        ],
+        "scf_thr": [
+            "conv_thr",
+            "force_eval/dft/scf/eps_scf",
+            "c'est ca"
+        ],
+        "chg_extrap": [
+            "wfc_extrapolation .AND. pot_extrapolation",
+            "force_eval/qs/extrapolation .AND. force_eval/qs/extrapolation_order",
+            "extrapolation-related parameters used in these three codes are not exactly the same but have similar functionalities. in abacus the chg_extrap is for controlling Methods to do extrapolation of density when ABACUS is doing geometry relaxations, in qe those two parameters are only valid for md, in cp2k extrapolation is used everywhere."
+        ],
+        "lspinorb": [
+            "lspinorb",
+            "force_eval/dft/xas_tdp/spin_orbit_coupling",
+            "warning: generally soc is not heard to be supported in cp2k, this is the only one relevant parameter I can find. in qe, it works the same as abacus."
+        ],
+        "noncolin": [
+            "noncolin",
+            "NaN",
+            "cp2k does not support noncollinear calculations."
+        ],
+        "soc_lambda": [
+            "NaN",
+            "NaN",
+            "abacus manual: Relevant for soc calculations. Sometimes, for some real materials, both scalar-relativistic and full-relativistic can not describe the exact spin-orbit coupling. Artificial modulation may help in such cases. soc_lambda, which has value range [0.0, 1.0] , is used for modulate SOC effect. In particular, soc_lambda 0.0 refers to scalar-relativistic case and soc_lambda 1.0 refers to full-relativistic case."
+        ],
+        "method_sto": [
+            "NaN",
+            "NaN",
+            "abacus manual: Different method to do SDFT."
+        ],
+        "nbands_sto": [
+            "NaN",
+            "NaN",
+            "better to read description in abacus manual: https://abacus.deepmodeling.com/en/latest/advanced/input_files/input-main.html#electronic-structure-sdft"
+        ],
+        "nche_sto": [
+            "NaN",
+            "NaN",
+            "abacus manual: Chebyshev expansion orders for SDFT, MDFT, CT methods."
+        ],
+        "emin_sto": [
+            "NaN",
+            "NaN",
+            "abacus manual: Trial energy to guess the lower bound of eigen energies of the Hamiltonian Operator. The unit is Ry."
+        ],
+        "emax_sto": [
+            "NaN",
+            "NaN",
+            "abacus manual: Trial energy to guess the upper bound of eigen energies of the Hamiltonian Operator. The unit is Ry."
+        ],
+        "seed_sto": [
+            "NaN",
+            "NaN",
+            "abacus manual: The random seed to generate stochastic orbitals."
+        ],
+        "initsto_freq": [
+            "NaN",
+            "NaN",
+            "abacus manual: Frequency (once each initsto_freq steps) to generate new stochastic orbitals when running md."
+        ],
+        "npart_sto": [
+            "NaN",
+            "NaN",
+            "abacus manual: Make memory cost to 1/npart_sto times of the previous one when running post process of SDFT like DOS with method_sto = 2."
+        ],
+        "relax_nmax": [
+            "nstep",
+            "motion/geo_opt/max_iter",
+            "c'est ca"
+        ],
+        "cal_force": [
+            "tprnfor",
+            "motion/print/forces .AND. force_eval/print/forces",
+            "it seems that in qe and cp2k, force is automatically calculated and for user can set is whether print it or not."
+        ],
+        "force_thr": [
+            "forc_conv_thr .AND. etot_conv_thr",
+            "motion/geo_opt/max_force .AND. motion/geo_opt/rms_force .AND. motion/geo_opt/max_displacement .AND. motion/geo_opt/rms_displacement",
+            "cp2k uses four thresholds for controlling convergence "
+        ],
+        "force_thr_ev": [
+            "NaN",
+            "NaN",
+            "abacus manual: The threshold of the force convergence, has the same function as force_thr, just the unit is different, it is eV/Angstrom, you can choose either one as you like. The recommended value for using atomic orbitals is 0.04 eV/Angstrom."
+        ],
+        "force_thr_ev2": [
+            "NaN",
+            "NaN",
+            "abacus manual: The calculated force will be set to 0 when it is smaller than force_thr_ev2."
+        ],
+        "relax_bfgs_w1": [
+            "w_1",
+            "NaN",
+            "abacus manual: This variable controls the Wolfe condition for BFGS algorithm used in geometry relaxation. You can look into the paper Phys.Chem.Chem.Phys.,2000,2,2177 for more information."
+        ],
+        "relax_bfgs_w2": [
+            "w_2",
+            "NaN",
+            "abacus manual: This variable controls the Wolfe condition for BFGS algorithm used in geometry relaxation. You can look into the paper Phys.Chem.Chem.Phys.,2000,2,2177 for more information."
+        ],
+        "relax_bfgs_rmax": [
+            "trust_radius_max",
+            "motion/geo_opt/bfgs/trust_radius",
+            "c'est ca"
+        ],
+        "relax_bfgs_rmin": [
+            "trust_radius_min",
+            "NaN",
+            "c'est ca"
+        ],
+        "relax_bfgs_init": [
+            "trust_radius_ini",
+            "NaN",
+            "c'est ca"
+        ],
+        "cal_stress": [
+            "tstress",
+            "motion/print/stress .AND. force_eval/print/stress_tensor",
+            "the same as cal_force"
+        ],
+        "stress_thr": [
+            "press_conv_thr",
+            "NaN",
+            "relevant parameter is not found in cp2k?"
+        ],
+        "press1": [
+            "press",
+            "motion/cell_opt/external_pressure",
+            "in abacus, in total three values respectively for press1, press2 and press3 are expected, in qe, one value is expected, in cp2k, either 1 or 9 parameters is allowed."
+        ],
+        "press2": [
+            "NaN",
+            "NaN",
+            "in abacus, in total three values respectively for press1, press2 and press3 are expected, in qe, one value is expected, in cp2k, either 1 or 9 parameters is allowed."
+        ],
+        "press3": [
+            "NaN",
+            "NaN",
+            "in abacus, in total three values respectively for press1, press2 and press3 are expected, in qe, one value is expected, in cp2k, either 1 or 9 parameters is allowed."
+        ],
+        "fix_axes": [
+            "NaN",
+            "NaN",
+            "abacus manual:  which axes are fixed when do cell relaxation."
+        ],
+        "fix_ibrav": [
+            "cell_dofree",
+            "motion/cell_opt/keep_symmetry .AND. motion/cell_opt/keep_angles .AND. motion/cell_opt/keep_space_group",
+            "these three codes controls fixing of cell geometry in different ways."
+        ],
+        "fix_atoms": [
+            "NaN",
+            "NaN",
+            "abacus manual: when set to true, the direct coordinates of atoms will be preserved during variable-cell relaxation. I am not sure if this functionality is suppported in qe and cp2k"
+        ],
+        "relax_method": [
+            "ion_dynamics",
+            "motion/geo_opt/optimizer",
+            "in qe, 'bfgs', 'damp' and 'fire' are available options, in cp2k, 'bfgs', 'lbfgs', 'cg' are aavailable options."
+        ],
+        "relax_cg_thr": [
+            "NaN",
+            "NaN",
+            "abacus manual: When move-method is set to 'cg-bfgs', a mixed cg-bfgs algorithm is used. The ions first move according to cg method, then switched to bfgs when the maximum of force on atoms is reduced below cg-threshold. The unit is eV/Angstrom."
+        ],
+        "relax_new": [
+            "NaN",
+            "NaN",
+            "it is special for abacus. for swtiching to new algorithm for geometry relaxation."
+        ],
+        "relax_scale_force": [
+            "NaN",
+            "motion/geo_opt/cg/line_search/gold/initial_step",
+            "because in qe, cg is not implemented for geometry optimization."
+        ],
+        "cell_factor": [
+            "cell_factor",
+            "NaN",
+            "identical parameter description found in qe and abacus. while in abacus, default is 1.2, in qe, it is 2.0 for variable-cell calculations, 1.0 otherwise."
+        ],
+        "out_mul": [
+            "NaN",
+            "force_eval/dft/print/mulliken",
+            "mulliken in cp2k is a section rather than a keyword"
+        ],
+        "out_freq_elec": [
+            "NaN",
+            "NaN",
+            "abacus manual: If set to >1, it represents the frequency of electronic iters to output charge density (if out_chg is turned on), wavefunction (if out_wfc_pw or out_wfc_r is turned on), and density matrix of localized orbitals (if out_dm is turned on). If set to 0, ABACUS will output them only when converged in SCF or electronic iters reach its maximum. Used for the restart of SCF."
+        ],
+        "out_freq_ion": [
+            "NaN",
+            "NaN",
+            "abacus manual:  If set to >1, it represents the frequency of ionic steps to output charge density (if out_chg is turned on) and wavefunction (if out_wfc_pw or out_wfc_r is turned on). If set to 0, ABACUS will output them only when ionic steps reach its maximum step. Used for the restart of MD or Relax."
+        ],
+        "out_chg": [
+            "NaN",
+            "force_eval/dft/print/e_density_cube",
+            "qe print cube files via pp.x instead of pw.x"
+        ],
+        "out_pot": [
+            "NaN",
+            "WHAT IS LOCAL POTENTIAL in abacus",
+            "qe print cube files via pp.x instead of pw.x"
+        ],
+        "out_dm": [
+            "NaN",
+            "NaN",
+            "never heard this two codes can output density matrix."
+        ],
+        "out_wfc_pw": [
+            "NaN",
+            "NaN",
+            "never heard this two codes can output coefficients of wavefunctions."
+        ],
+        "out_wfc_r": [
+            "NaN",
+            "NaN",
+            "never heard this two codes can output realspace wavefunctions"
+        ],
+        "out_wfc_lcao": [
+            "NaN",
+            "NaN",
+            "abacus manual: Only used in localized orbitals set. If set to 1, ABACUS will output the wave functions coefficients."
+        ],
+        "out_dos": [
+            "NaN",
+            "force_eval/dft/print/dos .OR. force_eval/dft/print/pdos",
+            "in qe, dos is printed by projwfc.x or dos.x subroutine, in cp2k, dos section is not an available choice for ot, may be available for diagonalization. pdos do approximately the same thing as projwfc.x."
+        ],
+        "out_band": [
+            "NaN",
+            "force_eval/dft/print/band_structure",
+            "in qe, band structure calculation is done step-by-step from converging scf charges->nscf calculation (calculation = 'band')->execute bands.x for connecting bands between kpoints. in cp2k, the obtained .bs file need to post-processing. To convert band structure calculation from one to another among these three, it may be somewhat complicated and needed to care with more patience."
+        ],
+        "out_proj_band": [
+            "NaN",
+            "NaN",
+            "abacus manual: Controls whether to output the projected band structure."
+        ],
+        "out_stru": [
+            "NaN",
+            "NaN",
+            "in both qe and cp2k, outputing structure every ion step is default."
+        ],
+        "out_bandgap": [
+            "NaN",
+            "",
+            "in qe and cp2k, it is not directly provided the band gap information. To get bandgap in qe, calculate manually from HOMO and LUMO (occupation = 'fixed') or cbm and vbm (occupation = 'smearing'). in cp2k, use force_eval/dft/print/mo section"
+        ],
+        "out_level": [
+            "NaN",
+            "NaN",
+            "in cp2k, it is controlled by force_eval/dft/print/[properties]/each section"
+        ],
+        "out_alllog": [
+            "NaN",
+            "NaN",
+            "abacus manual: determines whether to write log from all ranks in an MPI run. for details see https://abacus.deepmodeling.com/en/latest/advanced/input_files/input-main.html#electronic-structure-sdft"
+        ],
+        "out_mat_hs": [
+            "NaN",
+            "NaN",
+            "abacus manual: For LCAO calculations, if out_mat_hs is set to 1, ABACUS will print the upper triangular part of the Hamiltonian matrices and overlap matrices for each k point into a series of files in the directory OUT.${suffix}."
+        ],
+        "out_mat_r": [
+            "NaN",
+            "NaN",
+            "abacus manual: For LCAO calculations, if out_mat_r is set to 1, ABACUS will calculate and print the matrix representation of the position matrix, namely <\\chi_u|\\hat{r}|\\chi_v> in a file named data-rR-tr in the directory OUT.${suffix}."
+        ],
+        "out_mat_hs2": [
+            "NaN",
+            "NaN",
+            "abacus manual: For LCAO calculations, if out_mat_hs2 is set to 1, ABACUS will generate files containing the Hamiltonian matrix and overlap matrix "
+        ],
+        "out_mat_t": [
+            "NaN",
+            "NaN",
+            "abacus manual: For LCAO calculations, if out_mat_t is set to 1, ABACUS will generate files containing the kinetic energy matrix."
+        ],
+        "out_mat_dh": [
+            "NaN",
+            "NaN",
+            "abacus manual: or LCAO calculations, if out_mat_dh is set to 1, ABACUS will generate files containing the derivatives of the Hamiltonian matrix."
+        ],
+        "out_app_flag": [
+            "NaN",
+            "NaN",
+            "abacus manual: Whether output matrices in an append manner during md. check parameters 'out_mat_r', 'out_mat_hs2', 'out_mat_t', and 'out_mat_dh'."
+        ],
+        "out_hs2_interval": [
+            "NaN",
+            "NaN",
+            "abacus manual: Only relevant for printing matrices during MD. It controls the interval at which to print."
+        ],
+        "out_element_info": [
+            "NaN",
+            "NaN",
+            "abacus manual: no clear description yet"
+        ],
+        "restart_save": [
+            "NaN",
+            "NaN",
+            "abacus manual: Only for LCAO, store charge density file and H matrix file every scf step for restart."
+        ],
+        "restart_load": [
+            "NaN",
+            "NaN",
+            "abacus manual: Only for LCAO, used for restart. program will start present calculation from previous run if density file and H matrix file are well-supplied."
+        ],
+        "dft_plus_dmft": [
+            "NaN",
+            "NaN",
+            "deprecated keywords"
+        ],
+        "rpa": [
+            "NaN",
+            "NaN",
+            "abacus manual: generate output files used in rpa calculation"
+        ],
+        "dos_edalta_ev": [
+            "NaN",
+            "NaN",
+            "in qe, this control is in input script of projwfc.x the 'deltaE' parameter. in cp2k, there is a post-processing subroutine called convolution.py, in main program, precies value of MOs will output."
+        ],
+        "dos_sigma": [
+            "NaN",
+            "NaN",
+            "in qe, this control is in input script of projwfc.x the 'degauss' parameter. in cp2k, there is a post-processing subroutine called convolution.py, in main program, precies value of MOs will output."
+        ],
+        "dos_scale": [
+            "NaN",
+            "NaN",
+            "abacus mannual: the energy range of dos output is given by (emax-emin)*(1+dos_scale), centered at (emax+emin)/2. This parameter will be used when dos_emin and dos_emax are not set."
+        ],
+        "dos_emin_ev": [
+            "emin",
+            "NaN",
+            "cp2k does not have such control."
+        ],
+        "dos_emax_ev": [
+            "emax",
+            "NaN",
+            "cp2k does not have such control."
+        ],
+        "dos_nche": [
+            "NaN",
+            "NaN",
+            "abacus manual: orders of Chebyshev expansions when using SDFT to calculate DOS."
+        ],
+        "bessel_nao_ecut": [
+            "NaN",
+            "NaN",
+            "abacus manual: energy cutoff of bessel functions."
+        ],
+        "bessel_nao_tolerence": [
+            "NaN",
+            "NaN",
+            "abacus manual: tolerance when searching for the zeros of bessel functions."
+        ],
+        "bessel_nao_rcut": [
+            "NaN",
+            "NaN",
+            "abacus manual: cutoff radius of bessel functions."
+        ],
+        "bessel_nao_smooth": [
+            "NaN",
+            "NaN",
+            "abacus manual: cutoff radius of bessel functions."
+        ],
+        "bessel_nao_sigma": [
+            "NaN",
+            "NaN",
+            "abacus manual: energy range for smooth."
+        ],
+        "deepks_out_labels": [
+            "NaN",
+            "NaN",
+            "abacus manual: when set to 1, ABACUS will calculate and output descriptor for DeePKS training."
+        ],
+        "deepks_scf": [
+            "NaN",
+            "NaN",
+            "abacus manual: only when deepks is enabled in LCAO calculation can this variable set to 1. Then, a trained, traced model file is needed for self-consistent field iteration in DeePKS method."
+        ],
+        "deepks_model": [
+            "NaN",
+            "NaN",
+            "abacus manual: the path of the trained, traced NN model file (generated by deepks-kit). used when deepks_scf is set to 1."
+        ],
+        "bessel_descriptor_lmax": [
+            "NaN",
+            "NaN",
+            "abacus manual: the projectors used in DeePKS are bessel functions. To generate such projectors, set calculation type to gen_bessel and run ABACUS. The lmax of Bessel functions is specified using bessel_descriptor_lmax."
+        ],
+        "bessel_descriptor_ecut": [
+            "NaN",
+            "NaN",
+            "abacus manual: energy cutoff of bessel functions."
+        ],
+        "bessel_descriptor_tolerence": [
+            "NaN",
+            "NaN",
+            "abacus manual: tolerance when searching for the zeros of bessel functions."
+        ],
+        "bessel_descriptor_rcut": [
+            "NaN",
+            "NaN",
+            "abacus manual: cutoff radius of bessel functions."
+        ],
+        "bessel_descriptor_smooth": [
+            "NaN",
+            "NaN",
+            "abacus manual: whether the bessel functions smooth at radius cutoff."
+        ],
+        "bessel_descriptor_sigma": [
+            "NaN",
+            "NaN",
+            "abacus manual: energy range for smooth."
+        ],
+        "deepks_bandgap": [
+            "NaN",
+            "NaN",
+            "abacus manual: whether to include deepks bandgap correction."
+        ],
+        "deepks_out_unittest": [
+            "NaN",
+            "NaN",
+            "abacus manual: this is used to generate some files for constructing DeePKS unit test. Not relevant when running actual calculations. When set to 1, ABACUS needs to be run with only 1 process."
+        ],
+        "of_kinetic": [
+            "NaN",
+            "NaN",
+            "abacus manual: the type of kinetic energy density functional, including tf, vw, wt, and tf+."
+        ],
+        "of_method": [
+            "NaN",
+            "NaN",
+            "abacus manual: the optimization method used in OFDFT."
+        ],
+        "of_conv": [
+            "NaN",
+            "NaN",
+            "abacus manual: criterion used to check the convergence of OFDFT."
+        ],
+        "of_tole": [
+            "NaN",
+            "NaN",
+            "abacus manual: tolerance of the energy change (in Ry) for determining the convergence."
+        ],
+        "of_tolp": [
+            "NaN",
+            "NaN",
+            "abacus manual: tolerance of potential (in a.u.) for determining the convergence."
+        ],
+        "of_tf_weight": [
+            "NaN",
+            "NaN",
+            "abacus manual: weight of TF KEDF."
+        ],
+        "of_vw_weight": [
+            "NaN",
+            "NaN",
+            "abacus manual: weight of vW KEDF."
+        ],
+        "of_wt_alpha": [
+            "NaN",
+            "NaN",
+            "abacus manual: parameter alpha of WT KEDF."
+        ],
+        "of_wt_beta": [
+            "NaN",
+            "NaN",
+            "abacus manual: parameter beta of WT KEDF."
+        ],
+        "of_wt_rho0": [
+            "NaN",
+            "NaN",
+            "abacus manual: the average density of system, in Bohr^-3."
+        ],
+        "of_hold_rho0": [
+            "NaN",
+            "NaN",
+            "abacus manual: If set to 1, the rho0 will be fixed even if the volume of system has changed, it will be set to 1 automatically if of_wt_rho0 is not zero."
+        ],
+        "of_read_kernel": [
+            "NaN",
+            "NaN",
+            "abacus manual: If set to 1, the kernel of WT KEDF will be filled from file of_kernel_file, not from formula. Only usable for WT KEDF."
+        ],
+        "of_kernel_file": [
+            "NaN",
+            "NaN",
+            "abacus manual: The name of WT kernel file."
+        ],
+        "of_full_pw": [
+            "NaN",
+            "NaN",
+            "abacus manual: If set to 1, ecut will be ignored while collecting planewaves, so that all planewaves will be used in FFT."
+        ],
+        "of_full_pw_dim": [
+            "NaN",
+            "NaN",
+            "abacus manual: If of_full_pw = 1, the dimension of FFT will be restricted to be (0) either odd or even; (1) odd only; (2) even only. Note that even dimensions may cause slight errors in FFT. It should be ignorable in ofdft calculation, but it may make Cardinal B-spline interpolation unstable, so set of_full_pw_dim = 1 if nbspline != -1."
+        ],
+        "efield_flag": [
+            "NaN",
+            "NaN",
+            "abacus manual: If set to true, a saw-like potential simulating an electric field is added to the bare ionic potential."
+        ],
+        "dip_cor_flag": [
+            "NaN",
+            "NaN",
+            "abacus manual: If dip_cor_flag == true and efield_flag == true, a dipole correction is also added to the bare ionic potential. If you want no electric field, parameter efield_amp should be zero. Must be used ONLY in a slab geometry for surface calculations, with the discontinuity FALLING IN THE EMPTY SPACE."
+        ],
+        "efield_dir": [
+            "NaN",
+            "NaN",
+            "abacus manual: The direction of the electric field or dipole correction is parallel to the reciprocal lattice vector, so the potential is constant in planes defined by FFT grid points, efield_dir = 0, 1 or 2. Used only if efield_flag == true."
+        ],
+        "efield_pos_max": [
+            "NaN",
+            "NaN",
+            "abacus manual: Position of the maximum of the saw-like potential along crystal axis efield_dir, within the unit cell, 0 < efield_pos_max < 1. Used only if efield_flag == true."
+        ],
+        "efield_pos_dec": [
+            "NaN",
+            "NaN",
+            "abacus manual: Zone in the unit cell where the saw-like potential decreases, 0 < efield_pos_dec < 1. Used only if efield_flag == true."
+        ],
+        "efield_amp": [
+            "NaN",
+            "NaN",
+            "abacus manual: Amplitude of the electric field, in Hartree a.u.; 1 a.u. = 51.4220632*10^10 V/m. Used only if efield_flag == true. The saw-like potential increases with slope efield_amp in the region from (efield_pos_max+efield_pos_dec-1) to (efield_pos_max), then decreases until (efield_pos_max+efield_pos_dec), in units of the crystal vector efield_dir. Important: the change of slope of this potential must be located in the empty region, or else unphysical forces will result."
+        ],
+        "gate_flag": [
+            "NaN",
+            "NaN",
+            "abacus manual: In the case of charged cells, setting gate_flag == true represents the addition of compensating charge by a charged plate, which is placed at zgate. Note that the direction is specified by efield_dir."
+        ],
+        "zgate": [
+            "NaN",
+            "NaN",
+            "abacus manual: Specify the position of the charged plate in units of the unit cell (0 <= zgate < 1)."
+        ],
+        "block": [
+            "NaN",
+            "NaN",
+            "abacus manual: Add a potential barrier to the total potential to avoid electrons spilling into the vacuum region for electron doping. Potential barrier is from block_down to block_up and has a height of block_height. If dip_cor_flag == true, efield_pos_dec is used for a smooth increase and decrease of the potential barrier."
+        ],
+        "block_down": [
+            "NaN",
+            "NaN",
+            "abacus manual: Lower beginning of the potential barrier in units of the unit cell size (0 <= block_down < block_up < 1)."
+        ],
+        "block_up": [
+            "NaN",
+            "NaN",
+            "abacus manual: Upper beginning of the potential barrier in units of the unit cell size (0 <= block_down < block_up < 1)."
+        ],
+        "block_height": [
+            "NaN",
+            "NaN",
+            "abacus manual: Height of the potential barrier in Rydberg."
+        ],
+        "exx_hybrid_alpha": [
+            "NaN",
+            "NaN",
+            "abacus manual: fraction of Fock exchange in hybrid functionals, so that EX=\u03b1EX+(1\u2212\u03b1)EX,LDA/GGA"
+        ],
+        "exx_hse_omega": [
+            "NaN",
+            "NaN",
+            "abacus manual: range-separation parameter in HSE functional, such that 1/r=erfc(\u03c9r)/r+erf(\u03c9r)/r."
+        ],
+        "exx_separate_loop": [
+            "NaN",
+            "NaN",
+            "abacus manual: There are two types of iterative approaches provided by ABACUS to evaluate Fock exchange. If this parameter is set to 0, it will start with a GGA-Loop, and then Hybrid-Loop, in which EXX Hamiltonian Hexx is updated with electronic iterations. If this parameter is set to 1, a two-step method is employed, i.e. in the inner iterations, density matrix is updated, while in the outer iterations, Hexx is calculated based on density matrix that converges in the inner iteration. (Currently not used)"
+        ],
+        "exx_hybrid_step": [
+            "NaN",
+            "NaN",
+            "abacus manual: This variable indicates the maximal electronic iteration number in the evaluation of Fock exchange."
+        ],
+        "exx_lambda": [
+            "NaN",
+            "NaN",
+            "abacus manual: It is used to compensate for divergence points at G=0 in the evaluation of Fock exchange using lcao_in_pw method."
+        ],
+        "exx_pca_threshold": [
+            "NaN",
+            "NaN",
+            "abacus manual: To accelerate the evaluation of four-center integrals (ik|jl), the product of atomic orbitals are expanded in the basis of auxiliary basis functions (ABF): \u03a6i\u03a6j\u223cCijkPk. The size of the ABF (i.e. number of Pk) is reduced using principal component analysis. When a large PCA threshold is used, the number of ABF will be reduced, hence the calculation becomes faster. However, this comes at the cost of computational accuracy. A relatively safe choice of the value is 1e-4."
+        ],
+        "exx_c_threshold": [
+            "NaN",
+            "NaN",
+            "abacus manual: See also the entry exx_pca_threshold. Smaller components (less than exx_c_threshold) of the Cijk matrix are neglected to accelerate calculation. The larger the threshold is, the faster the calculation and the lower the accuracy. A relatively safe choice of the value is 1e-4."
+        ],
+        "exx_v_threshold": [
+            "NaN",
+            "NaN",
+            "abacus manual: See also the entry exx_pca_threshold. With the approximation \u03a6i\u03a6j\u223cCijkPk, the four-center integral in Fock exchange is expressed as (ik|jl)=\u03a3a,bCijaVabCklb, where Vab=(Pa|Pb) is a double-center integral. Smaller values of the V matrix can be truncated to accelerate calculation. The larger the threshold is, the faster the calculation and the lower the accuracy. A relatively safe choice of the value is 0, i.e. no truncation."
+        ],
+        "exx_dm_threshold": [
+            "NaN",
+            "NaN",
+            "abacus manual: The Fock exchange can be expressed as \u03a3k,l(ik|jl)Dkl where D is the density matrix. Smaller values of the density matrix can be truncated to accelerate calculation. The larger the threshold is, the faster the calculation and the lower the accuracy. A relatively safe choice of the value is 1e-4."
+        ],
+        "exx_c_grad_threshold": [
+            "NaN",
+            "NaN",
+            "abacus manual: See also the entry exx_pca_threshold. \u2207Cijk is used in force and stress. Smaller components (less than exx_c_grad_threshold) of the \u2207Cijk matrix are neglected to accelerate calculation. The larger the threshold is, the faster the calculation and the lower the accuracy. A relatively safe choice of the value is 1e-4."
+        ],
+        "exx_v_grad_threshold": [
+            "NaN",
+            "NaN",
+            "abacus manual: See also the entry exx_pca_threshold. With the approximation \u03a6i\u03a6j\u223cCijkPk, the four-center integral in Fock exchange is expressed as (ik|jl)=\u03a3a,bCijaVabCklb, where Vab=(Pa|Pb) is a double-center integral. \u2207Vab is used in force and stress. Smaller values of the V matrix can be truncated to accelerate calculation. The larger the threshold is, the faster the calculation and the lower the accuracy. A relatively safe choice of the value is 0, i.e. no truncation."
+        ],
+        "exx_schwarz_threshold": [
+            "NaN",
+            "NaN",
+            "abacus manual: In practice the four-center integrals are sparse, and using Cauchy-Schwartz inequality, we can find an upper bound of each integral before carrying out explicit evaluations. Those that are smaller than exx_schwarz_threshold will be truncated. The larger the threshold is, the faster the calculation and the lower the accuracy. A relatively safe choice of the value is 1e-5. (Currently not used)"
+        ],
+        "exx_cauchy_threshold": [
+            "NaN",
+            "NaN",
+            "abacus manual: In practice the Fock exchange matrix is sparse, and using Cauchy-Schwartz inequality, we can find an upper bound of each matrix element before carrying out explicit evaluations. Those that are smaller than exx_cauchy_threshold will be truncated. The larger the threshold is, the faster the calculation and the lower the accuracy. A relatively safe choice of the value is 1e-7."
+        ],
+        "exx_cauchy_grad_threshold": [
+            "NaN",
+            "NaN",
+            "abacus manual: In practice the Fock exchange matrix in force and stress is sparse, and using Cauchy-Schwartz inequality, we can find an upper bound of each matrix element before carrying out explicit evaluations. Those that are smaller than exx_cauchy_grad_threshold will be truncated. The larger the threshold is, the faster the calculation and the lower the accuracy. A relatively safe choice of the value is 1e-7."
+        ],
+        "exx_ccp_threshold": [
+            "NaN",
+            "NaN",
+            "abacus manual: It is related to the cutoff of on-site Coulomb potentials. (Currently not used)"
+        ],
+        "exx_ccp_rmesh_times": [
+            "NaN",
+            "NaN",
+            "abacus manual: This parameter determines how many times larger the radial mesh required for calculating Coulomb potential is to that of atomic orbitals. For HSE, setting it to 1 is enough. But for PBE0, a much larger number must be used."
+        ],
+        "exx_distribute_type": [
+            "NaN",
+            "NaN",
+            "abacus manual: When running in parallel, the evaluation of Fock exchange is done by distributing atom pairs on different threads, then gather the results. exx_distribute_type governs the mechanism of distribution. Available options are htime, order, kmean1 and kmeans2. order is where atom pairs are simply distributed by their orders. hmeans is a distribution where the balance in time is achieved on each processor, hence if the memory is sufficient, this is the recommended method. kmeans1 and kmeans2 are two methods where the k-means clustering method is used to reduce memory requirement. They might be necessary for very large systems. (Currently not used)"
+        ],
+        "exx_opt_orb_lmax": [
+            "NaN",
+            "NaN",
+            "abacus manual: See also the entry dft_functional. This parameter is only relevant when dft_functional=opt_orb. The radial part of opt-ABFs are generated as linear combinations of spherical Bessel functions. exx_opt_orb_lmax gives the maximum l of the spherical Bessel functions. A reasonable choice is 2."
+        ],
+        "exx_opt_orb_ecut": [
+            "NaN",
+            "NaN",
+            "abacus manual: See also the entry dft_functional. This parameter is only relevant when dft_functional=opt_orb. A plane wave basis is used to optimize the radial ABFs. This parameter thus gives the cut-off of plane wave expansion, in Ry. A reasonable choice is 60."
+        ],
+        "exx_opt_orb_tolerence": [
+            "NaN",
+            "NaN",
+            "abacus manual: See also the entry dft_functional. This parameter is only relevant when dft_functional=opt_orb. exx_opt_orb_tolerence determines the threshold when solving for the zeros of spherical Bessel functions. A reasonable choice is 1e-12."
+        ],
+        "exx_real_number": [
+            "NaN",
+            "NaN",
+            "abacus manual: If set to 1, it will enforce LIBRI to use double data type, otherwise, it will enforce LIBRI to use complex data type. The default value depends on the gamma_only option."
+        ],
+        "md_type": [
+            "ion_dynamics",
+            "motion/md/thermostat/ensemble",
+            "it seems abacus md module is not so easy to understand, ensemble and theromostat"
+        ],
+        "md_thermostat": [
+            "ion_temperature",
+            "motion/md/thermostat/type",
+            "abacus manual: specify the thermostat based on the velocity Verlet algorithm (useful when md_type is set to 0)."
+        ],
+        "md_nstep": [
+            "nstep",
+            "motion/md/thermostat/steps",
+            "abacus manual: the total number of md steps."
+        ],
+        "md_restart": [
+            "NaN",
+            "NaN",
+            "qe and cp2k do not restart in this way."
+        ],
+        "md_dt": [
+            "dt",
+            "motion/md/thermostat/timestep",
+            "abacus manual: This is the time step(fs) used in md simulation."
+        ],
+        "md_tfirst": [
+            "tempw",
+            "temperature",
+            "for this parameter and pressure, abacus is similar with lammps, user can set initial and final temperatures/pressures."
+        ],
+        "md_tlast": [
+            "NaN",
+            "NaN",
+            "see md_tfirst."
+        ],
+        "md_dumpfreq": [
+            "NaN",
+            "motion/md/print/energy/each/md",
+            "abacus manual: This is the frequency to dump md information."
+        ],
+        "md_restartfreq": [
+            "NaN",
+            "NaN",
+            "qe's restart is always mysterious...cp2k outputs restart file maybe every 500 steps by default. Forget where to control it."
+        ],
+        "md_seed": [
+            "NaN",
+            "NaN",
+            "abacus manual:"
+        ],
+        "md_prec_level": [
+            "NaN",
+            "NaN",
+            "abacus manual: Determine the precision level of vc-md."
+        ],
+        "ref_cell_factor": [
+            "NaN",
+            "NaN",
+            "abacus manual: Construct a reference cell bigger than the initial cell. Only used in variable-cell MD, if md_prec_level is set to 1. The reference cell has to be large enough so that the lattice vectors of the fluctuating cell do not exceed the reference lattice vectors during MD. Typically, 1.02 ~ 1.10 is sufficient. However, the cell fluctuations depend on the specific system and thermodynamic conditions. So users must test for a proper choice. This parameters should be used in conjunction with q2sigma, qcutz, and ecfixed."
+        ],
+        "md_tfreq": [
+            "nraise ",
+            "motion/md/thermostat/nose/timecon .OR. motion/md/thermostat/csvr/timecon",
+            "abacus manual: control the frequency of the temperature oscillations during the simulation. If it is too large, the temperature will fluctuate violently; if it is too small, the temperature will take a very long time to equilibrate with the atomic system."
+        ],
+        "md_tchain": [
+            "NaN",
+            "motion/md/thermostat/nose/length",
+            "qe does not support nose-hoover chain."
+        ],
+        "md_pmode": [
+            "NaN",
+            "NaN",
+            "these three codes controls npt ensemble in different ways. in qe, it is set calculation to 'vc-md', in cp2k it is set ensemble to npt."
+        ],
+        "md_pcouple": [
+            "NaN",
+            "NaN",
+            "abacus manual: the coupled lattice vectors will scale proportionally. this parameter looks like 'cell_dofree' of qe"
+        ],
+        "md_pfirst": [
+            "press",
+            "motion/md/barostat/pressure",
+            "abacus manual: This is the target pressure (KBar) used in npt ensemble simulation, the default value of md_plast is md_pfirst. If md_plast is set to be different from md_pfirst, ABACUS will automatically change the target pressure from md_pfirst to md_plast."
+        ],
+        "md_plast": [
+            "NaN",
+            "NaN",
+            "pressure damping is not supported by qe and cp2k."
+        ],
+        "md_pfreq": [
+            "NaN",
+            "motion/md/barostat/timecon",
+            "it seems like time constant of coupling between barostat and system. in qe I did not find a quite similar keyword but there is 'wmass', mean the fictious cell mass. not sure what it is"
+        ],
+        "md_pchain": [
+            "NaN",
+            "NaN",
+            "in qe, Parrinello-Rahman barostat is used. in cp2k, what barostat is implemented is unclear. abacus uses nose-hoover barostat. so it is possible tune length of nose-hoover chain."
+        ],
+        "dump_force": [
+            "NaN",
+            "NaN",
+            "abacus manual: Output atomic forces into the file MD_dump or not. If true, forces will be written, otherwise forces will not be written."
+        ],
+        "dump_vel": [
+            "NaN",
+            "NaN",
+            "abacus manual: Output atomic velocities into the file MD_dump or not. If true, velocities will be written, otherwise velocities will not be written."
+        ],
+        "dump_virial": [
+            "NaN",
+            "NaN",
+            "abacus manual: Output lattice virial into the file MD_dump or not. If true, lattice virial will be written, otherwise lattice virial will not be written."
+        ],
+        "lj_rcut": [
+            "NaN",
+            "NaN",
+            "abacus manual: Cut-off radius for Leonard Jones potential (angstrom)."
+        ],
+        "lj_epsilon": [
+            "NaN",
+            "NaN",
+            "abacus manual: The value of epsilon for Leonard Jones potential (eV)."
+        ],
+        "lj_sigma": [
+            "NaN",
+            "NaN",
+            "abacus manual: The value of sigma for Leonard Jones potential (angstrom)."
+        ],
+        "pot_file": [
+            "NaN",
+            "NaN",
+            "abacus manual: The filename of potential files for CMD such as DP."
+        ],
+        "msst_direction": [
+            "NaN",
+            "NaN",
+            "abacus manual: the direction of shock wave for MSST."
+        ],
+        "msst_vel": [
+            "NaN",
+            "NaN",
+            "abacus manual: the velocity of shock wave (Angstrom/fs) for MSST."
+        ],
+        "msst_vis": [
+            "NaN",
+            "NaN",
+            "abacus manual: artificial viscosity (mass/length/time) for MSST."
+        ],
+        "msst_tscale": [
+            "NaN",
+            "NaN",
+            "abacus manual: reduction in initial temperature (0~1) used to compress volume in MSST."
+        ],
+        "msst_qmass": [
+            "NaN",
+            "NaN",
+            "abacus manual: Inertia of extended system variable. Used only when md_type is 4, you should set a number that is larger than 0. Note that Qmass of NHC is set by md_tfreq."
+        ],
+        "md_damp": [
+            "NaN",
+            "NaN",
+            "abacus manual: damping parameter (fs) used to add force in Langevin method."
+        ],
+        "md_tolerance": [
+            "NaN",
+            "NaN",
+            "abacus manual: Tolerance for velocity rescaling. Velocities are rescaled if the current and target temperature differ more than md_tolerance (Kelvin)."
+        ],
+        "md_nraise": [
+            "NaN",
+            "NaN",
+            "abacus manual:"
+        ],
+        "dft_plus_u": [
+            "NaN",
+            "NaN",
+            "abacus manual: If set to 1, ABCUS will calculate plus U correction, which is especially important for correlated electron."
+        ],
+        "orbital_corr": [
+            "NaN",
+            "NaN",
+            "abacus manual: l1,l2,l3,\u2026 for atom type 1,2,3 respectively.(usually 2 for d electrons and 3 for f electrons) .Specify which orbits need plus U correction for each atom. If set to -1, the correction would not be calculated for this atom."
+        ],
+        "hubbard_u": [
+            "NaN",
+            "NaN",
+            "abacus manual: Hubbard Coulomb interaction parameter U(ev) in plus U correction, which should be specified for each atom unless Yukawa potential is used."
+        ],
+        "yukawa_potential": [
+            "NaN",
+            "NaN",
+            "abacus manual: whether to use the local screen Coulomb potential method to calculate the values of U and J. If this is set to 1, hubbard_u does not need to be specified."
+        ],
+        "yukawa_lambda": [
+            "NaN",
+            "NaN",
+            "abacus manual: The screen length of Yukawa potential. Relevant if yukawa_potential is set to 1. If left to default, we will calculate the screen length as an average of the entire system. It\u2019s better to stick to the default setting unless there is a very good reason."
+        ],
+        "omc": [
+            "NaN",
+            "NaN",
+            "abacus manual: The parameter controls what form of occupation matrix control we are using. If set to 0, then no occupation matrix control is performed, and the onsite density matrix will be calculated from wavefunctions in each SCF step. If set to 1, then the first SCF step will use an initial density matrix read from a file named initial_onsite.dm, but for later steps, the onsite density matrix will be updated. If set to 2, the same onsite density matrix from initial_onsite.dm will be used throughout the entire calculation."
+        ],
+        "vdw_method": [
+            "vdw_corr",
+            "force_eval/dft/xc/vdw_potential/pair_potential/type .AND. force_eval/dft/xc/vdw_potential/non_local/type",
+            "cp2k supports more kinds of vdw correction, including rVV10, vdw-DF, etc."
+        ],
+        "vdw_s6": [
+            "london_s6",
+            "force_eval/dft/xc/vdw_potential/pair_potential/d3_scaling .AND. force_eval/dft/xc/vdw_potential/pair_potential/d3bj_scaling",
+            "c'est ca"
+        ],
+        "vdw_s8": [
+            "NaN",
+            "force_eval/dft/xc/vdw_potential/pair_potential/d3_scaling .AND. force_eval/dft/xc/vdw_potential/pair_potential/d3bj_scaling",
+            "did not find s8 in qe?"
+        ],
+        "vdw_a1": [
+            "NaN",
+            "NaN",
+            "abacus manual: This damping function parameter is relevant for D3(0) and D3(BJ) methods. Recommended values of this parameter with different DFT functionals can be found on the webpage. The default value of this parameter in ABACUS is set to be the recommended value for PBE."
+        ],
+        "vdw_a2": [
+            "NaN",
+            "NaN",
+            "abacus manual: This damping function parameter is only relevant for the DFT-D3(BJ) approach. Recommended values of this parameter with different DFT functionals can be found on the webpage. The default value of this parameter in ABACUS is set to be the recommended value for PBE."
+        ],
+        "vdw_d": [
+            "NaN",
+            "NaN",
+            "abacus manual: The variable is to control the damping rate of damping function of DFT-D2."
+        ],
+        "vdw_abc": [
+            "dftd3_threebody",
+            "force_eval/dft/xc/vdw_potential/pair_potential/calculate_c9_term",
+            "c'est ca"
+        ],
+        "vdw_C6_file": [
+            "NaN",
+            "force_eval/dft/xc/vdw_potential/pair_potential/parameter_file_name",
+            "qe does not support external file read-in. to define such parameter, directly in input script, see 'london_c6(i), i=1,ntyp'."
+        ],
+        "vdw_C6_unit": [
+            "NaN",
+            "NaN",
+            "qe does not support set unit by user, while in cp2k the unit is set after corresponding keyword and enclosed by square parentheses, like [Bohr]"
+        ],
+        "vdw_R0_file": [
+            "NaN",
+            "NaN",
+            "abacus manual: This variable is relevant if the user wants to manually set the R0 parameters in D2 method. If not set, ABACUS will use the default C6 Parameters stored in the program. The default values of C6 for elements 1_H up to 86_Rn can be found by searching for R0_default in the source code. The unit is Angstrom."
+        ],
+        "vdw_R0_unit": [
+            "NaN",
+            "NaN",
+            "qe does not support set unit by user, while in cp2k the unit is set after corresponding keyword and enclosed by square parentheses, like [Bohr]."
+        ],
+        "vdw_cutoff_type": [
+            "NaN",
+            "NaN",
+            "in qe and cp2k, only radius mode is supported."
+        ],
+        "vdw_cutoff_radius": [
+            "london_rcut",
+            "force_eval/dft/xc/vdw_potential/pair_potential/r_cutoff",
+            "abacus manual: If vdw_cutoff_type is set to radius, this variable specifies the radius of the cutoff sphere. For DFT-D2, the default value is 56.6918, while for DFT-D3, the default value is 95."
+        ],
+        "vdw_radius_unit": [
+            "NaN",
+            "NaN",
+            "qe does not support set unit by user, while in cp2k the unit is set after corresponding keyword and enclosed by square parentheses, like [Bohr]."
+        ],
+        "vdw_cutoff_period": [
+            "NaN",
+            "NaN",
+            "abacus manual: If vdw_cutoff_type is set to period, the three integers supplied here will explicitly specify the extent of the supercell in the directions of the three basis lattice vectors."
+        ],
+        "vdw_cn_thr": [
+            "NaN",
+            "force_eval/dft/xc/vdw_potential/pair_potential/eps_cn",
+            "abacus manual: Only relevant for D3 correction. The cutoff radius when calculating coordination numbers."
+        ],
+        "vdw_cn_thr_unit": [
+            "NaN",
+            "NaN",
+            "qe does not support set unit by user, while in cp2k the unit is set after corresponding keyword and enclosed by square parentheses, like [Bohr]."
+        ],
+        "berry_phase": [
+            "lberry",
+            "NaN",
+            "abacus manual: 1, calculate berry phase; 0, not calculate berry phase."
+        ],
+        "gdir": [
+            "gdir",
+            "NaN",
+            "abacus manual:"
+        ],
+        "towannier90": [
+            "NaN",
+            "NaN",
+            "abacus manual: 1, generate files for wannier90 code; 0, no generate."
+        ],
+        "nnkpfile": [
+            "NaN",
+            "NaN",
+            "abacus manual: the file name when you run \u201cwannier90 -pp \u2026\u201d."
+        ],
+        "wannier_spin": [
+            "NaN",
+            "NaN",
+            "abacus manual: If nspin is set to 2,"
+        ],
+        "td_edm": [
+            "NaN",
+            "NaN",
+            "abacus manual: the method to calculate the energy density matrix."
+        ],
+        "td_print_eij": [
+            "NaN",
+            "NaN",
+            "abacus manual: print the Eij(<\\psi_i|H|\\psi_j>) elements which are larger than td_print_eij. if td_print_eij <0, don\u2019t print Eij"
+        ],
+        "td_force_dt": [
+            "NaN",
+            "NaN",
+            "abacus manual: Time-dependent evolution force changes time step. (fs)"
+        ],
+        "td_vext": [
+            "NaN",
+            "NaN",
+            "abacus manual:"
+        ],
+        "td_vext_dire": [
+            "NaN",
+            "NaN",
+            "abacus manual: If td_vext is true, the td_vext_dire is a string to set the number of electric fields, like \u201c1 2\u201d representing external electric field is added to the x and y axis at the same time. Parameters of electric field can also be written as a string, like td_gauss_phase 0 1.5707963267948966 representing the Gauss field in the x and y directions has a phase delay of Pi/2. See below for more parameters of electric field."
+        ],
+        "td_stype": [
+            "NaN",
+            "NaN",
+            "abacus manual: type of electric field in space domain"
+        ],
+        "td_ttype": [
+            "NaN",
+            "NaN",
+            "abacus manual: type of electric field in time domain"
+        ],
+        "td_tstart": [
+            "NaN",
+            "NaN",
+            "abacus manual: number of step where electric field start"
+        ],
+        "td_tend": [
+            "NaN",
+            "NaN",
+            "abacus manual: number of step where electric field end"
+        ],
+        "td_lcut1": [
+            "NaN",
+            "NaN",
+            "abacus manual: cut1 of interval in length gauge E = E0 , cut1<x<cut2 E = -E0/(cut1+1-cut2) , x<cut1 or cut2<x<1"
+        ],
+        "td_lcut2": [
+            "NaN",
+            "NaN",
+            "abacus manual: cut2 of interval in length gauge"
+        ],
+        "td_gauss_freq": [
+            "NaN",
+            "NaN",
+            "abacus manual: frequency of Gauss type electric field (fs^-1) ampcos(2pif(t-t0)+phase)exp(-(t-t0)^2/2sigma^2)"
+        ],
+        "td_gauss_phase": [
+            "NaN",
+            "NaN",
+            "abacus manual: phase of Gauss type electric field ampcos(2pif(t-t0)+phase)exp(-(t-t0)^2/2sigma^2)"
+        ],
+        "td_gauss_sigma": [
+            "NaN",
+            "NaN",
+            "abacus manual: sigma of Gauss type electric field (fs) ampcos(2pif(t-t0)+phase)exp(-(t-t0)^2/2sigma^2)"
+        ],
+        "td_gauss_t0": [
+            "NaN",
+            "NaN",
+            "abacus manual: step number of time center of Gauss type electric field ampcos(2pif(t-t0)+phase)exp(-(t-t0)^2/2sigma^2)"
+        ],
+        "td_gauss_amp": [
+            "NaN",
+            "NaN",
+            "abacus manual: amplitude of Gauss type electric field (V/A) ampcos(2pif(t-t0)+phase)exp(-(t-t0)^2/2sigma^2)"
+        ],
+        "td_trape_freq": [
+            "NaN",
+            "NaN",
+            "abacus manual: frequency of Trapezoid type electric field (fs^-1) E = ampcos(2pift+phase) t/t1 , t<t1 E = ampcos(2pift+phase) , t1<t<t2 E = ampcos(2pif*t+phase) (1-(t-t2)/(t3-t2)) , t2<t<t3 E = 0 , t>t3"
+        ],
+        "td_trape_phase": [
+            "NaN",
+            "NaN",
+            "abacus manual: phase of Trapezoid type electric field E = ampcos(2pift+phase) t/t1 , t<t1 E = ampcos(2pift+phase) , t1<t<t2 E = ampcos(2pif*t+phase) (1-(t-t2)/(t3-t2)) , t2<t<t3 E = 0 , t>t3"
+        ],
+        "td_trape_t1": [
+            "NaN",
+            "NaN",
+            "abacus manual: step number of time interval 1 of Trapezoid type electric field E = ampcos(2pift+phase) t/t1 , t<t1 E = ampcos(2pift+phase) , t1<t<t2 E = ampcos(2pif*t+phase) (1-(t-t2)/(t3-t2)) , t2<t<t3 E = 0 , t>t3"
+        ],
+        "td_trape_t2": [
+            "NaN",
+            "NaN",
+            "abacus manual: step number of time interval 2 of Trapezoid type electric field E = ampcos(2pift+phase) t/t1 , t<t1 E = ampcos(2pift+phase) , t1<t<t2 E = ampcos(2pif*t+phase) (1-(t-t2)/(t3-t2)) , t2<t<t3 E = 0 , t>t3"
+        ],
+        "td_trape_t3": [
+            "NaN",
+            "NaN",
+            "abacus manual: step number of time interval 3 of Trapezoid type electric field E = ampcos(2pift+phase) t/t1 , t<t1 E = ampcos(2pift+phase) , t1<t<t2 E = ampcos(2pif*t+phase) (1-(t-t2)/(t3-t2)) , t2<t<t3 E = 0 , t>t3"
+        ],
+        "td_trape_amp": [
+            "NaN",
+            "NaN",
+            "abacus manual: amplitude of Trapezoid type electric field (V/A) E = ampcos(2pift+phase) t/t1 , t<t1 E = ampcos(2pift+phase) , t1<t<t2 E = ampcos(2pif*t+phase) (1-(t-t2)/(t3-t2)) , t2<t<t3 E = 0 , t>t3"
+        ],
+        "td_trigo_freq1": [
+            "NaN",
+            "NaN",
+            "abacus manual: frequency 1 of Trigonometric type electric field (fs^-1) ampcos(2pif1t+phase1)sin(2pif2t+phase2)^2"
+        ],
+        "td_trigo_freq2": [
+            "NaN",
+            "NaN",
+            "abacus manual: frequency 2 of Trigonometric type electric field (fs^-1) ampcos(2pif1t+phase1)sin(2pif2t+phase2)^2"
+        ],
+        "td_trigo_phase1": [
+            "NaN",
+            "NaN",
+            "abacus manual: phase 1 of Trigonometric type electric field ampcos(2pif1t+phase1)sin(2pif2t+phase2)^2"
+        ],
+        "td_trigo_phase2": [
+            "NaN",
+            "NaN",
+            "abacus manual: phase 2 of Trigonometric type electric field ampcos(2pif1t+phase1)sin(2pif2t+phase2)^2"
+        ],
+        "td_trigo_amp": [
+            "NaN",
+            "NaN",
+            "abacus manual: amplitude of Trigonometric type electric field (V/A) ampcos(2pif1t+phase1)sin(2pif2t+phase2)^2"
+        ],
+        "td_heavi_t0": [
+            "NaN",
+            "NaN",
+            "abacus manual: step number of switch time of Heaviside type electric field E = amp , t<t0 E = 0.0 , t>t0"
+        ],
+        "td_heavi_amp": [
+            "NaN",
+            "NaN",
+            "abacus manual: amplitude of Heaviside type electric field (V/A) E = amp , t<t0 E = 0.0 , t>t0"
+        ],
+        "out_dipole": [
+            "NaN",
+            "NaN",
+            "abacus manual:"
+        ],
+        "out_efield": [
+            "NaN",
+            "NaN",
+            "abacus manual:"
+        ],
+        "ocp": [
+            "NaN",
+            "NaN",
+            "abacus manual: choose whether calculating constrained DFT or not."
+        ],
+        "ocp_set": [
+            "NaN",
+            "NaN",
+            "abacus manual: If ocp is true, the ocp_set is a string to set the number of occupancy, like 1 10 * 1 0 1 representing the 13 band occupancy, 12th band occupancy 0 and the rest 1, the code is parsing this string into an array through a regular expression."
+        ],
+        "td_val_elec_01": [
+            "NaN",
+            "NaN",
+            "abacus manual: Only useful when calculating the dipole. Specifies the number of valence electron associated with the first element."
+        ],
+        "td_val_elec_02": [
+            "NaN",
+            "NaN",
+            "abacus manual: Only useful when calculating the dipole. Specifies the number of valence electron associated with the second element."
+        ],
+        "td_val_elec_03": [
+            "NaN",
+            "NaN",
+            "abacus manual: Only useful when calculating the dipole. Specifies the number of valence electron associated with the third element."
+        ],
+        "nurse": [
+            "NaN",
+            "NaN",
+            "abacus manual: If set to 1, the Hamiltonian matrix and S matrix in each iteration will be written in output."
+        ],
+        "t_in_h": [
+            "NaN",
+            "NaN",
+            "abacus manual: If set to 0, then kinetic term will not be included in obtaining the Hamiltonian."
+        ],
+        "vl_in_h": [
+            "NaN",
+            "NaN",
+            "abacus manual: If set to 0, then local pseudopotential term will not be included in obtaining the Hamiltonian."
+        ],
+        "vnl_in_h": [
+            "NaN",
+            "NaN",
+            "abacus manual: If set to 0, then non-local pseudopotential term will not be included in obtaining the Hamiltonian."
+        ],
+        "vh_in_h": [
+            "NaN",
+            "NaN",
+            "abacus manual: If set to 0, then Hartree potential term will not be included in obtaining the Hamiltonian."
+        ],
+        "vion_in_h": [
+            "NaN",
+            "NaN",
+            "abacus manual: If set to 0, then local ionic potential term will not be included in obtaining the Hamiltonian."
+        ],
+        "test_force": [
+            "NaN",
+            "NaN",
+            "abacus manual: If set to 1, then detailed components in forces will be written to output."
+        ],
+        "test_stress": [
+            "NaN",
+            "NaN",
+            "abacus manual: If set to 1, then detailed components in stress will be written to output."
+        ],
+        "colour": [
+            "NaN",
+            "NaN",
+            "abacus manual: If set to 1, output to terminal will have some color."
+        ],
+        "test_skip_ewald": [
+            "NaN",
+            "NaN",
+            "abacus manual: If set to 1, then ewald energy will not be calculated."
+        ],
+        "cal_cond": [
+            "NaN",
+            "NaN",
+            "abacus manual: If set to 1, electronic conductivities will be calculated. Only supported in calculations of SDFT and KSDFT_PW."
+        ],
+        "cond_nche": [
+            "NaN",
+            "NaN",
+            "abacus manual: Chebyshev expansion orders for stochastic Kubo Greenwood. Only used when the calculation is SDFT."
+        ],
+        "cond_dw": [
+            "NaN",
+            "NaN",
+            "abacus manual: Frequency interval (d\u03c9) for frequency-dependent conductivities. The unit is eV."
+        ],
+        "cond_wcut": [
+            "NaN",
+            "NaN",
+            "abacus manual: Cutoff frequency for frequency-dependent conductivities. The unit is eV."
+        ],
+        "cond_dt": [
+            "NaN",
+            "NaN",
+            "abacus manual: t interval to integrate Onsager coefficients. The unit is a.u."
+        ],
+        "cond_dtbatch": [
+            "NaN",
+            "NaN",
+            "abacus manual: exp(iHdtcond_dtbatch) is expanded with Chebyshev expansion."
+        ],
+        "cond_fwhm": [
+            "NaN",
+            "NaN",
+            "abacus manual: We use gaussian functions to approximate \u03b4(E)\u224812\u03c0\u0394Ee\u2212E22\u0394E2. FWHM for conductivities, FWHM=2\u22172ln\u20612\u22c5\u0394E. The unit is eV."
+        ],
+        "cond_nonlocal": [
+            "NaN",
+            "NaN",
+            "abacus manual: Conductivities need to calculate velocity matrix \u27e8\u03c8i|v^|\u03c8j\u27e9 and mv^=p^+im\u210f[V^NL,r^]. If cond_nonlocal is false, mv^\u2248p^."
+        ],
+        "imp_sol": [
+            "NaN",
+            "NaN",
+            "abacus manual: If set to 1, an implicit solvation correction is considered."
+        ],
+        "eb_k": [
+            "NaN",
+            "NaN",
+            "abacus manual: The relative permittivity of the bulk solvent, 80 for water. Used only if imp_sol == true."
+        ],
+        "tau": [
+            "NaN",
+            "NaN",
+            "abacus manual: The effective surface tension parameter, which describes the cavitation, the dispersion, and the repulsion interaction between the solute and the solvent that are not captured by the electrostatic terms. The unit is Ry/Bohr2."
+        ],
+        "sigma_k": [
+            "NaN",
+            "NaN",
+            "abacus manual: We assume a diffuse cavity that is implicitly determined by the electronic structure of the solute. sigma_k is the parameter that describes the width of the diffuse cavity."
+        ],
+        "nc_k": [
+            "NaN",
+            "NaN",
+            "abacus manual: It determines at what value of the electron density the dielectric cavity forms. The unit is Bohr\u22123."
+        ]
+    }
+}
