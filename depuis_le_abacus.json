@@ -6,7 +6,7 @@
             "column 3: comments and ps."
         ],
         "suffix": [
-            "NaN",
+            "prefix",
             "NaN",
             "not quite important, so omitted"
         ],
@@ -16,7 +16,7 @@
             "cp2k does not need to define number of atom types"
         ],
         "calculation": [
-            "control/calculation",
+            "calculation",
             "global/run_type",
             "c'est ca"
         ],
@@ -41,12 +41,12 @@
             "abacus manual: divide all processors into bndpar groups, and bands (only stochastic orbitals now) will be distributed among each group. It should be larger than 0."
         ],
         "latname": [
-            "system/ibrav",
+            "ibrav",
             "force_eval/subsys/cell/symmetry",
             "c'est ca"
         ],
         "init_wfc": [
-            "electron/starting_wfc",
+            "starting_wfc",
             "force_eval/dft/scf/scf_guess",
             "c'est ca"
         ],
@@ -56,7 +56,7 @@
             "abacus manual: initialization of charge density"
         ],
         "init_vel": [
-            "system/ion_velocities",
+            "ion_velocities",
             "force_eval/subsys/velocity",
             "qe and cp2k read this parameter from input script"
         ],
@@ -276,7 +276,7 @@
             "totally the same for qe but different for cp2k. uks T means nspin=2, otherwise nspin=1. for non-collinear case...I have not heard about this in cp2k."
         ],
         "smearing_method": [
-            "occupation .AND. smearing",
+            "occupations .AND. smearing",
             "force_eval/dft/scf/smear/method",
             "for qe, there are more options for pw: fermi-dirac, marzari-vanderbilt, gaussian, methfessel-paxton, and fixed occupations. but one should first select 'smearing' in occupation keyword, then specify different kind of smearing. for cp2k, only fermi-dirac is supported."
         ],
@@ -1176,7 +1176,7 @@
             "abacus manual:"
         ],
         "dft_plus_u": [
-            "NaN",
+            "lda_plus_u",
             "NaN",
             "abacus manual: If set to 1, ABCUS will calculate plus U correction, which is especially important for correlated electron."
         ],
