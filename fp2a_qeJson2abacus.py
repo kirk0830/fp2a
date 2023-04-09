@@ -1,18 +1,7 @@
 import json
+from fp2a_keywordsProcessing import keywordsWrite
 from fp2a_qe2qeJson import isNonStandardSectionTitle
-
-def keywordsValuePackaging(keyword):
-
-    # datatype converter
-    if type(keyword) == str:
-        return keyword
-    elif type(keyword) == bool:
-        return str(int(keyword))
-    else:
-        try:
-            return str(keyword)
-        except ValueError:
-            raise ValueError('ERROR: ' + keyword + ' is not a valid value for keyword ' + keyword)
+from fp2a_numericalOrbitalManager import findNAOByElement, findNAOByElementANDFunctional
 
 def discrepantConversion(keyword, value):
     if keyword == 'calculation':
@@ -21,14 +10,47 @@ def discrepantConversion(keyword, value):
         elif value == 'vc-relax':
             return 'cell-relax'        
         else:
-            print('WARNING: ' + value + ' is not a valid value for keyword ' + keyword + ', using default value')
+            print('|-Conversion warning: ' + value + ' is not a valid value for keyword ' + keyword + ', using default value')
             return 'scf'
+    if keyword == 'ibrav':
+        if value == 0:
+            return 'none'
+        elif value == 1:
+            return 'cubic'
+        elif value == 2:
+            return 'fcc'
+        elif value == 3:
+            return 'bcc'
+        elif value == 4:
+            return 'hexagonal'
+        elif value == 5:
+            return 'triangoal'
+        elif value == 6:
+            return 'st'
+        elif value == 7:
+            return 'bct'
+        elif value == 8:
+            return 'so'
+        elif value == 9:
+            return 'baco'
+        elif value == 10:
+            return 'fco'
+        elif value == 11:
+            return 'bco'
+        elif value == 12:
+            return 'sm'
+        elif value == 13:
+            return 'bacm'
+        elif value == 14:
+            return 'triclinic'
+        else:
+            raise ValueError('ibrav = ' + str(value) + ' is not supported in ABACUS')
     else:
         return value
 
 def hubbardManifoldToNumber(manifold):
     if manifold == 'unknown_manifold_from_old_qe_versions':
-        print('WARNING: no information for determining the angular momentum of the element, assuming disabled')
+        print('|-Hubbard warning: no information for determining the angular momentum of the element, assuming disabled')
         return '-1'
     elif manifold[-1] == 's':
         return '0'
@@ -65,7 +87,7 @@ def generateABACUSFiles(
     ABACUSKpointsFile = 'KPT',
     qeVersion_7_1 = True,
     overwriteKeywords = {},
-    additionalKeywords = {},
+    additionalKeywords = {"numerical_orbitals": {"use_nao": False, "nao_dir": "./"}},
     boolUpdateInformation = False
     ):
 
@@ -80,7 +102,8 @@ def generateABACUSFiles(
     @param ABACUSKpointsFile: ABACUS kpoints file name, default is KPT\n
     @param qeVersion_7_1: whether the QE version is >= 7.1, default is True\n
     @param overwriteKeywords: keywords to be overwritten, default is empty\n
-    @param additionalKeywords: additional keywords to be added to the ABACUS input file, default is empty
+    @param additionalKeywords: additional keywords to be added to the ABACUS input file, default contains a
+    dictionary named numerical orbitals\n
     """
     qeNonstandardSections = []
 
@@ -107,7 +130,10 @@ def generateABACUSFiles(
 
     with open(ABACUSInputFile, 'w') as f:
         f.writelines('INPUT_PARAMETERS\n')
-        f.writelines('basis_type pw\n')
+        if additionalKeywords["numerical_orbitals"]["use_nao"]:
+            f.writelines('basis_type lcao\n')
+        else:
+            f.writelines('basis_type pw\n')
         if len(qeInputScript.keys()) == 0:
             raise Exception('QE input script is empty')
 
@@ -123,19 +149,21 @@ def generateABACUSFiles(
                     qeNonstandardSections.append(section)
             else:
                 for keyword in qeInputScript[section]:
-
-                    if keyword in keywordConversion:
+                    if keyword in keywordConversion.keys():
                         if boolUpdateInformation:
-                            print('> original keyword: ' + keyword)
-                            print('> converted keyword: ' + keywordConversion[keyword][0])
-                            print('> pass its value: ' + str(qeInputScript[section][keyword]))
+                            print('|-Runtime information: original keyword: ' + keyword)
+                            print('|-Runtime information: converted keyword: ' + keywordConversion[keyword][0])
+                            print('|-Runtime information: pass its value: ' + str(qeInputScript[section][keyword]))
+                        convertedKeyword = keywordConversion[keyword][0]
                         value = discrepantConversion(keyword, qeInputScript[section][keyword])
-                        if keyword in overwriteKeywords.keys():
-                            value = overwriteKeywords[keyword]
-                        f.writelines(keywordConversion[keyword][0] + ' ' + keywordsValuePackaging(value) + '\n')
+                        if convertedKeyword in overwriteKeywords.keys():
+                            print('|-Overwrite: will overwrite keyword ' + keyword 
+                            + ' with value ' + keywordsWrite(overwriteKeywords[convertedKeyword]))
+                            value = overwriteKeywords[convertedKeyword]
+                        f.writelines(convertedKeyword + ' ' + keywordsWrite(value) + '\n')
                         # subscript 0 is the position of abacus keyword in the list of values
                     else:
-                        print('WARNING: Keyword ' + keyword + ' not found in conversion table')
+                        print('|-Conversion warning: Keyword ' + keyword + ' not found in conversion table')
 
         # proceeding non-standard section that unrevelant with STRU and KPT/KLINE files
         for section in qeNonstandardSections:
@@ -159,7 +187,7 @@ def generateABACUSFiles(
                         manifold = list(qeInputScript['HUBBARD']['on-site'][element].keys())[-1]
                         manifoldCorrection.append(hubbardManifoldToNumber(manifold))
                         hubbardUValues.append(
-                            keywordsValuePackaging(
+                            keywordsWrite(
                                 qeInputScript['HUBBARD']['on-site'][element][manifold]["U"]
                             )
                             )
@@ -176,7 +204,10 @@ def generateABACUSFiles(
             elif section == 'OCCUPATIONS':
                 pass
         for keyword in additionalKeywords:
-            f.writelines(keyword + ' ' + keywordsValuePackaging(additionalKeywords[keyword]) + '\n')
+            if keyword != 'numerical_orbitals':
+                f.writelines(keyword + ' ' + keywordsWrite(additionalKeywords[keyword]) + '\n')
+            else:
+                f.writelines('#numerical_orbitals are added\n')
 
     with open(ABACUSStructureFile, 'w') as f:
         f.writelines('ATOMIC_SPECIES\n')
@@ -184,17 +215,33 @@ def generateABACUSFiles(
             f.writelines(
                 qeInputScript['ATOMIC_SPECIES']['elements'][ityp] 
                 + ' ' 
-                + keywordsValuePackaging(qeInputScript['ATOMIC_SPECIES']['masses'][ityp])
+                + keywordsWrite(qeInputScript['ATOMIC_SPECIES']['masses'][ityp])
                 + ' ' 
-                + keywordsValuePackaging(qeInputScript['ATOMIC_SPECIES']['pseudopotentials'][ityp])
+                + keywordsWrite(qeInputScript['ATOMIC_SPECIES']['pseudopotentials'][ityp])
                 + '\n')
+        if additionalKeywords["numerical_orbitals"]["use_nao"]:
+            f.writelines('\nNUMERICAL_ORBITAL\n')
+            for ityp in range(qeInputScript['system']['ntyp']):
+                naoList = findNAOByElement(qeInputScript['ATOMIC_SPECIES']['elements'][ityp])
+                if len(naoList) == 0:
+                    raise Exception('ERROR: No NAO file found for element ' + qeInputScript['ATOMIC_SPECIES']['elements'][ityp])
+                elif len(naoList) > 1:
+                    print('|-Numerical orbitals: More than one NAO file found for element ' + qeInputScript['ATOMIC_SPECIES']['elements'][ityp]
+                          + ', using the first one.')
+
+                if len(naoList) > 0:
+                    f.writelines(
+                        qeInputScript['ATOMIC_SPECIES']['elements'][ityp] 
+                        + ' ' 
+                        + keywordsWrite(naoList[0])
+                        + '\n')
         f.writelines('\nLATTICE_CONSTANT\n1.0\n')
         f.writelines('\nLATTICE_VECTORS\n')
         for cell_vector in qeInputScript['CELL_PARAMETERS']['cell']:
             f.writelines(
-                keywordsValuePackaging(cell_vector[0]) + ' ' 
-                + keywordsValuePackaging(cell_vector[1]) + ' ' 
-                + keywordsValuePackaging(cell_vector[2]) + '\n')
+                keywordsWrite(cell_vector[0]) + ' ' 
+                + keywordsWrite(cell_vector[1]) + ' ' 
+                + keywordsWrite(cell_vector[2]) + '\n')
         f.writelines('\nATOMIC_POSITIONS\nCartesian\n\n')
         for ityp in range(qeInputScript['system']['ntyp']):
             f.writelines(qeInputScript['ATOMIC_SPECIES']['elements'][ityp] + '\n')
@@ -203,7 +250,7 @@ def generateABACUSFiles(
                     f.writelines('0.0\n')
                 else:
                     try:
-                        f.writelines(keywordsValuePackaging(
+                        f.writelines(keywordsWrite(
                             qeInputScript['system']['starting_magnetization({})'.format(str(ityp))]
                             ) + '\n')
                     except KeyError:
@@ -214,14 +261,14 @@ def generateABACUSFiles(
             f.writelines(str(len(lineIndices)) + '\n')
             for lineIndex in lineIndices:
                 f.writelines(
-                    keywordsValuePackaging(qeInputScript['ATOMIC_POSITIONS']['coordinates'][lineIndex][0])
-                    + ' ' + keywordsValuePackaging(qeInputScript['ATOMIC_POSITIONS']['coordinates'][lineIndex][1])
-                    + ' ' + keywordsValuePackaging(qeInputScript['ATOMIC_POSITIONS']['coordinates'][lineIndex][2])
+                    keywordsWrite(qeInputScript['ATOMIC_POSITIONS']['coordinates'][lineIndex][0])
+                    + ' ' + keywordsWrite(qeInputScript['ATOMIC_POSITIONS']['coordinates'][lineIndex][1])
+                    + ' ' + keywordsWrite(qeInputScript['ATOMIC_POSITIONS']['coordinates'][lineIndex][2])
                     + ' ')
                 f.writelines(
-                    keywordsValuePackaging(abs(qeInputScript['ATOMIC_POSITIONS']['constraints'][lineIndex][0]-1))
-                    + ' ' + keywordsValuePackaging(abs(qeInputScript['ATOMIC_POSITIONS']['constraints'][lineIndex][1]-1))
-                    + ' ' + keywordsValuePackaging(abs(qeInputScript['ATOMIC_POSITIONS']['constraints'][lineIndex][2]-1))
+                    keywordsWrite(abs(qeInputScript['ATOMIC_POSITIONS']['constraints'][lineIndex][0]-1))
+                    + ' ' + keywordsWrite(abs(qeInputScript['ATOMIC_POSITIONS']['constraints'][lineIndex][1]-1))
+                    + ' ' + keywordsWrite(abs(qeInputScript['ATOMIC_POSITIONS']['constraints'][lineIndex][2]-1))
                     + '\n')
             f.writelines('\n')
 
@@ -232,25 +279,25 @@ def generateABACUSFiles(
         f.writelines('Gamma\n')
         if qeInputScript['K_POINTS']['mode'] == 'mk':
             f.writelines(
-                keywordsValuePackaging(qeInputScript['K_POINTS']['grid'][0]) + ' '
-                + keywordsValuePackaging(qeInputScript['K_POINTS']['grid'][1]) + ' '
-                + keywordsValuePackaging(qeInputScript['K_POINTS']['grid'][2]) + ' '
-                + keywordsValuePackaging(qeInputScript['K_POINTS']['shift'][0]) + ' '
-                + keywordsValuePackaging(qeInputScript['K_POINTS']['shift'][1]) + ' '
-                + keywordsValuePackaging(qeInputScript['K_POINTS']['shift'][2]) + '\n'
+                keywordsWrite(qeInputScript['K_POINTS']['grid'][0]) + ' '
+                + keywordsWrite(qeInputScript['K_POINTS']['grid'][1]) + ' '
+                + keywordsWrite(qeInputScript['K_POINTS']['grid'][2]) + ' '
+                + keywordsWrite(qeInputScript['K_POINTS']['shift'][0]) + ' '
+                + keywordsWrite(qeInputScript['K_POINTS']['shift'][1]) + ' '
+                + keywordsWrite(qeInputScript['K_POINTS']['shift'][2]) + '\n'
             )
         elif qeInputScript['K_POINTS']['mode'] == 'kpath':
-            print('In this case you should make sure you already have a KPT file')
+            print('|-K_POINTS warning: In this case you should make sure you already have a KPT file to get converged charge density')
             with open('KLINES', 'w') as f2:
                 f2.writelines('K_POINTS\n')
                 f2.writelines(str(len(qeInputScript['K_POINTS']['kpts'])) + '\n')
                 f2.writelines('Line\n')
                 for i, kpt in enumerate(qeInputScript['K_POINTS']['kpts']):
                     f2.writelines(
-                        keywordsValuePackaging(kpt[0]) + ' ' 
-                        + keywordsValuePackaging(kpt[1]) + ' ' 
-                        + keywordsValuePackaging(kpt[2]) + ' ' 
-                        + keywordsValuePackaging(qeInputScript['K_POINTS']['w_kpts'][i] )
+                        keywordsWrite(kpt[0]) + ' ' 
+                        + keywordsWrite(kpt[1]) + ' ' 
+                        + keywordsWrite(kpt[2]) + ' ' 
+                        + keywordsWrite(qeInputScript['K_POINTS']['w_kpts'][i] )
                         + '\n')
                 f2.writelines('\n\n')
 

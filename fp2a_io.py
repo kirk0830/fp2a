@@ -1,4 +1,5 @@
 import re
+from fp2a_keywordsProcessing import keywordsWrite, keywordsRead
 def readInputScript(fileName = 'fp2a.inp'):
     # read input script
     f = open(fileName, 'r')
@@ -6,7 +7,9 @@ def readInputScript(fileName = 'fp2a.inp'):
     f.close()
     # parse input script
     basicConversion = {}
-    additionalKeywords = {}
+    additionalKeywords = {
+        "numerical_orbitals": {}
+    }
     overwriteKeywords = {}
     presentSection = 'nothing'
     for line in lines:
@@ -27,23 +30,31 @@ def readInputScript(fileName = 'fp2a.inp'):
                 presentSection = 'additionalKeywords'
             elif words[0] == '&overwrite_keywords':
                 presentSection = 'overwriteKeywords'
+            elif words[0] == '&numerical_orbitals':
+                presentSection = 'numericalOrbitals'
             elif words[0] == '/':
-                continue
+                if presentSection == 'numericalOrbitals':
+                    presentSection = 'additionalKeywords'
             else:
                 if presentSection == 'basicConversion':
                     if words[0] != 'script_name':
-                        basicConversion[words[0]] = words[1]
+                        basicConversion[words[0]] = keywordsRead(words[1])
                     else:
-                        basicConversion[words[0]] = words[1:]
+                        basicConversion[words[0]] = []
+                        for i in range(1, len(words)):
+                            basicConversion[words[0]].append(words[i])
                 elif presentSection == 'additionalKeywords':
-                    additionalKeywords[words[0]] = words[1]
+                    additionalKeywords[words[0]] = keywordsRead(words[1])
+                elif presentSection == 'numericalOrbitals':
+                    additionalKeywords['numerical_orbitals'][words[0]] = keywordsRead(words[1])
                 elif presentSection == 'overwriteKeywords':
-                    overwriteKeywords[words[0]] = words[1]
+                    overwriteKeywords[words[0]] = keywordsRead(words[1])
+                
 
     return basicConversion, overwriteKeywords, additionalKeywords
 
 if __name__ == '__main__':
     basicConversion, overwriteKeywords, additionalKeywords = readInputScript()
-    print(basicConversion)
-    print(overwriteKeywords)
-    print(additionalKeywords)
+    print("basicConversion = ", basicConversion)
+    print("overwriteKeywords = ", overwriteKeywords)
+    print("additionalKeywords = ", additionalKeywords)

@@ -124,7 +124,7 @@ def main():
                                     overwriteKeywords = overwriteKeywords, additionalKeywords = additionalKeywords
                                 )
                                 time.sleep(1)
-                                if 'prefix' == qeJson['control']:
+                                if 'prefix' in qeJson['control']:
                                     identifier = qeJson['control']['prefix']
                                 else:
                                     # use time stamp as identifier
@@ -139,3 +139,4 @@ def main():
                 exit()
 if __name__ == '__main__':
     main()
+    print('--fp2a finished.')

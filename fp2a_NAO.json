@@ -1,0 +1,253 @@
+{
+    "Al": {
+        "gga": {
+            "Al_gga_10au_100Ry_3s3p2d.orb": {
+                "radiusCutoff": 10,
+                "energyCutoff": 100,
+                "valenceElectrons": "3s3p2d"
+            },
+            "Al_gga_8au_100Ry_4s4p1d.orb": {
+                "radiusCutoff": 8,
+                "energyCutoff": 100,
+                "valenceElectrons": "4s4p1d"
+            }
+        }
+    },
+    "As": {
+        "gga": {
+            "As_gga_8au_100Ry_2s2p1d.orb": {
+                "radiusCutoff": 8,
+                "energyCutoff": 100,
+                "valenceElectrons": "2s2p1d"
+            },
+            "As_gga_8au_60Ry_2s2p1d.orb": {
+                "radiusCutoff": 8,
+                "energyCutoff": 60,
+                "valenceElectrons": "2s2p1d"
+            }
+        }
+    },
+    "Be": {
+        "gga": {
+            "Be_gga_8au_60Ry_4s1p.orb": {
+                "radiusCutoff": 8,
+                "energyCutoff": 60,
+                "valenceElectrons": "4s1p"
+            }
+        }
+    },
+    "Bi": {
+        "gga": {
+            "Bi_gga_9au_100Ry_2s2p2d.orb": {
+                "radiusCutoff": 9,
+                "energyCutoff": 100,
+                "valenceElectrons": "2s2p2d"
+            }
+        }
+    },
+    "Cs": {
+        "gga": {
+            "Cs_gga_10au_100Ry_4s2p1d.orb": {
+                "radiusCutoff": 10,
+                "energyCutoff": 100,
+                "valenceElectrons": "4s2p1d"
+            }
+        }
+    },
+    "Cu": {
+        "gga": {
+            "Cu_gga_9au_100Ry_4s2p2d1f.orb": {
+                "radiusCutoff": 9,
+                "energyCutoff": 100,
+                "valenceElectrons": "4s2p2d1f"
+            }
+        }
+    },
+    "C": {
+        "gga": {
+            "C_gga_8au_100Ry_2s2p1d.orb": {
+                "radiusCutoff": 8,
+                "energyCutoff": 100,
+                "valenceElectrons": "2s2p1d"
+            }
+        },
+        "lda": {
+            "C_lda_8.0au_100Ry_2s2p1d.orb": {
+                "radiusCutoff": 8.0,
+                "energyCutoff": 100,
+                "valenceElectrons": "2s2p1d"
+            }
+        }
+    },
+    "Fe": {
+        "gga": {
+            "Fe_gga_9au_100Ry_4s2p2d1f.orb": {
+                "radiusCutoff": 9,
+                "energyCutoff": 100,
+                "valenceElectrons": "4s2p2d1f"
+            }
+        }
+    },
+    "F": {
+        "gga": {
+            "F_gga_7au_100Ry_2s2p1d.orb": {
+                "radiusCutoff": 7,
+                "energyCutoff": 100,
+                "valenceElectrons": "2s2p1d"
+            }
+        }
+    },
+    "Ga": {
+        "gga": {
+            "Ga_gga_9au_60Ry_2s2p2d.orb": {
+                "radiusCutoff": 9,
+                "energyCutoff": 60,
+                "valenceElectrons": "2s2p2d"
+            }
+        }
+    },
+    "Ge": {
+        "gga": {
+            "Ge_gga_8au_100Ry_2s2p2d.orb": {
+                "radiusCutoff": 8,
+                "energyCutoff": 100,
+                "valenceElectrons": "2s2p2d"
+            }
+        }
+    },
+    "H": {
+        "gga": {
+            "H_gga_6au_60Ry_2s1p.orb": {
+                "radiusCutoff": 6,
+                "energyCutoff": 60,
+                "valenceElectrons": "2s1p"
+            },
+            "H_gga_8au_100Ry_2s1p.orb": {
+                "radiusCutoff": 8,
+                "energyCutoff": 100,
+                "valenceElectrons": "2s1p"
+            },
+            "H_gga_8au_60Ry_2s1p.orb": {
+                "radiusCutoff": 8,
+                "energyCutoff": 60,
+                "valenceElectrons": "2s1p"
+            }
+        },
+        "lda": {
+            "H_lda_8.0au_100Ry_2s1p.orb": {
+                "radiusCutoff": 8.0,
+                "energyCutoff": 100,
+                "valenceElectrons": "2s1p"
+            }
+        }
+    },
+    "I": {
+        "gga": {
+            "I_gga_7au_100Ry_2s2p2d1f.orb": {
+                "radiusCutoff": 7,
+                "energyCutoff": 100,
+                "valenceElectrons": "2s2p2d1f"
+            }
+        }
+    },
+    "Mg": {
+        "gga": {
+            "Mg_gga_8au_100Ry_4s2p1d.orb": {
+                "radiusCutoff": 8,
+                "energyCutoff": 100,
+                "valenceElectrons": "4s2p1d"
+            }
+        }
+    },
+    "Ni": {
+        "gga": {
+            "Ni_gga_9au_100Ry_4s2p2d1f.orb": {
+                "radiusCutoff": 9,
+                "energyCutoff": 100,
+                "valenceElectrons": "4s2p2d1f"
+            }
+        }
+    },
+    "O": {
+        "gga": {
+            "O_gga_10au_100Ry_2s2p1d.orb": {
+                "radiusCutoff": 10,
+                "energyCutoff": 100,
+                "valenceElectrons": "2s2p1d"
+            },
+            "O_gga_6au_60Ry_2s2p1d.orb": {
+                "radiusCutoff": 6,
+                "energyCutoff": 60,
+                "valenceElectrons": "2s2p1d"
+            },
+            "O_gga_7au_100Ry_2s2p1d.orb": {
+                "radiusCutoff": 7,
+                "energyCutoff": 100,
+                "valenceElectrons": "2s2p1d"
+            },
+            "O_gga_7au_60Ry_2s2p1d.orb": {
+                "radiusCutoff": 7,
+                "energyCutoff": 60,
+                "valenceElectrons": "2s2p1d"
+            },
+            "O_gga_8au_100Ry_2s2p1d.orb": {
+                "radiusCutoff": 8,
+                "energyCutoff": 100,
+                "valenceElectrons": "2s2p1d"
+            }
+        },
+        "lda": {
+            "O_lda_8.0au_100Ry_2s2p1d.orb": {
+                "radiusCutoff": 8.0,
+                "energyCutoff": 100,
+                "valenceElectrons": "2s2p1d"
+            }
+        }
+    },
+    "Pb": {
+        "gga": {
+            "Pb_gga_10au_100Ry_2s2p2d.orb": {
+                "radiusCutoff": 10,
+                "energyCutoff": 100,
+                "valenceElectrons": "2s2p2d"
+            },
+            "Pb_gga_7au_100Ry_2s2p2d1f.orb": {
+                "radiusCutoff": 7,
+                "energyCutoff": 100,
+                "valenceElectrons": "2s2p2d1f"
+            }
+        }
+    },
+    "Se": {
+        "gga": {
+            "Se_gga_8au_100Ry_2s2p1d.orb": {
+                "radiusCutoff": 8,
+                "energyCutoff": 100,
+                "valenceElectrons": "2s2p1d"
+            }
+        }
+    },
+    "Si": {
+        "gga": {
+            "Si_gga_8au_100Ry_2s2p1d.orb": {
+                "radiusCutoff": 8,
+                "energyCutoff": 100,
+                "valenceElectrons": "2s2p1d"
+            },
+            "Si_gga_8au_60Ry_2s2p1d.orb": {
+                "radiusCutoff": 8,
+                "energyCutoff": 60,
+                "valenceElectrons": "2s2p1d"
+            }
+        }
+    },
+    "Ti": {
+        "gga": {
+            "Ti_gga_10au_100Ry_4s2p2d1f.orb": {
+                "radiusCutoff": 10,
+                "energyCutoff": 100,
+                "valenceElectrons": "4s2p2d1f"
+            }
+        }
+    }
+}

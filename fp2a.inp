@@ -1,14 +1,14 @@
 &basic_conversion
     database_dir = ./
             # path to the folder containing depuis_le_abacus.json
-    mode = examples
+    mode = single
             # single: convert a single qe input script
             # multiple: convert a set of qe input scripts
             # examples: convert a set of qe input scripts in the examples folder, in this case,
             #           the input scripts are organized in shell scripts and each one ends with
             #           'EOF'.
     script_dir = ./
-    script_name = test_qe6.7.in, test2_qe6.7.in
+    script_name = test_qe7.1.in
             # if mode = 'single', then script_name is the name of the qe input script
             # if mode = 'multiple', then script_name is a cascade of qe input script names, separated by ','
             # if mode = 'examples', then this keyword is omitted and all files named as 'run_example' will be converted
@@ -28,4 +28,17 @@
 &additional_keywords
 # well, if you use additional keywords, may be the comparison between qe and abacus
 # is spoiled, so, make sure you know what you are doing.
+# to change to lcao method for constructing hamiltonian matrix, there are two ways to
+# do it:
+&numerical_orbitals
+# there is another possible motivation for using this code for conversion from qe
+# input script to the abacus one, that is, you want to switch to use the lcao method
+# to get a higher performance on the identical system with most parameters unchanged.
+use_nao = .true.
+        # this keyword is used to switch between the two methods pw and lcao.
+        # if you want to use lcao method, set it to .true.
+        # if you want to use pw method, set it to .false.
+nao_dir = ./fp2a_NAO.json
+        # the full path to the folder containing the nao json library, e.g. './fp2a_NAO.json'
+/# end of &numerical_orbitals
 /# end of &additional_keywords
