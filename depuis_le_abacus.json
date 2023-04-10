@@ -46,7 +46,7 @@
             "c'est ca"
         ],
         "init_wfc": [
-            "starting_wfc",
+            "startingwfc",
             "force_eval/dft/scf/scf_guess",
             "c'est ca"
         ],
@@ -274,11 +274,6 @@
             "nspin",
             "force_eval/dft/uks",
             "totally the same for qe but different for cp2k. uks T means nspin=2, otherwise nspin=1. for non-collinear case...I have not heard about this in cp2k."
-        ],
-        "smearing_method": [
-            "occupations .AND. smearing",
-            "force_eval/dft/scf/smear/method",
-            "for qe, there are more options for pw: fermi-dirac, marzari-vanderbilt, gaussian, methfessel-paxton, and fixed occupations. but one should first select 'smearing' in occupation keyword, then specify different kind of smearing. for cp2k, only fermi-dirac is supported."
         ],
         "smearing_sigma": [
             "degauss",
@@ -836,72 +831,72 @@
             "abacus manual: If of_full_pw = 1, the dimension of FFT will be restricted to be (0) either odd or even; (1) odd only; (2) even only. Note that even dimensions may cause slight errors in FFT. It should be ignorable in ofdft calculation, but it may make Cardinal B-spline interpolation unstable, so set of_full_pw_dim = 1 if nbspline != -1."
         ],
         "efield_flag": [
-            "NaN",
+            "tefield",
             "NaN",
             "abacus manual: If set to true, a saw-like potential simulating an electric field is added to the bare ionic potential."
         ],
         "dip_cor_flag": [
-            "NaN",
+            "dipfield",
             "NaN",
             "abacus manual: If dip_cor_flag == true and efield_flag == true, a dipole correction is also added to the bare ionic potential. If you want no electric field, parameter efield_amp should be zero. Must be used ONLY in a slab geometry for surface calculations, with the discontinuity FALLING IN THE EMPTY SPACE."
         ],
         "efield_dir": [
-            "NaN",
+            "edir",
             "NaN",
             "abacus manual: The direction of the electric field or dipole correction is parallel to the reciprocal lattice vector, so the potential is constant in planes defined by FFT grid points, efield_dir = 0, 1 or 2. Used only if efield_flag == true."
         ],
         "efield_pos_max": [
-            "NaN",
+            "emaxpos",
             "NaN",
             "abacus manual: Position of the maximum of the saw-like potential along crystal axis efield_dir, within the unit cell, 0 < efield_pos_max < 1. Used only if efield_flag == true."
         ],
         "efield_pos_dec": [
-            "NaN",
+            "eopreg",
             "NaN",
             "abacus manual: Zone in the unit cell where the saw-like potential decreases, 0 < efield_pos_dec < 1. Used only if efield_flag == true."
         ],
         "efield_amp": [
-            "NaN",
+            "eamp",
             "NaN",
             "abacus manual: Amplitude of the electric field, in Hartree a.u.; 1 a.u. = 51.4220632*10^10 V/m. Used only if efield_flag == true. The saw-like potential increases with slope efield_amp in the region from (efield_pos_max+efield_pos_dec-1) to (efield_pos_max), then decreases until (efield_pos_max+efield_pos_dec), in units of the crystal vector efield_dir. Important: the change of slope of this potential must be located in the empty region, or else unphysical forces will result."
         ],
         "gate_flag": [
-            "NaN",
+            "gate",
             "NaN",
             "abacus manual: In the case of charged cells, setting gate_flag == true represents the addition of compensating charge by a charged plate, which is placed at zgate. Note that the direction is specified by efield_dir."
         ],
         "zgate": [
-            "NaN",
+            "zgate",
             "NaN",
             "abacus manual: Specify the position of the charged plate in units of the unit cell (0 <= zgate < 1)."
         ],
         "block": [
-            "NaN",
+            "block",
             "NaN",
             "abacus manual: Add a potential barrier to the total potential to avoid electrons spilling into the vacuum region for electron doping. Potential barrier is from block_down to block_up and has a height of block_height. If dip_cor_flag == true, efield_pos_dec is used for a smooth increase and decrease of the potential barrier."
         ],
         "block_down": [
-            "NaN",
+            "block_1",
             "NaN",
             "abacus manual: Lower beginning of the potential barrier in units of the unit cell size (0 <= block_down < block_up < 1)."
         ],
         "block_up": [
-            "NaN",
+            "block_2",
             "NaN",
             "abacus manual: Upper beginning of the potential barrier in units of the unit cell size (0 <= block_down < block_up < 1)."
         ],
         "block_height": [
-            "NaN",
+            "block_height",
             "NaN",
             "abacus manual: Height of the potential barrier in Rydberg."
         ],
         "exx_hybrid_alpha": [
-            "NaN",
+            "exx_fraction",
             "NaN",
             "abacus manual: fraction of Fock exchange in hybrid functionals, so that EX=\u03b1EX+(1\u2212\u03b1)EX,LDA/GGA"
         ],
         "exx_hse_omega": [
-            "NaN",
+            "screening_parameter",
             "NaN",
             "abacus manual: range-separation parameter in HSE functional, such that 1/r=erfc(\u03c9r)/r+erf(\u03c9r)/r."
         ],

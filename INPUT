@@ -9,12 +9,15 @@ smearing_sigma 0.002
 ecutwfc 40
 latname none
 ntype 3
-vdw_method grimme-d3
+smearing_method gaussian
+vdw_method d3_0
 dft_plus_u 1
 scf_thr 1e-06
 scf_nmax 200
 mixing_beta 0.5
 mixing_type plain
+init_wfc random
+ks_solver genelpa
 md_type bfgs
 fix_ibrav all
 cell_factor 2

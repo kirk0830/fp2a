@@ -4,8 +4,18 @@ from fp2a_qe2qeJson import isNonStandardSectionTitle
 from fp2a_numericalOrbitalManager import findNAOByCutoff
 
 def discrepantConversion(keyword, value):
+    # This function can only complete single line conversion
+    # for more complicated version, program in generateABACUSFiles function :(
+    if keyword == 'vdw_corr':
+        optionListD2 = ['grimme-d2', 'Grimme-D2', 'DFT-D', 'dft-d']
+        optionListD3 = ['grimme-d3', 'Grimme-D3', 'DFT-D3', 'dft-d3']
+        if optionListD2.count(value) > 0:
+            return 'd2'
+        elif optionListD3.count(value) > 0:
+            return 'd3_0'
     if keyword == 'calculation':
-        if value == 'scf' or value == 'relax' or value == 'nscf' or value == 'md':
+        optionListDirect = ['scf', 'relax', 'nscf', 'md']
+        if optionListDirect.count(value) > 0:
             return value
         elif value == 'vc-relax':
             return 'cell-relax'        
@@ -13,36 +23,12 @@ def discrepantConversion(keyword, value):
             print('|-Conversion warning: ' + value + ' is not a valid value for keyword ' + keyword + ', using default value')
             return 'scf'
     if keyword == 'ibrav':
-        if value == 0:
-            return 'none'
-        elif value == 1:
-            return 'cubic'
-        elif value == 2:
-            return 'fcc'
-        elif value == 3:
-            return 'bcc'
-        elif value == 4:
-            return 'hexagonal'
-        elif value == 5:
-            return 'triangoal'
-        elif value == 6:
-            return 'st'
-        elif value == 7:
-            return 'bct'
-        elif value == 8:
-            return 'so'
-        elif value == 9:
-            return 'baco'
-        elif value == 10:
-            return 'fco'
-        elif value == 11:
-            return 'bco'
-        elif value == 12:
-            return 'sm'
-        elif value == 13:
-            return 'bacm'
-        elif value == 14:
-            return 'triclinic'
+        ibravReturnDict = {
+            "0": "none", "1": "cubic", "2": "fcc",  "3": "bcc", "4": "hexagonal", "5": "triangoal", "6": "st",
+            "7": "bct", "8": "so", "9": "baco", "10": "fco", "11": "bco", "12": "sm", "13": "bacm", "14": "triclinic"
+        }
+        if str(value) in ibravReturnDict:
+            return ibravReturnDict[str(value)]
         else:
             raise ValueError('*ERROR: ibrav = ' + str(value) + ' is not supported in ABACUS')
     else:
@@ -134,6 +120,11 @@ def generateABACUSFiles(
         f.writelines('INPUT_PARAMETERS\n')
         if additionalKeywords["numerical_orbitals"]["use_nao"]:
             f.writelines('basis_type lcao\n')
+            print('|-Numerical orbitals: change solver to genelpa')
+            if 'diagonalization' in qeInputScript["electrons"]:
+                qeInputScript["electrons"]["diagonalization"] = "genelpa"
+            else:
+                qeInputScript["electrons"]["diagonalization"] = "genelpa"
         else:
             f.writelines('basis_type pw\n')
         if len(qeInputScript.keys()) == 0:
@@ -165,6 +156,43 @@ def generateABACUSFiles(
                         f.writelines(convertedKeyword + ' ' + keywordsWrite(value) + '\n')
                         # subscript 0 is the position of abacus keyword in the list of values
                     else:
+                        if keyword == 'occupations':
+                            print('|-Runtime information: keyword \'occupations\' is needed to specially treated:')
+                            if qeInputScript["system"]["occupations"] == 'smearing':
+                                print('|-Runtime information: keyword \'occupations\' is set to \'smearing\'')
+                                if 'smearing' in qeInputScript["system"]:
+                                    print('|-Runtime information: keyword \'smearing\' is set to \'' 
+                                    + qeInputScript["system"]["smearing"] + '\'')
+                                    if qeInputScript["system"]["smearing"] == 'gaussian' or qeInputScript["system"]["smearing"] == 'gauss':
+                                        f.writelines('smearing_method gaussian\n')
+                                    elif qeInputScript["system"]["smearing"] == 'fermi-dirac' or qeInputScript["system"]["smearing"] == 'f-d' or qeInputScript["system"]["smearing"] == 'fd':
+                                        f.writelines('smearing_method fd\n')
+                                    elif qeInputScript["system"]["smearing"] == 'methfessel-paxton' or qeInputScript["system"]["smearing"] == 'm-p' or qeInputScript["system"]["smearing"] == 'mp':
+                                        f.writelines('smearing_method mp\n')
+                                else:
+                                    print('|-Runtime information: keyword \'smearing\' is not set, default is \'gaussian\'')
+                                    f.writelines('smearing_method gaussian\n')
+                        if keyword == 'vdw_corr':
+                            optionListD2 = ['grimme-d2', 'Grimme-D2', 'DFT-D', 'dft-d']
+                            optionListD3 = ['grimme-d3', 'Grimme-D3', 'DFT-D3', 'dft-d3']
+                            if optionListD2.count(qeInputScript["system"]["vdw_corr"]) > 0:
+                                f.writelines('vdw_method d2\n')
+                            elif optionListD3.count(qeInputScript["system"]["vdw_corr"]) > 0:
+                                if 'dftd3_version' in qeInputScript["system"]:
+                                    if qeInputScript["system"]["dftd3_version"] == 2:
+                                        raise Exception('*ERROR: parameter conflict! you set vdw_corr to dft-d3 but dftd3_version to 2, which means dft-d2')
+                                    elif qeInputScript["system"]["dftd3_version"] == 3:
+                                        f.writelines('vdw_method d3_0\n')
+                                    elif qeInputScript["system"]["dftd3_version"] == 4:
+                                        f.writelines('vdw_method d3_bj\n')
+                                    elif qeInputScript["system"]["dftd3_version"] == 5:
+                                        print('|-Conversion warning: DFTD3 version 5 (Grimme-D3M (zero damping)) is not implemented in abacus, will use version 3 instead')
+                                        f.writelines('vdw_method d3_0\n')
+                                    elif qeInputScript["system"]["dftd3_version"] == 6:
+                                        print('|-Conversion warning: DFTD3 version 6 (Grimme-D3M (BJ damping)) is not implemented in abacus, will use version 4 instead')
+                                        f.writelines('vdw_method d3_bj\n')
+                                    else:
+                                        raise Exception('*ERROR: DFTD3 version is not valid')
                         print('|-Conversion warning: Keyword ' + keyword + ' not found in conversion table')
 
         # proceeding non-standard section that unrevelant with STRU and KPT/KLINE files
