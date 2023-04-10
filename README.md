@@ -2,7 +2,9 @@
 for input script conversion
 
 ## usage  
-input parameter description:  
+one-line command: python fp2a_driver.py  
+### detailed parameter description  
+the input file is set as fp2a.inp (can be changed in fp2a_io.inp). The contents of fp2a.inp is organized in following way:  
 &basic_conversion  
     mode = 'single', 'multiple' or 'examples'  
             (comment) single: convert a single qe input script  
