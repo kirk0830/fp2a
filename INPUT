@@ -1,0 +1,24 @@
+INPUT_PARAMETERS
+basis_type lcao
+calculation scf
+md_nstep 200
+orbital_dir ./
+suffix r_rs444k222_Pt1
+pseudo_dir ./
+smearing_sigma 0.002
+ecutwfc 40
+latname none
+ntype 3
+vdw_method grimme-d3
+dft_plus_u 1
+scf_thr 1e-06
+scf_nmax 200
+mixing_beta 0.5
+mixing_type plain
+md_type bfgs
+fix_ibrav all
+cell_factor 2
+stress_thr 0.2
+orbital_corr -1 -1 -1
+hubbard_u 0 7.5 0
+#numerical_orbitals are added

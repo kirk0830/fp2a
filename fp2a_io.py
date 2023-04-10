@@ -10,7 +10,9 @@ def readInputScript(fileName = 'fp2a.inp'):
     additionalKeywords = {
         "numerical_orbitals": {}
     }
-    overwriteKeywords = {}
+    overwriteKeywords = {
+        "recover_default": {"list": []}
+    }
     presentSection = 'nothing'
     for line in lines:
 
@@ -46,11 +48,13 @@ def readInputScript(fileName = 'fp2a.inp'):
                 elif presentSection == 'additionalKeywords':
                     additionalKeywords[words[0]] = keywordsRead(words[1])
                 elif presentSection == 'numericalOrbitals':
-                    additionalKeywords['numerical_orbitals'][words[0]] = keywordsRead(words[1])
+                    if len(words) == 2:
+                        additionalKeywords['numerical_orbitals'][words[0]] = keywordsRead(words[1])
+                    else:
+                        additionalKeywords['numerical_orbitals'][words[0]] = keywordsRead(words[1::])
                 elif presentSection == 'overwriteKeywords':
                     overwriteKeywords[words[0]] = keywordsRead(words[1])
                 
-
     return basicConversion, overwriteKeywords, additionalKeywords
 
 if __name__ == '__main__':

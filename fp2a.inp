@@ -20,9 +20,8 @@
 # for example, you may not want to use the same folder storing both pseudopotentials of qe and abacus
 # so you can define pseudopotential of abacus here, if so, it will overwrite the one read from qe input script
 # or the same folder will be used
-    pseudo_dir = ./ABACUS_pseudopotential/
-    orbital_dir = ./ABACUS/
-    ibrav = 0
+    pseudo_dir = ./
+    orbital_dir = ./
 /# end of &overwrite_keywords
 
 &additional_keywords
@@ -30,15 +29,33 @@
 # is spoiled, so, make sure you know what you are doing.
 # to change to lcao method for constructing hamiltonian matrix, there are two ways to
 # do it:
-&numerical_orbitals
-# there is another possible motivation for using this code for conversion from qe
-# input script to the abacus one, that is, you want to switch to use the lcao method
-# to get a higher performance on the identical system with most parameters unchanged.
-use_nao = .true.
-        # this keyword is used to switch between the two methods pw and lcao.
-        # if you want to use lcao method, set it to .true.
-        # if you want to use pw method, set it to .false.
-nao_dir = ./fp2a_NAO.json
-        # the full path to the folder containing the nao json library, e.g. './fp2a_NAO.json'
-/# end of &numerical_orbitals
+        &numerical_orbitals
+        # there is another possible motivation for using this code for conversion from qe
+        # input script to the abacus one, that is, you want to switch to use the lcao method
+        # to get a higher performance on the identical system with most parameters unchanged.
+        use_nao = .true.
+                # this keyword is used to switch between the two methods pw and lcao.
+                # if you want to use lcao method, set it to .true.
+                # if you want to use pw method, set it to .false.
+        nao_dir = ./SG15-Version1p0__AllOrbitals-Version2p0/
+                # the full path to the folder containing the nao library, e.g. './SG15-Version1p0__AllOrbitals-Version2p0/'
+        basis_type = dzp
+                # the basis set type, available choices: dzp and tzdp
+        select_nao = radius_min
+                # when there are not only one NAO for present atom type, select way to choose one from them
+                # available choices: radius_min: will select the one with the smallest radius but still larger than radius_min
+                #                    radius_max: will select the one with the largest radius but still smaller than radius_max
+                #                    energy_min: will select the one with the smallest energy but still larger than energy_min
+                #                    energy_max: will select the one with the largest energy but still smaller than energy_max
+                #                    energy_min_radius_min: will select the one with the smallest energy but still larger than energy_min
+                #                                           and the radius is larger than radius_min
+                #                    energy_max_radius_max: will select the one with the largest energy but still smaller than energy_max
+                #                                           and the radius is smaller than radius_max
+        atom_species = Pt, O, Ti
+                # the atom species for which you want to use nao, e.g. 'Pt O Ti', if it is not defined here, will read from qe input script
+        cutoff_list_radius = 0, 0, 0
+                # the cutoff radius (in a.u.) for each atom species, in the sequence of atom_species
+        cutoff_list_energy = 100, 100, 100
+                # the cutoff energy (in Ry) for each atom species, in the sequence of atom_species
+        /# end of &numerical_orbitals
 /# end of &additional_keywords

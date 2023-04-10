@@ -1,252 +1,3695 @@
 {
-    "Al": {
+    "Ne": {
         "gga": {
-            "Al_gga_10au_100Ry_3s3p2d.orb": {
-                "radiusCutoff": 10,
-                "energyCutoff": 100,
-                "valenceElectrons": "3s3p2d"
+            "dzp": {
+                "Ne_gga_10au_100Ry_2s2p1d.orb": {
+                    "radiusCutoff": 10,
+                    "energyCutoff": 100,
+                    "basisFunctions": "2s2p1d"
+                },
+                "Ne_gga_6au_100Ry_2s2p1d.orb": {
+                    "radiusCutoff": 6,
+                    "energyCutoff": 100,
+                    "basisFunctions": "2s2p1d"
+                },
+                "Ne_gga_7au_100Ry_2s2p1d.orb": {
+                    "radiusCutoff": 7,
+                    "energyCutoff": 100,
+                    "basisFunctions": "2s2p1d"
+                },
+                "Ne_gga_8au_100Ry_2s2p1d.orb": {
+                    "radiusCutoff": 8,
+                    "energyCutoff": 100,
+                    "basisFunctions": "2s2p1d"
+                },
+                "Ne_gga_9au_100Ry_2s2p1d.orb": {
+                    "radiusCutoff": 9,
+                    "energyCutoff": 100,
+                    "basisFunctions": "2s2p1d"
+                }
             },
-            "Al_gga_8au_100Ry_4s4p1d.orb": {
-                "radiusCutoff": 8,
-                "energyCutoff": 100,
-                "valenceElectrons": "4s4p1d"
+            "tzdp": {
+                "Ne_gga_10au_100Ry_3s3p2d.orb": {
+                    "radiusCutoff": 10,
+                    "energyCutoff": 100,
+                    "basisFunctions": "3s3p2d"
+                },
+                "Ne_gga_6au_100Ry_3s3p2d.orb": {
+                    "radiusCutoff": 6,
+                    "energyCutoff": 100,
+                    "basisFunctions": "3s3p2d"
+                },
+                "Ne_gga_7au_100Ry_3s3p2d.orb": {
+                    "radiusCutoff": 7,
+                    "energyCutoff": 100,
+                    "basisFunctions": "3s3p2d"
+                },
+                "Ne_gga_8au_100Ry_3s3p2d.orb": {
+                    "radiusCutoff": 8,
+                    "energyCutoff": 100,
+                    "basisFunctions": "3s3p2d"
+                },
+                "Ne_gga_9au_100Ry_3s3p2d.orb": {
+                    "radiusCutoff": 9,
+                    "energyCutoff": 100,
+                    "basisFunctions": "3s3p2d"
+                }
             }
         }
     },
-    "As": {
+    "Na": {
         "gga": {
-            "As_gga_8au_100Ry_2s2p1d.orb": {
-                "radiusCutoff": 8,
-                "energyCutoff": 100,
-                "valenceElectrons": "2s2p1d"
+            "dzp": {
+                "Na_gga_10au_100Ry_4s2p1d.orb": {
+                    "radiusCutoff": 10,
+                    "energyCutoff": 100,
+                    "basisFunctions": "4s2p1d"
+                },
+                "Na_gga_6au_100Ry_4s2p1d.orb": {
+                    "radiusCutoff": 6,
+                    "energyCutoff": 100,
+                    "basisFunctions": "4s2p1d"
+                },
+                "Na_gga_7au_100Ry_4s2p1d.orb": {
+                    "radiusCutoff": 7,
+                    "energyCutoff": 100,
+                    "basisFunctions": "4s2p1d"
+                },
+                "Na_gga_8au_100Ry_4s2p1d.orb": {
+                    "radiusCutoff": 8,
+                    "energyCutoff": 100,
+                    "basisFunctions": "4s2p1d"
+                },
+                "Na_gga_9au_100Ry_4s2p1d.orb": {
+                    "radiusCutoff": 9,
+                    "energyCutoff": 100,
+                    "basisFunctions": "4s2p1d"
+                }
             },
-            "As_gga_8au_60Ry_2s2p1d.orb": {
-                "radiusCutoff": 8,
-                "energyCutoff": 60,
-                "valenceElectrons": "2s2p1d"
-            }
-        }
-    },
-    "Be": {
-        "gga": {
-            "Be_gga_8au_60Ry_4s1p.orb": {
-                "radiusCutoff": 8,
-                "energyCutoff": 60,
-                "valenceElectrons": "4s1p"
-            }
-        }
-    },
-    "Bi": {
-        "gga": {
-            "Bi_gga_9au_100Ry_2s2p2d.orb": {
-                "radiusCutoff": 9,
-                "energyCutoff": 100,
-                "valenceElectrons": "2s2p2d"
-            }
-        }
-    },
-    "Cs": {
-        "gga": {
-            "Cs_gga_10au_100Ry_4s2p1d.orb": {
-                "radiusCutoff": 10,
-                "energyCutoff": 100,
-                "valenceElectrons": "4s2p1d"
-            }
-        }
-    },
-    "Cu": {
-        "gga": {
-            "Cu_gga_9au_100Ry_4s2p2d1f.orb": {
-                "radiusCutoff": 9,
-                "energyCutoff": 100,
-                "valenceElectrons": "4s2p2d1f"
-            }
-        }
-    },
-    "C": {
-        "gga": {
-            "C_gga_8au_100Ry_2s2p1d.orb": {
-                "radiusCutoff": 8,
-                "energyCutoff": 100,
-                "valenceElectrons": "2s2p1d"
-            }
-        },
-        "lda": {
-            "C_lda_8.0au_100Ry_2s2p1d.orb": {
-                "radiusCutoff": 8.0,
-                "energyCutoff": 100,
-                "valenceElectrons": "2s2p1d"
-            }
-        }
-    },
-    "Fe": {
-        "gga": {
-            "Fe_gga_9au_100Ry_4s2p2d1f.orb": {
-                "radiusCutoff": 9,
-                "energyCutoff": 100,
-                "valenceElectrons": "4s2p2d1f"
-            }
-        }
-    },
-    "F": {
-        "gga": {
-            "F_gga_7au_100Ry_2s2p1d.orb": {
-                "radiusCutoff": 7,
-                "energyCutoff": 100,
-                "valenceElectrons": "2s2p1d"
-            }
-        }
-    },
-    "Ga": {
-        "gga": {
-            "Ga_gga_9au_60Ry_2s2p2d.orb": {
-                "radiusCutoff": 9,
-                "energyCutoff": 60,
-                "valenceElectrons": "2s2p2d"
-            }
-        }
-    },
-    "Ge": {
-        "gga": {
-            "Ge_gga_8au_100Ry_2s2p2d.orb": {
-                "radiusCutoff": 8,
-                "energyCutoff": 100,
-                "valenceElectrons": "2s2p2d"
-            }
-        }
-    },
-    "H": {
-        "gga": {
-            "H_gga_6au_60Ry_2s1p.orb": {
-                "radiusCutoff": 6,
-                "energyCutoff": 60,
-                "valenceElectrons": "2s1p"
-            },
-            "H_gga_8au_100Ry_2s1p.orb": {
-                "radiusCutoff": 8,
-                "energyCutoff": 100,
-                "valenceElectrons": "2s1p"
-            },
-            "H_gga_8au_60Ry_2s1p.orb": {
-                "radiusCutoff": 8,
-                "energyCutoff": 60,
-                "valenceElectrons": "2s1p"
-            }
-        },
-        "lda": {
-            "H_lda_8.0au_100Ry_2s1p.orb": {
-                "radiusCutoff": 8.0,
-                "energyCutoff": 100,
-                "valenceElectrons": "2s1p"
-            }
-        }
-    },
-    "I": {
-        "gga": {
-            "I_gga_7au_100Ry_2s2p2d1f.orb": {
-                "radiusCutoff": 7,
-                "energyCutoff": 100,
-                "valenceElectrons": "2s2p2d1f"
+            "tzdp": {
+                "Na_gga_10au_100Ry_6s3p2d.orb": {
+                    "radiusCutoff": 10,
+                    "energyCutoff": 100,
+                    "basisFunctions": "6s3p2d"
+                },
+                "Na_gga_6au_100Ry_6s3p2d.orb": {
+                    "radiusCutoff": 6,
+                    "energyCutoff": 100,
+                    "basisFunctions": "6s3p2d"
+                },
+                "Na_gga_7au_100Ry_6s3p2d.orb": {
+                    "radiusCutoff": 7,
+                    "energyCutoff": 100,
+                    "basisFunctions": "6s3p2d"
+                },
+                "Na_gga_8au_100Ry_6s3p2d.orb": {
+                    "radiusCutoff": 8,
+                    "energyCutoff": 100,
+                    "basisFunctions": "6s3p2d"
+                },
+                "Na_gga_9au_100Ry_6s3p2d.orb": {
+                    "radiusCutoff": 9,
+                    "energyCutoff": 100,
+                    "basisFunctions": "6s3p2d"
+                }
             }
         }
     },
     "Mg": {
         "gga": {
-            "Mg_gga_8au_100Ry_4s2p1d.orb": {
-                "radiusCutoff": 8,
-                "energyCutoff": 100,
-                "valenceElectrons": "4s2p1d"
+            "dzp": {
+                "Mg_gga_10au_100Ry_4s2p1d.orb": {
+                    "radiusCutoff": 10,
+                    "energyCutoff": 100,
+                    "basisFunctions": "4s2p1d"
+                },
+                "Mg_gga_6au_100Ry_4s2p1d.orb": {
+                    "radiusCutoff": 6,
+                    "energyCutoff": 100,
+                    "basisFunctions": "4s2p1d"
+                },
+                "Mg_gga_7au_100Ry_4s2p1d.orb": {
+                    "radiusCutoff": 7,
+                    "energyCutoff": 100,
+                    "basisFunctions": "4s2p1d"
+                },
+                "Mg_gga_8au_100Ry_4s2p1d.orb": {
+                    "radiusCutoff": 8,
+                    "energyCutoff": 100,
+                    "basisFunctions": "4s2p1d"
+                },
+                "Mg_gga_9au_100Ry_4s2p1d.orb": {
+                    "radiusCutoff": 9,
+                    "energyCutoff": 100,
+                    "basisFunctions": "4s2p1d"
+                }
+            },
+            "tzdp": {
+                "Mg_gga_10au_100Ry_6s3p2d.orb": {
+                    "radiusCutoff": 10,
+                    "energyCutoff": 100,
+                    "basisFunctions": "6s3p2d"
+                },
+                "Mg_gga_6au_100Ry_6s3p2d.orb": {
+                    "radiusCutoff": 6,
+                    "energyCutoff": 100,
+                    "basisFunctions": "6s3p2d"
+                },
+                "Mg_gga_7au_100Ry_6s3p2d.orb": {
+                    "radiusCutoff": 7,
+                    "energyCutoff": 100,
+                    "basisFunctions": "6s3p2d"
+                },
+                "Mg_gga_8au_100Ry_6s3p2d.orb": {
+                    "radiusCutoff": 8,
+                    "energyCutoff": 100,
+                    "basisFunctions": "6s3p2d"
+                },
+                "Mg_gga_9au_100Ry_6s3p2d.orb": {
+                    "radiusCutoff": 9,
+                    "energyCutoff": 100,
+                    "basisFunctions": "6s3p2d"
+                }
             }
         }
     },
-    "Ni": {
+    "Al": {
         "gga": {
-            "Ni_gga_9au_100Ry_4s2p2d1f.orb": {
-                "radiusCutoff": 9,
-                "energyCutoff": 100,
-                "valenceElectrons": "4s2p2d1f"
-            }
-        }
-    },
-    "O": {
-        "gga": {
-            "O_gga_10au_100Ry_2s2p1d.orb": {
-                "radiusCutoff": 10,
-                "energyCutoff": 100,
-                "valenceElectrons": "2s2p1d"
+            "dzp": {
+                "Al_gga_10au_100Ry_4s4p1d.orb": {
+                    "radiusCutoff": 10,
+                    "energyCutoff": 100,
+                    "basisFunctions": "4s4p1d"
+                },
+                "Al_gga_6au_100Ry_4s4p1d.orb": {
+                    "radiusCutoff": 6,
+                    "energyCutoff": 100,
+                    "basisFunctions": "4s4p1d"
+                },
+                "Al_gga_7au_100Ry_4s4p1d.orb": {
+                    "radiusCutoff": 7,
+                    "energyCutoff": 100,
+                    "basisFunctions": "4s4p1d"
+                },
+                "Al_gga_8au_100Ry_4s4p1d.orb": {
+                    "radiusCutoff": 8,
+                    "energyCutoff": 100,
+                    "basisFunctions": "4s4p1d"
+                },
+                "Al_gga_9au_100Ry_4s4p1d.orb": {
+                    "radiusCutoff": 9,
+                    "energyCutoff": 100,
+                    "basisFunctions": "4s4p1d"
+                }
             },
-            "O_gga_6au_60Ry_2s2p1d.orb": {
-                "radiusCutoff": 6,
-                "energyCutoff": 60,
-                "valenceElectrons": "2s2p1d"
-            },
-            "O_gga_7au_100Ry_2s2p1d.orb": {
-                "radiusCutoff": 7,
-                "energyCutoff": 100,
-                "valenceElectrons": "2s2p1d"
-            },
-            "O_gga_7au_60Ry_2s2p1d.orb": {
-                "radiusCutoff": 7,
-                "energyCutoff": 60,
-                "valenceElectrons": "2s2p1d"
-            },
-            "O_gga_8au_100Ry_2s2p1d.orb": {
-                "radiusCutoff": 8,
-                "energyCutoff": 100,
-                "valenceElectrons": "2s2p1d"
-            }
-        },
-        "lda": {
-            "O_lda_8.0au_100Ry_2s2p1d.orb": {
-                "radiusCutoff": 8.0,
-                "energyCutoff": 100,
-                "valenceElectrons": "2s2p1d"
-            }
-        }
-    },
-    "Pb": {
-        "gga": {
-            "Pb_gga_10au_100Ry_2s2p2d.orb": {
-                "radiusCutoff": 10,
-                "energyCutoff": 100,
-                "valenceElectrons": "2s2p2d"
-            },
-            "Pb_gga_7au_100Ry_2s2p2d1f.orb": {
-                "radiusCutoff": 7,
-                "energyCutoff": 100,
-                "valenceElectrons": "2s2p2d1f"
-            }
-        }
-    },
-    "Se": {
-        "gga": {
-            "Se_gga_8au_100Ry_2s2p1d.orb": {
-                "radiusCutoff": 8,
-                "energyCutoff": 100,
-                "valenceElectrons": "2s2p1d"
+            "tzdp": {
+                "Al_gga_10au_100Ry_6s6p2d.orb": {
+                    "radiusCutoff": 10,
+                    "energyCutoff": 100,
+                    "basisFunctions": "6s6p2d"
+                },
+                "Al_gga_6au_100Ry_6s6p2d.orb": {
+                    "radiusCutoff": 6,
+                    "energyCutoff": 100,
+                    "basisFunctions": "6s6p2d"
+                },
+                "Al_gga_7au_100Ry_6s6p2d.orb": {
+                    "radiusCutoff": 7,
+                    "energyCutoff": 100,
+                    "basisFunctions": "6s6p2d"
+                },
+                "Al_gga_8au_100Ry_6s6p2d.orb": {
+                    "radiusCutoff": 8,
+                    "energyCutoff": 100,
+                    "basisFunctions": "6s6p2d"
+                },
+                "Al_gga_9au_100Ry_6s6p2d.orb": {
+                    "radiusCutoff": 9,
+                    "energyCutoff": 100,
+                    "basisFunctions": "6s6p2d"
+                }
             }
         }
     },
     "Si": {
         "gga": {
-            "Si_gga_8au_100Ry_2s2p1d.orb": {
-                "radiusCutoff": 8,
-                "energyCutoff": 100,
-                "valenceElectrons": "2s2p1d"
+            "dzp": {
+                "Si_gga_10au_100Ry_2s2p1d.orb": {
+                    "radiusCutoff": 10,
+                    "energyCutoff": 100,
+                    "basisFunctions": "2s2p1d"
+                },
+                "Si_gga_6au_100Ry_2s2p1d.orb": {
+                    "radiusCutoff": 6,
+                    "energyCutoff": 100,
+                    "basisFunctions": "2s2p1d"
+                },
+                "Si_gga_7au_100Ry_2s2p1d.orb": {
+                    "radiusCutoff": 7,
+                    "energyCutoff": 100,
+                    "basisFunctions": "2s2p1d"
+                },
+                "Si_gga_8au_100Ry_2s2p1d.orb": {
+                    "radiusCutoff": 8,
+                    "energyCutoff": 100,
+                    "basisFunctions": "2s2p1d"
+                },
+                "Si_gga_9au_100Ry_2s2p1d.orb": {
+                    "radiusCutoff": 9,
+                    "energyCutoff": 100,
+                    "basisFunctions": "2s2p1d"
+                }
             },
-            "Si_gga_8au_60Ry_2s2p1d.orb": {
-                "radiusCutoff": 8,
-                "energyCutoff": 60,
-                "valenceElectrons": "2s2p1d"
+            "tzdp": {
+                "Si_gga_10au_100Ry_3s3p2d.orb": {
+                    "radiusCutoff": 10,
+                    "energyCutoff": 100,
+                    "basisFunctions": "3s3p2d"
+                },
+                "Si_gga_6au_100Ry_3s3p2d.orb": {
+                    "radiusCutoff": 6,
+                    "energyCutoff": 100,
+                    "basisFunctions": "3s3p2d"
+                },
+                "Si_gga_7au_100Ry_3s3p2d.orb": {
+                    "radiusCutoff": 7,
+                    "energyCutoff": 100,
+                    "basisFunctions": "3s3p2d"
+                },
+                "Si_gga_8au_100Ry_3s3p2d.orb": {
+                    "radiusCutoff": 8,
+                    "energyCutoff": 100,
+                    "basisFunctions": "3s3p2d"
+                },
+                "Si_gga_9au_100Ry_3s3p2d.orb": {
+                    "radiusCutoff": 9,
+                    "energyCutoff": 100,
+                    "basisFunctions": "3s3p2d"
+                }
+            }
+        }
+    },
+    "P": {
+        "gga": {
+            "dzp": {
+                "P_gga_10au_100Ry_2s2p1d.orb": {
+                    "radiusCutoff": 10,
+                    "energyCutoff": 100,
+                    "basisFunctions": "2s2p1d"
+                },
+                "P_gga_6au_100Ry_2s2p1d.orb": {
+                    "radiusCutoff": 6,
+                    "energyCutoff": 100,
+                    "basisFunctions": "2s2p1d"
+                },
+                "P_gga_7au_100Ry_2s2p1d.orb": {
+                    "radiusCutoff": 7,
+                    "energyCutoff": 100,
+                    "basisFunctions": "2s2p1d"
+                },
+                "P_gga_8au_100Ry_2s2p1d.orb": {
+                    "radiusCutoff": 8,
+                    "energyCutoff": 100,
+                    "basisFunctions": "2s2p1d"
+                },
+                "P_gga_9au_100Ry_2s2p1d.orb": {
+                    "radiusCutoff": 9,
+                    "energyCutoff": 100,
+                    "basisFunctions": "2s2p1d"
+                }
+            },
+            "tzdp": {
+                "P_gga_10au_100Ry_3s3p2d.orb": {
+                    "radiusCutoff": 10,
+                    "energyCutoff": 100,
+                    "basisFunctions": "3s3p2d"
+                },
+                "P_gga_6au_100Ry_3s3p2d.orb": {
+                    "radiusCutoff": 6,
+                    "energyCutoff": 100,
+                    "basisFunctions": "3s3p2d"
+                },
+                "P_gga_7au_100Ry_3s3p2d.orb": {
+                    "radiusCutoff": 7,
+                    "energyCutoff": 100,
+                    "basisFunctions": "3s3p2d"
+                },
+                "P_gga_8au_100Ry_3s3p2d.orb": {
+                    "radiusCutoff": 8,
+                    "energyCutoff": 100,
+                    "basisFunctions": "3s3p2d"
+                },
+                "P_gga_9au_100Ry_3s3p2d.orb": {
+                    "radiusCutoff": 9,
+                    "energyCutoff": 100,
+                    "basisFunctions": "3s3p2d"
+                }
+            }
+        }
+    },
+    "S": {
+        "gga": {
+            "dzp": {
+                "S_gga_10au_100Ry_2s2p1d.orb": {
+                    "radiusCutoff": 10,
+                    "energyCutoff": 100,
+                    "basisFunctions": "2s2p1d"
+                },
+                "S_gga_6au_100Ry_2s2p1d.orb": {
+                    "radiusCutoff": 6,
+                    "energyCutoff": 100,
+                    "basisFunctions": "2s2p1d"
+                },
+                "S_gga_7au_100Ry_2s2p1d.orb": {
+                    "radiusCutoff": 7,
+                    "energyCutoff": 100,
+                    "basisFunctions": "2s2p1d"
+                },
+                "S_gga_8au_100Ry_2s2p1d.orb": {
+                    "radiusCutoff": 8,
+                    "energyCutoff": 100,
+                    "basisFunctions": "2s2p1d"
+                },
+                "S_gga_9au_100Ry_2s2p1d.orb": {
+                    "radiusCutoff": 9,
+                    "energyCutoff": 100,
+                    "basisFunctions": "2s2p1d"
+                }
+            },
+            "tzdp": {
+                "S_gga_10au_100Ry_3s3p2d.orb": {
+                    "radiusCutoff": 10,
+                    "energyCutoff": 100,
+                    "basisFunctions": "3s3p2d"
+                },
+                "S_gga_6au_100Ry_3s3p2d.orb": {
+                    "radiusCutoff": 6,
+                    "energyCutoff": 100,
+                    "basisFunctions": "3s3p2d"
+                },
+                "S_gga_7au_100Ry_3s3p2d.orb": {
+                    "radiusCutoff": 7,
+                    "energyCutoff": 100,
+                    "basisFunctions": "3s3p2d"
+                },
+                "S_gga_8au_100Ry_3s3p2d.orb": {
+                    "radiusCutoff": 8,
+                    "energyCutoff": 100,
+                    "basisFunctions": "3s3p2d"
+                },
+                "S_gga_9au_100Ry_3s3p2d.orb": {
+                    "radiusCutoff": 9,
+                    "energyCutoff": 100,
+                    "basisFunctions": "3s3p2d"
+                }
+            }
+        }
+    },
+    "Cl": {
+        "gga": {
+            "dzp": {
+                "Cl_gga_10au_100Ry_2s2p1d.orb": {
+                    "radiusCutoff": 10,
+                    "energyCutoff": 100,
+                    "basisFunctions": "2s2p1d"
+                },
+                "Cl_gga_6au_100Ry_2s2p1d.orb": {
+                    "radiusCutoff": 6,
+                    "energyCutoff": 100,
+                    "basisFunctions": "2s2p1d"
+                },
+                "Cl_gga_7au_100Ry_2s2p1d.orb": {
+                    "radiusCutoff": 7,
+                    "energyCutoff": 100,
+                    "basisFunctions": "2s2p1d"
+                },
+                "Cl_gga_8au_100Ry_2s2p1d.orb": {
+                    "radiusCutoff": 8,
+                    "energyCutoff": 100,
+                    "basisFunctions": "2s2p1d"
+                },
+                "Cl_gga_9au_100Ry_2s2p1d.orb": {
+                    "radiusCutoff": 9,
+                    "energyCutoff": 100,
+                    "basisFunctions": "2s2p1d"
+                }
+            },
+            "tzdp": {
+                "Cl_gga_10au_100Ry_3s3p2d.orb": {
+                    "radiusCutoff": 10,
+                    "energyCutoff": 100,
+                    "basisFunctions": "3s3p2d"
+                },
+                "Cl_gga_6au_100Ry_3s3p2d.orb": {
+                    "radiusCutoff": 6,
+                    "energyCutoff": 100,
+                    "basisFunctions": "3s3p2d"
+                },
+                "Cl_gga_7au_100Ry_3s3p2d.orb": {
+                    "radiusCutoff": 7,
+                    "energyCutoff": 100,
+                    "basisFunctions": "3s3p2d"
+                },
+                "Cl_gga_8au_100Ry_3s3p2d.orb": {
+                    "radiusCutoff": 8,
+                    "energyCutoff": 100,
+                    "basisFunctions": "3s3p2d"
+                },
+                "Cl_gga_9au_100Ry_3s3p2d.orb": {
+                    "radiusCutoff": 9,
+                    "energyCutoff": 100,
+                    "basisFunctions": "3s3p2d"
+                }
+            }
+        }
+    },
+    "Ar": {
+        "gga": {
+            "dzp": {
+                "Ar_gga_10au_100Ry_2s2p1d.orb": {
+                    "radiusCutoff": 10,
+                    "energyCutoff": 100,
+                    "basisFunctions": "2s2p1d"
+                },
+                "Ar_gga_6au_100Ry_2s2p1d.orb": {
+                    "radiusCutoff": 6,
+                    "energyCutoff": 100,
+                    "basisFunctions": "2s2p1d"
+                },
+                "Ar_gga_7au_100Ry_2s2p1d.orb": {
+                    "radiusCutoff": 7,
+                    "energyCutoff": 100,
+                    "basisFunctions": "2s2p1d"
+                },
+                "Ar_gga_8au_100Ry_2s2p1d.orb": {
+                    "radiusCutoff": 8,
+                    "energyCutoff": 100,
+                    "basisFunctions": "2s2p1d"
+                },
+                "Ar_gga_9au_100Ry_2s2p1d.orb": {
+                    "radiusCutoff": 9,
+                    "energyCutoff": 100,
+                    "basisFunctions": "2s2p1d"
+                }
+            },
+            "tzdp": {
+                "Ar_gga_10au_100Ry_3s3p2d.orb": {
+                    "radiusCutoff": 10,
+                    "energyCutoff": 100,
+                    "basisFunctions": "3s3p2d"
+                },
+                "Ar_gga_6au_100Ry_3s3p2d.orb": {
+                    "radiusCutoff": 6,
+                    "energyCutoff": 100,
+                    "basisFunctions": "3s3p2d"
+                },
+                "Ar_gga_7au_100Ry_3s3p2d.orb": {
+                    "radiusCutoff": 7,
+                    "energyCutoff": 100,
+                    "basisFunctions": "3s3p2d"
+                },
+                "Ar_gga_8au_100Ry_3s3p2d.orb": {
+                    "radiusCutoff": 8,
+                    "energyCutoff": 100,
+                    "basisFunctions": "3s3p2d"
+                },
+                "Ar_gga_9au_100Ry_3s3p2d.orb": {
+                    "radiusCutoff": 9,
+                    "energyCutoff": 100,
+                    "basisFunctions": "3s3p2d"
+                }
+            }
+        }
+    },
+    "K": {
+        "gga": {
+            "dzp": {
+                "K_gga_10au_100Ry_4s2p1d.orb": {
+                    "radiusCutoff": 10,
+                    "energyCutoff": 100,
+                    "basisFunctions": "4s2p1d"
+                },
+                "K_gga_9au_100Ry_4s2p1d.orb": {
+                    "radiusCutoff": 9,
+                    "energyCutoff": 100,
+                    "basisFunctions": "4s2p1d"
+                }
+            },
+            "tzdp": {
+                "K_gga_10au_100Ry_6s3p2d.orb": {
+                    "radiusCutoff": 10,
+                    "energyCutoff": 100,
+                    "basisFunctions": "6s3p2d"
+                },
+                "K_gga_9au_100Ry_6s3p2d.orb": {
+                    "radiusCutoff": 9,
+                    "energyCutoff": 100,
+                    "basisFunctions": "6s3p2d"
+                }
+            }
+        }
+    },
+    "H": {
+        "gga": {
+            "dzp": {
+                "H_gga_10au_100Ry_2s1p.orb": {
+                    "radiusCutoff": 10,
+                    "energyCutoff": 100,
+                    "basisFunctions": "2s1p"
+                },
+                "H_gga_6au_100Ry_2s1p.orb": {
+                    "radiusCutoff": 6,
+                    "energyCutoff": 100,
+                    "basisFunctions": "2s1p"
+                },
+                "H_gga_7au_100Ry_2s1p.orb": {
+                    "radiusCutoff": 7,
+                    "energyCutoff": 100,
+                    "basisFunctions": "2s1p"
+                },
+                "H_gga_8au_100Ry_2s1p.orb": {
+                    "radiusCutoff": 8,
+                    "energyCutoff": 100,
+                    "basisFunctions": "2s1p"
+                },
+                "H_gga_9au_100Ry_2s1p.orb": {
+                    "radiusCutoff": 9,
+                    "energyCutoff": 100,
+                    "basisFunctions": "2s1p"
+                }
+            },
+            "tzdp": {
+                "H_gga_10au_100Ry_3s2p.orb": {
+                    "radiusCutoff": 10,
+                    "energyCutoff": 100,
+                    "basisFunctions": "3s2p"
+                },
+                "H_gga_6au_100Ry_3s2p.orb": {
+                    "radiusCutoff": 6,
+                    "energyCutoff": 100,
+                    "basisFunctions": "3s2p"
+                },
+                "H_gga_7au_100Ry_3s2p.orb": {
+                    "radiusCutoff": 7,
+                    "energyCutoff": 100,
+                    "basisFunctions": "3s2p"
+                },
+                "H_gga_8au_100Ry_3s2p.orb": {
+                    "radiusCutoff": 8,
+                    "energyCutoff": 100,
+                    "basisFunctions": "3s2p"
+                },
+                "H_gga_9au_100Ry_3s2p.orb": {
+                    "radiusCutoff": 9,
+                    "energyCutoff": 100,
+                    "basisFunctions": "3s2p"
+                }
+            }
+        }
+    },
+    "Ca": {
+        "gga": {
+            "dzp": {
+                "Ca_gga_10au_100Ry_4s2p1d.orb": {
+                    "radiusCutoff": 10,
+                    "energyCutoff": 100,
+                    "basisFunctions": "4s2p1d"
+                },
+                "Ca_gga_11au_100Ry_4s2p1d.orb": {
+                    "radiusCutoff": 11,
+                    "energyCutoff": 100,
+                    "basisFunctions": "4s2p1d"
+                },
+                "Ca_gga_9au_100Ry_4s2p1d.orb": {
+                    "radiusCutoff": 9,
+                    "energyCutoff": 100,
+                    "basisFunctions": "4s2p1d"
+                }
+            },
+            "tzdp": {
+                "Ca_gga_10au_100Ry_6s3p2d.orb": {
+                    "radiusCutoff": 10,
+                    "energyCutoff": 100,
+                    "basisFunctions": "6s3p2d"
+                },
+                "Ca_gga_11au_100Ry_6s3p2d.orb": {
+                    "radiusCutoff": 11,
+                    "energyCutoff": 100,
+                    "basisFunctions": "6s3p2d"
+                },
+                "Ca_gga_9au_100Ry_6s3p2d.orb": {
+                    "radiusCutoff": 9,
+                    "energyCutoff": 100,
+                    "basisFunctions": "6s3p2d"
+                }
+            }
+        }
+    },
+    "Sc": {
+        "gga": {
+            "dzp": {
+                "Sc_gga_10au_100Ry_4s2p2d1f.orb": {
+                    "radiusCutoff": 10,
+                    "energyCutoff": 100,
+                    "basisFunctions": "4s2p2d1f"
+                },
+                "Sc_gga_6au_100Ry_4s2p2d1f.orb": {
+                    "radiusCutoff": 6,
+                    "energyCutoff": 100,
+                    "basisFunctions": "4s2p2d1f"
+                },
+                "Sc_gga_7au_100Ry_4s2p2d1f.orb": {
+                    "radiusCutoff": 7,
+                    "energyCutoff": 100,
+                    "basisFunctions": "4s2p2d1f"
+                },
+                "Sc_gga_8au_100Ry_4s2p2d1f.orb": {
+                    "radiusCutoff": 8,
+                    "energyCutoff": 100,
+                    "basisFunctions": "4s2p2d1f"
+                },
+                "Sc_gga_9au_100Ry_4s2p2d1f.orb": {
+                    "radiusCutoff": 9,
+                    "energyCutoff": 100,
+                    "basisFunctions": "4s2p2d1f"
+                }
+            },
+            "tzdp": {
+                "Sc_gga_10au_100Ry_6s3p3d2f.orb": {
+                    "radiusCutoff": 10,
+                    "energyCutoff": 100,
+                    "basisFunctions": "6s3p3d2f"
+                },
+                "Sc_gga_6au_100Ry_6s3p3d2f.orb": {
+                    "radiusCutoff": 6,
+                    "energyCutoff": 100,
+                    "basisFunctions": "6s3p3d2f"
+                },
+                "Sc_gga_7au_100Ry_6s3p3d2f.orb": {
+                    "radiusCutoff": 7,
+                    "energyCutoff": 100,
+                    "basisFunctions": "6s3p3d2f"
+                },
+                "Sc_gga_8au_100Ry_6s3p3d2f.orb": {
+                    "radiusCutoff": 8,
+                    "energyCutoff": 100,
+                    "basisFunctions": "6s3p3d2f"
+                },
+                "Sc_gga_9au_100Ry_6s3p3d2f.orb": {
+                    "radiusCutoff": 9,
+                    "energyCutoff": 100,
+                    "basisFunctions": "6s3p3d2f"
+                }
             }
         }
     },
     "Ti": {
         "gga": {
-            "Ti_gga_10au_100Ry_4s2p2d1f.orb": {
-                "radiusCutoff": 10,
-                "energyCutoff": 100,
-                "valenceElectrons": "4s2p2d1f"
+            "dzp": {
+                "Ti_gga_10au_100Ry_4s2p2d1f.orb": {
+                    "radiusCutoff": 10,
+                    "energyCutoff": 100,
+                    "basisFunctions": "4s2p2d1f"
+                },
+                "Ti_gga_6au_100Ry_4s2p2d1f.orb": {
+                    "radiusCutoff": 6,
+                    "energyCutoff": 100,
+                    "basisFunctions": "4s2p2d1f"
+                },
+                "Ti_gga_7au_100Ry_4s2p2d1f.orb": {
+                    "radiusCutoff": 7,
+                    "energyCutoff": 100,
+                    "basisFunctions": "4s2p2d1f"
+                },
+                "Ti_gga_8au_100Ry_4s2p2d1f.orb": {
+                    "radiusCutoff": 8,
+                    "energyCutoff": 100,
+                    "basisFunctions": "4s2p2d1f"
+                },
+                "Ti_gga_9au_100Ry_4s2p2d1f.orb": {
+                    "radiusCutoff": 9,
+                    "energyCutoff": 100,
+                    "basisFunctions": "4s2p2d1f"
+                }
+            },
+            "tzdp": {
+                "Ti_gga_10au_100Ry_6s3p3d2f.orb": {
+                    "radiusCutoff": 10,
+                    "energyCutoff": 100,
+                    "basisFunctions": "6s3p3d2f"
+                },
+                "Ti_gga_6au_100Ry_6s3p3d2f.orb": {
+                    "radiusCutoff": 6,
+                    "energyCutoff": 100,
+                    "basisFunctions": "6s3p3d2f"
+                },
+                "Ti_gga_7au_100Ry_6s3p3d2f.orb": {
+                    "radiusCutoff": 7,
+                    "energyCutoff": 100,
+                    "basisFunctions": "6s3p3d2f"
+                },
+                "Ti_gga_8au_100Ry_6s3p3d2f.orb": {
+                    "radiusCutoff": 8,
+                    "energyCutoff": 100,
+                    "basisFunctions": "6s3p3d2f"
+                },
+                "Ti_gga_9au_100Ry_6s3p3d2f.orb": {
+                    "radiusCutoff": 9,
+                    "energyCutoff": 100,
+                    "basisFunctions": "6s3p3d2f"
+                }
+            }
+        }
+    },
+    "V": {
+        "gga": {
+            "dzp": {
+                "V_gga_10au_100Ry_4s2p2d1f.orb": {
+                    "radiusCutoff": 10,
+                    "energyCutoff": 100,
+                    "basisFunctions": "4s2p2d1f"
+                },
+                "V_gga_6au_100Ry_4s2p2d1f.orb": {
+                    "radiusCutoff": 6,
+                    "energyCutoff": 100,
+                    "basisFunctions": "4s2p2d1f"
+                },
+                "V_gga_7au_100Ry_4s2p2d1f.orb": {
+                    "radiusCutoff": 7,
+                    "energyCutoff": 100,
+                    "basisFunctions": "4s2p2d1f"
+                },
+                "V_gga_8au_100Ry_4s2p2d1f.orb": {
+                    "radiusCutoff": 8,
+                    "energyCutoff": 100,
+                    "basisFunctions": "4s2p2d1f"
+                },
+                "V_gga_9au_100Ry_4s2p2d1f.orb": {
+                    "radiusCutoff": 9,
+                    "energyCutoff": 100,
+                    "basisFunctions": "4s2p2d1f"
+                }
+            },
+            "tzdp": {
+                "V_gga_10au_100Ry_6s3p3d2f.orb": {
+                    "radiusCutoff": 10,
+                    "energyCutoff": 100,
+                    "basisFunctions": "6s3p3d2f"
+                },
+                "V_gga_6au_100Ry_6s3p3d2f.orb": {
+                    "radiusCutoff": 6,
+                    "energyCutoff": 100,
+                    "basisFunctions": "6s3p3d2f"
+                },
+                "V_gga_7au_100Ry_6s3p3d2f.orb": {
+                    "radiusCutoff": 7,
+                    "energyCutoff": 100,
+                    "basisFunctions": "6s3p3d2f"
+                },
+                "V_gga_8au_100Ry_6s3p3d2f.orb": {
+                    "radiusCutoff": 8,
+                    "energyCutoff": 100,
+                    "basisFunctions": "6s3p3d2f"
+                },
+                "V_gga_9au_100Ry_6s3p3d2f.orb": {
+                    "radiusCutoff": 9,
+                    "energyCutoff": 100,
+                    "basisFunctions": "6s3p3d2f"
+                }
+            }
+        }
+    },
+    "Cr": {
+        "gga": {
+            "dzp": {
+                "Cr_gga_10au_100Ry_4s2p2d1f.orb": {
+                    "radiusCutoff": 10,
+                    "energyCutoff": 100,
+                    "basisFunctions": "4s2p2d1f"
+                },
+                "Cr_gga_7au_100Ry_4s2p2d1f.orb": {
+                    "radiusCutoff": 7,
+                    "energyCutoff": 100,
+                    "basisFunctions": "4s2p2d1f"
+                },
+                "Cr_gga_8au_100Ry_4s2p2d1f.orb": {
+                    "radiusCutoff": 8,
+                    "energyCutoff": 100,
+                    "basisFunctions": "4s2p2d1f"
+                },
+                "Cr_gga_9au_100Ry_4s2p2d1f.orb": {
+                    "radiusCutoff": 9,
+                    "energyCutoff": 100,
+                    "basisFunctions": "4s2p2d1f"
+                }
+            },
+            "tzdp": {
+                "Cr_gga_10au_100Ry_6s3p3d2f.orb": {
+                    "radiusCutoff": 10,
+                    "energyCutoff": 100,
+                    "basisFunctions": "6s3p3d2f"
+                },
+                "Cr_gga_7au_100Ry_6s3p3d2f.orb": {
+                    "radiusCutoff": 7,
+                    "energyCutoff": 100,
+                    "basisFunctions": "6s3p3d2f"
+                },
+                "Cr_gga_8au_100Ry_6s3p3d2f.orb": {
+                    "radiusCutoff": 8,
+                    "energyCutoff": 100,
+                    "basisFunctions": "6s3p3d2f"
+                },
+                "Cr_gga_9au_100Ry_6s3p3d2f.orb": {
+                    "radiusCutoff": 9,
+                    "energyCutoff": 100,
+                    "basisFunctions": "6s3p3d2f"
+                }
+            }
+        }
+    },
+    "Mn": {
+        "gga": {
+            "dzp": {
+                "Mn_gga_10au_100Ry_4s2p2d1f.orb": {
+                    "radiusCutoff": 10,
+                    "energyCutoff": 100,
+                    "basisFunctions": "4s2p2d1f"
+                },
+                "Mn_gga_6au_100Ry_4s2p2d1f.orb": {
+                    "radiusCutoff": 6,
+                    "energyCutoff": 100,
+                    "basisFunctions": "4s2p2d1f"
+                },
+                "Mn_gga_7au_100Ry_4s2p2d1f.orb": {
+                    "radiusCutoff": 7,
+                    "energyCutoff": 100,
+                    "basisFunctions": "4s2p2d1f"
+                },
+                "Mn_gga_8au_100Ry_4s2p2d1f.orb": {
+                    "radiusCutoff": 8,
+                    "energyCutoff": 100,
+                    "basisFunctions": "4s2p2d1f"
+                },
+                "Mn_gga_9au_100Ry_4s2p2d1f.orb": {
+                    "radiusCutoff": 9,
+                    "energyCutoff": 100,
+                    "basisFunctions": "4s2p2d1f"
+                }
+            },
+            "tzdp": {
+                "Mn_gga_10au_100Ry_6s3p3d2f.orb": {
+                    "radiusCutoff": 10,
+                    "energyCutoff": 100,
+                    "basisFunctions": "6s3p3d2f"
+                },
+                "Mn_gga_6au_100Ry_6s3p3d2f.orb": {
+                    "radiusCutoff": 6,
+                    "energyCutoff": 100,
+                    "basisFunctions": "6s3p3d2f"
+                },
+                "Mn_gga_7au_100Ry_6s3p3d2f.orb": {
+                    "radiusCutoff": 7,
+                    "energyCutoff": 100,
+                    "basisFunctions": "6s3p3d2f"
+                },
+                "Mn_gga_8au_100Ry_6s3p3d2f.orb": {
+                    "radiusCutoff": 8,
+                    "energyCutoff": 100,
+                    "basisFunctions": "6s3p3d2f"
+                },
+                "Mn_gga_9au_100Ry_6s3p3d2f.orb": {
+                    "radiusCutoff": 9,
+                    "energyCutoff": 100,
+                    "basisFunctions": "6s3p3d2f"
+                }
+            }
+        }
+    },
+    "Fe": {
+        "gga": {
+            "dzp": {
+                "Fe_gga_10au_100Ry_4s2p2d1f.orb": {
+                    "radiusCutoff": 10,
+                    "energyCutoff": 100,
+                    "basisFunctions": "4s2p2d1f"
+                },
+                "Fe_gga_7au_100Ry_4s2p2d1f.orb": {
+                    "radiusCutoff": 7,
+                    "energyCutoff": 100,
+                    "basisFunctions": "4s2p2d1f"
+                },
+                "Fe_gga_8au_100Ry_4s2p2d1f.orb": {
+                    "radiusCutoff": 8,
+                    "energyCutoff": 100,
+                    "basisFunctions": "4s2p2d1f"
+                },
+                "Fe_gga_9au_100Ry_4s2p2d1f.orb": {
+                    "radiusCutoff": 9,
+                    "energyCutoff": 100,
+                    "basisFunctions": "4s2p2d1f"
+                }
+            },
+            "tzdp": {
+                "Fe_gga_10au_100Ry_6s3p3d2f.orb": {
+                    "radiusCutoff": 10,
+                    "energyCutoff": 100,
+                    "basisFunctions": "6s3p3d2f"
+                },
+                "Fe_gga_7au_100Ry_6s3p3d2f.orb": {
+                    "radiusCutoff": 7,
+                    "energyCutoff": 100,
+                    "basisFunctions": "6s3p3d2f"
+                },
+                "Fe_gga_8au_100Ry_6s3p3d2f.orb": {
+                    "radiusCutoff": 8,
+                    "energyCutoff": 100,
+                    "basisFunctions": "6s3p3d2f"
+                },
+                "Fe_gga_9au_100Ry_6s3p3d2f.orb": {
+                    "radiusCutoff": 9,
+                    "energyCutoff": 100,
+                    "basisFunctions": "6s3p3d2f"
+                }
+            }
+        }
+    },
+    "Co": {
+        "gga": {
+            "dzp": {
+                "Co_gga_10au_100Ry_4s2p2d1f.orb": {
+                    "radiusCutoff": 10,
+                    "energyCutoff": 100,
+                    "basisFunctions": "4s2p2d1f"
+                },
+                "Co_gga_7au_100Ry_4s2p2d1f.orb": {
+                    "radiusCutoff": 7,
+                    "energyCutoff": 100,
+                    "basisFunctions": "4s2p2d1f"
+                },
+                "Co_gga_8au_100Ry_4s2p2d1f.orb": {
+                    "radiusCutoff": 8,
+                    "energyCutoff": 100,
+                    "basisFunctions": "4s2p2d1f"
+                },
+                "Co_gga_9au_100Ry_4s2p2d1f.orb": {
+                    "radiusCutoff": 9,
+                    "energyCutoff": 100,
+                    "basisFunctions": "4s2p2d1f"
+                }
+            },
+            "tzdp": {
+                "Co_gga_10au_100Ry_6s3p3d2f.orb": {
+                    "radiusCutoff": 10,
+                    "energyCutoff": 100,
+                    "basisFunctions": "6s3p3d2f"
+                },
+                "Co_gga_7au_100Ry_6s3p3d2f.orb": {
+                    "radiusCutoff": 7,
+                    "energyCutoff": 100,
+                    "basisFunctions": "6s3p3d2f"
+                },
+                "Co_gga_8au_100Ry_6s3p3d2f.orb": {
+                    "radiusCutoff": 8,
+                    "energyCutoff": 100,
+                    "basisFunctions": "6s3p3d2f"
+                },
+                "Co_gga_9au_100Ry_6s3p3d2f.orb": {
+                    "radiusCutoff": 9,
+                    "energyCutoff": 100,
+                    "basisFunctions": "6s3p3d2f"
+                }
+            }
+        }
+    },
+    "Ni": {
+        "gga": {
+            "dzp": {
+                "Ni_gga_10au_100Ry_4s2p2d1f.orb": {
+                    "radiusCutoff": 10,
+                    "energyCutoff": 100,
+                    "basisFunctions": "4s2p2d1f"
+                },
+                "Ni_gga_6au_100Ry_4s2p2d1f.orb": {
+                    "radiusCutoff": 6,
+                    "energyCutoff": 100,
+                    "basisFunctions": "4s2p2d1f"
+                },
+                "Ni_gga_7au_100Ry_4s2p2d1f.orb": {
+                    "radiusCutoff": 7,
+                    "energyCutoff": 100,
+                    "basisFunctions": "4s2p2d1f"
+                },
+                "Ni_gga_8au_100Ry_4s2p2d1f.orb": {
+                    "radiusCutoff": 8,
+                    "energyCutoff": 100,
+                    "basisFunctions": "4s2p2d1f"
+                },
+                "Ni_gga_9au_100Ry_4s2p2d1f.orb": {
+                    "radiusCutoff": 9,
+                    "energyCutoff": 100,
+                    "basisFunctions": "4s2p2d1f"
+                }
+            },
+            "tzdp": {
+                "Ni_gga_10au_100Ry_6s3p3d2f.orb": {
+                    "radiusCutoff": 10,
+                    "energyCutoff": 100,
+                    "basisFunctions": "6s3p3d2f"
+                },
+                "Ni_gga_6au_100Ry_6s3p3d2f.orb": {
+                    "radiusCutoff": 6,
+                    "energyCutoff": 100,
+                    "basisFunctions": "6s3p3d2f"
+                },
+                "Ni_gga_7au_100Ry_6s3p3d2f.orb": {
+                    "radiusCutoff": 7,
+                    "energyCutoff": 100,
+                    "basisFunctions": "6s3p3d2f"
+                },
+                "Ni_gga_8au_100Ry_6s3p3d2f.orb": {
+                    "radiusCutoff": 8,
+                    "energyCutoff": 100,
+                    "basisFunctions": "6s3p3d2f"
+                },
+                "Ni_gga_9au_100Ry_6s3p3d2f.orb": {
+                    "radiusCutoff": 9,
+                    "energyCutoff": 100,
+                    "basisFunctions": "6s3p3d2f"
+                }
+            }
+        }
+    },
+    "Cu": {
+        "gga": {
+            "dzp": {
+                "Cu_gga_10au_100Ry_4s2p2d1f.orb": {
+                    "radiusCutoff": 10,
+                    "energyCutoff": 100,
+                    "basisFunctions": "4s2p2d1f"
+                },
+                "Cu_gga_8au_100Ry_4s2p2d1f.orb": {
+                    "radiusCutoff": 8,
+                    "energyCutoff": 100,
+                    "basisFunctions": "4s2p2d1f"
+                },
+                "Cu_gga_9au_100Ry_4s2p2d1f.orb": {
+                    "radiusCutoff": 9,
+                    "energyCutoff": 100,
+                    "basisFunctions": "4s2p2d1f"
+                }
+            },
+            "tzdp": {
+                "Cu_gga_10au_100Ry_6s3p3d2f.orb": {
+                    "radiusCutoff": 10,
+                    "energyCutoff": 100,
+                    "basisFunctions": "6s3p3d2f"
+                },
+                "Cu_gga_8au_100Ry_6s3p3d2f.orb": {
+                    "radiusCutoff": 8,
+                    "energyCutoff": 100,
+                    "basisFunctions": "6s3p3d2f"
+                },
+                "Cu_gga_9au_100Ry_6s3p3d2f.orb": {
+                    "radiusCutoff": 9,
+                    "energyCutoff": 100,
+                    "basisFunctions": "6s3p3d2f"
+                }
+            }
+        }
+    },
+    "He": {
+        "gga": {
+            "dzp": {
+                "He_gga_10au_100Ry_2s1p.orb": {
+                    "radiusCutoff": 10,
+                    "energyCutoff": 100,
+                    "basisFunctions": "2s1p"
+                },
+                "He_gga_6au_100Ry_2s1p.orb": {
+                    "radiusCutoff": 6,
+                    "energyCutoff": 100,
+                    "basisFunctions": "2s1p"
+                },
+                "He_gga_7au_100Ry_2s1p.orb": {
+                    "radiusCutoff": 7,
+                    "energyCutoff": 100,
+                    "basisFunctions": "2s1p"
+                },
+                "He_gga_8au_100Ry_2s1p.orb": {
+                    "radiusCutoff": 8,
+                    "energyCutoff": 100,
+                    "basisFunctions": "2s1p"
+                },
+                "He_gga_9au_100Ry_2s1p.orb": {
+                    "radiusCutoff": 9,
+                    "energyCutoff": 100,
+                    "basisFunctions": "2s1p"
+                }
+            },
+            "tzdp": {
+                "He_gga_10au_100Ry_3s2p.orb": {
+                    "radiusCutoff": 10,
+                    "energyCutoff": 100,
+                    "basisFunctions": "3s2p"
+                },
+                "He_gga_6au_100Ry_3s2p.orb": {
+                    "radiusCutoff": 6,
+                    "energyCutoff": 100,
+                    "basisFunctions": "3s2p"
+                },
+                "He_gga_7au_100Ry_3s2p.orb": {
+                    "radiusCutoff": 7,
+                    "energyCutoff": 100,
+                    "basisFunctions": "3s2p"
+                },
+                "He_gga_8au_100Ry_3s2p.orb": {
+                    "radiusCutoff": 8,
+                    "energyCutoff": 100,
+                    "basisFunctions": "3s2p"
+                },
+                "He_gga_9au_100Ry_3s2p.orb": {
+                    "radiusCutoff": 9,
+                    "energyCutoff": 100,
+                    "basisFunctions": "3s2p"
+                }
+            }
+        }
+    },
+    "Zn": {
+        "gga": {
+            "dzp": {
+                "Zn_gga_10au_100Ry_4s2p2d1f.orb": {
+                    "radiusCutoff": 10,
+                    "energyCutoff": 100,
+                    "basisFunctions": "4s2p2d1f"
+                },
+                "Zn_gga_6au_100Ry_4s2p2d1f.orb": {
+                    "radiusCutoff": 6,
+                    "energyCutoff": 100,
+                    "basisFunctions": "4s2p2d1f"
+                },
+                "Zn_gga_7au_100Ry_4s2p2d1f.orb": {
+                    "radiusCutoff": 7,
+                    "energyCutoff": 100,
+                    "basisFunctions": "4s2p2d1f"
+                },
+                "Zn_gga_8au_100Ry_4s2p2d1f.orb": {
+                    "radiusCutoff": 8,
+                    "energyCutoff": 100,
+                    "basisFunctions": "4s2p2d1f"
+                },
+                "Zn_gga_9au_100Ry_4s2p2d1f.orb": {
+                    "radiusCutoff": 9,
+                    "energyCutoff": 100,
+                    "basisFunctions": "4s2p2d1f"
+                }
+            },
+            "tzdp": {
+                "Zn_gga_10au_100Ry_6s3p3d2f.orb": {
+                    "radiusCutoff": 10,
+                    "energyCutoff": 100,
+                    "basisFunctions": "6s3p3d2f"
+                },
+                "Zn_gga_6au_100Ry_6s3p3d2f.orb": {
+                    "radiusCutoff": 6,
+                    "energyCutoff": 100,
+                    "basisFunctions": "6s3p3d2f"
+                },
+                "Zn_gga_7au_100Ry_6s3p3d2f.orb": {
+                    "radiusCutoff": 7,
+                    "energyCutoff": 100,
+                    "basisFunctions": "6s3p3d2f"
+                },
+                "Zn_gga_8au_100Ry_6s3p3d2f.orb": {
+                    "radiusCutoff": 8,
+                    "energyCutoff": 100,
+                    "basisFunctions": "6s3p3d2f"
+                },
+                "Zn_gga_9au_100Ry_6s3p3d2f.orb": {
+                    "radiusCutoff": 9,
+                    "energyCutoff": 100,
+                    "basisFunctions": "6s3p3d2f"
+                }
+            }
+        }
+    },
+    "Ga": {
+        "gga": {
+            "dzp": {
+                "Ga_gga_10au_100Ry_2s2p2d1f.orb": {
+                    "radiusCutoff": 10,
+                    "energyCutoff": 100,
+                    "basisFunctions": "2s2p2d1f"
+                },
+                "Ga_gga_7au_100Ry_2s2p2d1f.orb": {
+                    "radiusCutoff": 7,
+                    "energyCutoff": 100,
+                    "basisFunctions": "2s2p2d1f"
+                },
+                "Ga_gga_8au_100Ry_2s2p2d1f.orb": {
+                    "radiusCutoff": 8,
+                    "energyCutoff": 100,
+                    "basisFunctions": "2s2p2d1f"
+                },
+                "Ga_gga_9au_100Ry_2s2p2d1f.orb": {
+                    "radiusCutoff": 9,
+                    "energyCutoff": 100,
+                    "basisFunctions": "2s2p2d1f"
+                }
+            },
+            "tzdp": {
+                "Ga_gga_10au_100Ry_3s3p3d2f.orb": {
+                    "radiusCutoff": 10,
+                    "energyCutoff": 100,
+                    "basisFunctions": "3s3p3d2f"
+                },
+                "Ga_gga_7au_100Ry_3s3p3d2f.orb": {
+                    "radiusCutoff": 7,
+                    "energyCutoff": 100,
+                    "basisFunctions": "3s3p3d2f"
+                },
+                "Ga_gga_8au_100Ry_3s3p3d2f.orb": {
+                    "radiusCutoff": 8,
+                    "energyCutoff": 100,
+                    "basisFunctions": "3s3p3d2f"
+                },
+                "Ga_gga_9au_100Ry_3s3p3d2f.orb": {
+                    "radiusCutoff": 9,
+                    "energyCutoff": 100,
+                    "basisFunctions": "3s3p3d2f"
+                }
+            }
+        }
+    },
+    "Ge": {
+        "gga": {
+            "dzp": {
+                "Ge_gga_10au_100Ry_2s2p2d1f.orb": {
+                    "radiusCutoff": 10,
+                    "energyCutoff": 100,
+                    "basisFunctions": "2s2p2d1f"
+                },
+                "Ge_gga_7au_100Ry_2s2p2d1f.orb": {
+                    "radiusCutoff": 7,
+                    "energyCutoff": 100,
+                    "basisFunctions": "2s2p2d1f"
+                },
+                "Ge_gga_8au_100Ry_2s2p2d1f.orb": {
+                    "radiusCutoff": 8,
+                    "energyCutoff": 100,
+                    "basisFunctions": "2s2p2d1f"
+                },
+                "Ge_gga_9au_100Ry_2s2p2d1f.orb": {
+                    "radiusCutoff": 9,
+                    "energyCutoff": 100,
+                    "basisFunctions": "2s2p2d1f"
+                }
+            },
+            "tzdp": {
+                "Ge_gga_10au_100Ry_3s3p3d2f.orb": {
+                    "radiusCutoff": 10,
+                    "energyCutoff": 100,
+                    "basisFunctions": "3s3p3d2f"
+                },
+                "Ge_gga_7au_100Ry_3s3p3d2f.orb": {
+                    "radiusCutoff": 7,
+                    "energyCutoff": 100,
+                    "basisFunctions": "3s3p3d2f"
+                },
+                "Ge_gga_8au_100Ry_3s3p3d2f.orb": {
+                    "radiusCutoff": 8,
+                    "energyCutoff": 100,
+                    "basisFunctions": "3s3p3d2f"
+                },
+                "Ge_gga_9au_100Ry_3s3p3d2f.orb": {
+                    "radiusCutoff": 9,
+                    "energyCutoff": 100,
+                    "basisFunctions": "3s3p3d2f"
+                }
+            }
+        }
+    },
+    "As": {
+        "gga": {
+            "dzp": {
+                "As_gga_10au_100Ry_2s2p1d.orb": {
+                    "radiusCutoff": 10,
+                    "energyCutoff": 100,
+                    "basisFunctions": "2s2p1d"
+                },
+                "As_gga_7au_100Ry_2s2p1d.orb": {
+                    "radiusCutoff": 7,
+                    "energyCutoff": 100,
+                    "basisFunctions": "2s2p1d"
+                },
+                "As_gga_8au_100Ry_2s2p1d.orb": {
+                    "radiusCutoff": 8,
+                    "energyCutoff": 100,
+                    "basisFunctions": "2s2p1d"
+                },
+                "As_gga_9au_100Ry_2s2p1d.orb": {
+                    "radiusCutoff": 9,
+                    "energyCutoff": 100,
+                    "basisFunctions": "2s2p1d"
+                }
+            },
+            "tzdp": {
+                "As_gga_10au_100Ry_3s3p2d.orb": {
+                    "radiusCutoff": 10,
+                    "energyCutoff": 100,
+                    "basisFunctions": "3s3p2d"
+                },
+                "As_gga_7au_100Ry_3s3p2d.orb": {
+                    "radiusCutoff": 7,
+                    "energyCutoff": 100,
+                    "basisFunctions": "3s3p2d"
+                },
+                "As_gga_8au_100Ry_3s3p2d.orb": {
+                    "radiusCutoff": 8,
+                    "energyCutoff": 100,
+                    "basisFunctions": "3s3p2d"
+                },
+                "As_gga_9au_100Ry_3s3p2d.orb": {
+                    "radiusCutoff": 9,
+                    "energyCutoff": 100,
+                    "basisFunctions": "3s3p2d"
+                }
+            }
+        }
+    },
+    "Se": {
+        "gga": {
+            "dzp": {
+                "Se_gga_10au_100Ry_2s2p1d.orb": {
+                    "radiusCutoff": 10,
+                    "energyCutoff": 100,
+                    "basisFunctions": "2s2p1d"
+                },
+                "Se_gga_6au_100Ry_2s2p1d.orb": {
+                    "radiusCutoff": 6,
+                    "energyCutoff": 100,
+                    "basisFunctions": "2s2p1d"
+                },
+                "Se_gga_7au_100Ry_2s2p1d.orb": {
+                    "radiusCutoff": 7,
+                    "energyCutoff": 100,
+                    "basisFunctions": "2s2p1d"
+                },
+                "Se_gga_8au_100Ry_2s2p1d.orb": {
+                    "radiusCutoff": 8,
+                    "energyCutoff": 100,
+                    "basisFunctions": "2s2p1d"
+                },
+                "Se_gga_9au_100Ry_2s2p1d.orb": {
+                    "radiusCutoff": 9,
+                    "energyCutoff": 100,
+                    "basisFunctions": "2s2p1d"
+                }
+            },
+            "tzdp": {
+                "Se_gga_10au_100Ry_3s3p2d.orb": {
+                    "radiusCutoff": 10,
+                    "energyCutoff": 100,
+                    "basisFunctions": "3s3p2d"
+                },
+                "Se_gga_6au_100Ry_3s3p2d.orb": {
+                    "radiusCutoff": 6,
+                    "energyCutoff": 100,
+                    "basisFunctions": "3s3p2d"
+                },
+                "Se_gga_7au_100Ry_3s3p2d.orb": {
+                    "radiusCutoff": 7,
+                    "energyCutoff": 100,
+                    "basisFunctions": "3s3p2d"
+                },
+                "Se_gga_8au_100Ry_3s3p2d.orb": {
+                    "radiusCutoff": 8,
+                    "energyCutoff": 100,
+                    "basisFunctions": "3s3p2d"
+                },
+                "Se_gga_9au_100Ry_3s3p2d.orb": {
+                    "radiusCutoff": 9,
+                    "energyCutoff": 100,
+                    "basisFunctions": "3s3p2d"
+                }
+            }
+        }
+    },
+    "Br": {
+        "gga": {
+            "dzp": {
+                "Br_gga_10au_100Ry_2s2p1d.orb": {
+                    "radiusCutoff": 10,
+                    "energyCutoff": 100,
+                    "basisFunctions": "2s2p1d"
+                },
+                "Br_gga_6au_100Ry_2s2p1d.orb": {
+                    "radiusCutoff": 6,
+                    "energyCutoff": 100,
+                    "basisFunctions": "2s2p1d"
+                },
+                "Br_gga_7au_100Ry_2s2p1d.orb": {
+                    "radiusCutoff": 7,
+                    "energyCutoff": 100,
+                    "basisFunctions": "2s2p1d"
+                },
+                "Br_gga_8au_100Ry_2s2p1d.orb": {
+                    "radiusCutoff": 8,
+                    "energyCutoff": 100,
+                    "basisFunctions": "2s2p1d"
+                },
+                "Br_gga_9au_100Ry_2s2p1d.orb": {
+                    "radiusCutoff": 9,
+                    "energyCutoff": 100,
+                    "basisFunctions": "2s2p1d"
+                }
+            },
+            "tzdp": {
+                "Br_gga_10au_100Ry_3s3p2d.orb": {
+                    "radiusCutoff": 10,
+                    "energyCutoff": 100,
+                    "basisFunctions": "3s3p2d"
+                },
+                "Br_gga_6au_100Ry_3s3p2d.orb": {
+                    "radiusCutoff": 6,
+                    "energyCutoff": 100,
+                    "basisFunctions": "3s3p2d"
+                },
+                "Br_gga_7au_100Ry_3s3p2d.orb": {
+                    "radiusCutoff": 7,
+                    "energyCutoff": 100,
+                    "basisFunctions": "3s3p2d"
+                },
+                "Br_gga_8au_100Ry_3s3p2d.orb": {
+                    "radiusCutoff": 8,
+                    "energyCutoff": 100,
+                    "basisFunctions": "3s3p2d"
+                },
+                "Br_gga_9au_100Ry_3s3p2d.orb": {
+                    "radiusCutoff": 9,
+                    "energyCutoff": 100,
+                    "basisFunctions": "3s3p2d"
+                }
+            }
+        }
+    },
+    "Kr": {
+        "gga": {
+            "dzp": {
+                "Kr_gga_10au_100Ry_2s2p1d.orb": {
+                    "radiusCutoff": 10,
+                    "energyCutoff": 100,
+                    "basisFunctions": "2s2p1d"
+                },
+                "Kr_gga_6au_100Ry_2s2p1d.orb": {
+                    "radiusCutoff": 6,
+                    "energyCutoff": 100,
+                    "basisFunctions": "2s2p1d"
+                },
+                "Kr_gga_7au_100Ry_2s2p1d.orb": {
+                    "radiusCutoff": 7,
+                    "energyCutoff": 100,
+                    "basisFunctions": "2s2p1d"
+                },
+                "Kr_gga_8au_100Ry_2s2p1d.orb": {
+                    "radiusCutoff": 8,
+                    "energyCutoff": 100,
+                    "basisFunctions": "2s2p1d"
+                },
+                "Kr_gga_9au_100Ry_2s2p1d.orb": {
+                    "radiusCutoff": 9,
+                    "energyCutoff": 100,
+                    "basisFunctions": "2s2p1d"
+                }
+            },
+            "tzdp": {
+                "Kr_gga_10au_100Ry_3s3p2d.orb": {
+                    "radiusCutoff": 10,
+                    "energyCutoff": 100,
+                    "basisFunctions": "3s3p2d"
+                },
+                "Kr_gga_6au_100Ry_3s3p2d.orb": {
+                    "radiusCutoff": 6,
+                    "energyCutoff": 100,
+                    "basisFunctions": "3s3p2d"
+                },
+                "Kr_gga_7au_100Ry_3s3p2d.orb": {
+                    "radiusCutoff": 7,
+                    "energyCutoff": 100,
+                    "basisFunctions": "3s3p2d"
+                },
+                "Kr_gga_8au_100Ry_3s3p2d.orb": {
+                    "radiusCutoff": 8,
+                    "energyCutoff": 100,
+                    "basisFunctions": "3s3p2d"
+                },
+                "Kr_gga_9au_100Ry_3s3p2d.orb": {
+                    "radiusCutoff": 9,
+                    "energyCutoff": 100,
+                    "basisFunctions": "3s3p2d"
+                }
+            }
+        }
+    },
+    "Rb": {
+        "gga": {
+            "dzp": {
+                "Rb_gga_10au_100Ry_4s2p1d.orb": {
+                    "radiusCutoff": 10,
+                    "energyCutoff": 100,
+                    "basisFunctions": "4s2p1d"
+                },
+                "Rb_gga_11au_100Ry_4s2p1d.orb": {
+                    "radiusCutoff": 11,
+                    "energyCutoff": 100,
+                    "basisFunctions": "4s2p1d"
+                },
+                "Rb_gga_9au_100Ry_4s2p1d.orb": {
+                    "radiusCutoff": 9,
+                    "energyCutoff": 100,
+                    "basisFunctions": "4s2p1d"
+                }
+            },
+            "tzdp": {
+                "Rb_gga_10au_100Ry_6s3p2d.orb": {
+                    "radiusCutoff": 10,
+                    "energyCutoff": 100,
+                    "basisFunctions": "6s3p2d"
+                },
+                "Rb_gga_11au_100Ry_6s3p2d.orb": {
+                    "radiusCutoff": 11,
+                    "energyCutoff": 100,
+                    "basisFunctions": "6s3p2d"
+                },
+                "Rb_gga_9au_100Ry_6s3p2d.orb": {
+                    "radiusCutoff": 9,
+                    "energyCutoff": 100,
+                    "basisFunctions": "6s3p2d"
+                }
+            }
+        }
+    },
+    "Sr": {
+        "gga": {
+            "dzp": {
+                "Sr_gga_10au_100Ry_4s2p1d.orb": {
+                    "radiusCutoff": 10,
+                    "energyCutoff": 100,
+                    "basisFunctions": "4s2p1d"
+                },
+                "Sr_gga_11au_100Ry_4s2p1d.orb": {
+                    "radiusCutoff": 11,
+                    "energyCutoff": 100,
+                    "basisFunctions": "4s2p1d"
+                },
+                "Sr_gga_8au_100Ry_4s2p1d.orb": {
+                    "radiusCutoff": 8,
+                    "energyCutoff": 100,
+                    "basisFunctions": "4s2p1d"
+                },
+                "Sr_gga_9au_100Ry_4s2p1d.orb": {
+                    "radiusCutoff": 9,
+                    "energyCutoff": 100,
+                    "basisFunctions": "4s2p1d"
+                }
+            },
+            "tzdp": {
+                "Sr_gga_10au_100Ry_6s3p2d.orb": {
+                    "radiusCutoff": 10,
+                    "energyCutoff": 100,
+                    "basisFunctions": "6s3p2d"
+                },
+                "Sr_gga_11au_100Ry_6s3p2d.orb": {
+                    "radiusCutoff": 11,
+                    "energyCutoff": 100,
+                    "basisFunctions": "6s3p2d"
+                },
+                "Sr_gga_8au_100Ry_6s3p2d.orb": {
+                    "radiusCutoff": 8,
+                    "energyCutoff": 100,
+                    "basisFunctions": "6s3p2d"
+                },
+                "Sr_gga_9au_100Ry_6s3p2d.orb": {
+                    "radiusCutoff": 9,
+                    "energyCutoff": 100,
+                    "basisFunctions": "6s3p2d"
+                }
+            }
+        }
+    },
+    "Y": {
+        "gga": {
+            "dzp": {
+                "Y_gga_10au_100Ry_4s2p2d1f.orb": {
+                    "radiusCutoff": 10,
+                    "energyCutoff": 100,
+                    "basisFunctions": "4s2p2d1f"
+                },
+                "Y_gga_8au_100Ry_4s2p2d1f.orb": {
+                    "radiusCutoff": 8,
+                    "energyCutoff": 100,
+                    "basisFunctions": "4s2p2d1f"
+                },
+                "Y_gga_9au_100Ry_4s2p2d1f.orb": {
+                    "radiusCutoff": 9,
+                    "energyCutoff": 100,
+                    "basisFunctions": "4s2p2d1f"
+                }
+            },
+            "tzdp": {
+                "Y_gga_10au_100Ry_6s3p3d2f.orb": {
+                    "radiusCutoff": 10,
+                    "energyCutoff": 100,
+                    "basisFunctions": "6s3p3d2f"
+                },
+                "Y_gga_8au_100Ry_6s3p3d2f.orb": {
+                    "radiusCutoff": 8,
+                    "energyCutoff": 100,
+                    "basisFunctions": "6s3p3d2f"
+                },
+                "Y_gga_9au_100Ry_6s3p3d2f.orb": {
+                    "radiusCutoff": 9,
+                    "energyCutoff": 100,
+                    "basisFunctions": "6s3p3d2f"
+                }
+            }
+        }
+    },
+    "Li": {
+        "gga": {
+            "dzp": {
+                "Li_gga_10au_100Ry_4s1p.orb": {
+                    "radiusCutoff": 10,
+                    "energyCutoff": 100,
+                    "basisFunctions": "4s1p"
+                },
+                "Li_gga_6au_100Ry_4s1p.orb": {
+                    "radiusCutoff": 6,
+                    "energyCutoff": 100,
+                    "basisFunctions": "4s1p"
+                },
+                "Li_gga_7au_100Ry_4s1p.orb": {
+                    "radiusCutoff": 7,
+                    "energyCutoff": 100,
+                    "basisFunctions": "4s1p"
+                },
+                "Li_gga_8au_100Ry_4s1p.orb": {
+                    "radiusCutoff": 8,
+                    "energyCutoff": 100,
+                    "basisFunctions": "4s1p"
+                },
+                "Li_gga_9au_100Ry_4s1p.orb": {
+                    "radiusCutoff": 9,
+                    "energyCutoff": 100,
+                    "basisFunctions": "4s1p"
+                }
+            },
+            "tzdp": {
+                "Li_gga_10au_100Ry_6s2p.orb": {
+                    "radiusCutoff": 10,
+                    "energyCutoff": 100,
+                    "basisFunctions": "6s2p"
+                },
+                "Li_gga_6au_100Ry_6s2p.orb": {
+                    "radiusCutoff": 6,
+                    "energyCutoff": 100,
+                    "basisFunctions": "6s2p"
+                },
+                "Li_gga_7au_100Ry_6s2p.orb": {
+                    "radiusCutoff": 7,
+                    "energyCutoff": 100,
+                    "basisFunctions": "6s2p"
+                },
+                "Li_gga_8au_100Ry_6s2p.orb": {
+                    "radiusCutoff": 8,
+                    "energyCutoff": 100,
+                    "basisFunctions": "6s2p"
+                },
+                "Li_gga_9au_100Ry_6s2p.orb": {
+                    "radiusCutoff": 9,
+                    "energyCutoff": 100,
+                    "basisFunctions": "6s2p"
+                }
+            }
+        }
+    },
+    "Zr": {
+        "gga": {
+            "dzp": {
+                "Zr_gga_10au_100Ry_4s2p2d1f.orb": {
+                    "radiusCutoff": 10,
+                    "energyCutoff": 100,
+                    "basisFunctions": "4s2p2d1f"
+                },
+                "Zr_gga_6au_100Ry_4s2p2d1f.orb": {
+                    "radiusCutoff": 6,
+                    "energyCutoff": 100,
+                    "basisFunctions": "4s2p2d1f"
+                },
+                "Zr_gga_7au_100Ry_4s2p2d1f.orb": {
+                    "radiusCutoff": 7,
+                    "energyCutoff": 100,
+                    "basisFunctions": "4s2p2d1f"
+                },
+                "Zr_gga_8au_100Ry_4s2p2d1f.orb": {
+                    "radiusCutoff": 8,
+                    "energyCutoff": 100,
+                    "basisFunctions": "4s2p2d1f"
+                },
+                "Zr_gga_9au_100Ry_4s2p2d1f.orb": {
+                    "radiusCutoff": 9,
+                    "energyCutoff": 100,
+                    "basisFunctions": "4s2p2d1f"
+                }
+            },
+            "tzdp": {
+                "Zr_gga_10au_100Ry_6s3p3d2f.orb": {
+                    "radiusCutoff": 10,
+                    "energyCutoff": 100,
+                    "basisFunctions": "6s3p3d2f"
+                },
+                "Zr_gga_6au_100Ry_6s3p3d2f.orb": {
+                    "radiusCutoff": 6,
+                    "energyCutoff": 100,
+                    "basisFunctions": "6s3p3d2f"
+                },
+                "Zr_gga_7au_100Ry_6s3p3d2f.orb": {
+                    "radiusCutoff": 7,
+                    "energyCutoff": 100,
+                    "basisFunctions": "6s3p3d2f"
+                },
+                "Zr_gga_8au_100Ry_6s3p3d2f.orb": {
+                    "radiusCutoff": 8,
+                    "energyCutoff": 100,
+                    "basisFunctions": "6s3p3d2f"
+                },
+                "Zr_gga_9au_100Ry_6s3p3d2f.orb": {
+                    "radiusCutoff": 9,
+                    "energyCutoff": 100,
+                    "basisFunctions": "6s3p3d2f"
+                }
+            }
+        }
+    },
+    "Nb": {
+        "gga": {
+            "dzp": {
+                "Nb_gga_10au_100Ry_4s2p2d1f.orb": {
+                    "radiusCutoff": 10,
+                    "energyCutoff": 100,
+                    "basisFunctions": "4s2p2d1f"
+                },
+                "Nb_gga_6au_100Ry_4s2p2d1f.orb": {
+                    "radiusCutoff": 6,
+                    "energyCutoff": 100,
+                    "basisFunctions": "4s2p2d1f"
+                },
+                "Nb_gga_7au_100Ry_4s2p2d1f.orb": {
+                    "radiusCutoff": 7,
+                    "energyCutoff": 100,
+                    "basisFunctions": "4s2p2d1f"
+                },
+                "Nb_gga_8au_100Ry_4s2p2d1f.orb": {
+                    "radiusCutoff": 8,
+                    "energyCutoff": 100,
+                    "basisFunctions": "4s2p2d1f"
+                },
+                "Nb_gga_9au_100Ry_4s2p2d1f.orb": {
+                    "radiusCutoff": 9,
+                    "energyCutoff": 100,
+                    "basisFunctions": "4s2p2d1f"
+                }
+            },
+            "tzdp": {
+                "Nb_gga_10au_100Ry_6s3p3d2f.orb": {
+                    "radiusCutoff": 10,
+                    "energyCutoff": 100,
+                    "basisFunctions": "6s3p3d2f"
+                },
+                "Nb_gga_6au_100Ry_6s3p3d2f.orb": {
+                    "radiusCutoff": 6,
+                    "energyCutoff": 100,
+                    "basisFunctions": "6s3p3d2f"
+                },
+                "Nb_gga_7au_100Ry_6s3p3d2f.orb": {
+                    "radiusCutoff": 7,
+                    "energyCutoff": 100,
+                    "basisFunctions": "6s3p3d2f"
+                },
+                "Nb_gga_8au_100Ry_6s3p3d2f.orb": {
+                    "radiusCutoff": 8,
+                    "energyCutoff": 100,
+                    "basisFunctions": "6s3p3d2f"
+                },
+                "Nb_gga_9au_100Ry_6s3p3d2f.orb": {
+                    "radiusCutoff": 9,
+                    "energyCutoff": 100,
+                    "basisFunctions": "6s3p3d2f"
+                }
+            }
+        }
+    },
+    "Mo": {
+        "gga": {
+            "dzp": {
+                "Mo_gga_10au_100Ry_4s2p2d1f.orb": {
+                    "radiusCutoff": 10,
+                    "energyCutoff": 100,
+                    "basisFunctions": "4s2p2d1f"
+                },
+                "Mo_gga_6au_100Ry_4s2p2d1f.orb": {
+                    "radiusCutoff": 6,
+                    "energyCutoff": 100,
+                    "basisFunctions": "4s2p2d1f"
+                },
+                "Mo_gga_7au_100Ry_4s2p2d1f.orb": {
+                    "radiusCutoff": 7,
+                    "energyCutoff": 100,
+                    "basisFunctions": "4s2p2d1f"
+                },
+                "Mo_gga_8au_100Ry_4s2p2d1f.orb": {
+                    "radiusCutoff": 8,
+                    "energyCutoff": 100,
+                    "basisFunctions": "4s2p2d1f"
+                },
+                "Mo_gga_9au_100Ry_4s2p2d1f.orb": {
+                    "radiusCutoff": 9,
+                    "energyCutoff": 100,
+                    "basisFunctions": "4s2p2d1f"
+                }
+            },
+            "tzdp": {
+                "Mo_gga_10au_100Ry_6s3p3d2f.orb": {
+                    "radiusCutoff": 10,
+                    "energyCutoff": 100,
+                    "basisFunctions": "6s3p3d2f"
+                },
+                "Mo_gga_6au_100Ry_6s3p3d2f.orb": {
+                    "radiusCutoff": 6,
+                    "energyCutoff": 100,
+                    "basisFunctions": "6s3p3d2f"
+                },
+                "Mo_gga_7au_100Ry_6s3p3d2f.orb": {
+                    "radiusCutoff": 7,
+                    "energyCutoff": 100,
+                    "basisFunctions": "6s3p3d2f"
+                },
+                "Mo_gga_8au_100Ry_6s3p3d2f.orb": {
+                    "radiusCutoff": 8,
+                    "energyCutoff": 100,
+                    "basisFunctions": "6s3p3d2f"
+                },
+                "Mo_gga_9au_100Ry_6s3p3d2f.orb": {
+                    "radiusCutoff": 9,
+                    "energyCutoff": 100,
+                    "basisFunctions": "6s3p3d2f"
+                }
+            }
+        }
+    },
+    "Tc": {
+        "gga": {
+            "dzp": {
+                "Tc_gga_10au_100Ry_4s2p2d1f.orb": {
+                    "radiusCutoff": 10,
+                    "energyCutoff": 100,
+                    "basisFunctions": "4s2p2d1f"
+                },
+                "Tc_gga_6au_100Ry_4s2p2d1f.orb": {
+                    "radiusCutoff": 6,
+                    "energyCutoff": 100,
+                    "basisFunctions": "4s2p2d1f"
+                },
+                "Tc_gga_7au_100Ry_4s2p2d1f.orb": {
+                    "radiusCutoff": 7,
+                    "energyCutoff": 100,
+                    "basisFunctions": "4s2p2d1f"
+                },
+                "Tc_gga_8au_100Ry_4s2p2d1f.orb": {
+                    "radiusCutoff": 8,
+                    "energyCutoff": 100,
+                    "basisFunctions": "4s2p2d1f"
+                },
+                "Tc_gga_9au_100Ry_4s2p2d1f.orb": {
+                    "radiusCutoff": 9,
+                    "energyCutoff": 100,
+                    "basisFunctions": "4s2p2d1f"
+                }
+            },
+            "tzdp": {
+                "Tc_gga_10au_100Ry_6s3p3d2f.orb": {
+                    "radiusCutoff": 10,
+                    "energyCutoff": 100,
+                    "basisFunctions": "6s3p3d2f"
+                },
+                "Tc_gga_6au_100Ry_6s3p3d2f.orb": {
+                    "radiusCutoff": 6,
+                    "energyCutoff": 100,
+                    "basisFunctions": "6s3p3d2f"
+                },
+                "Tc_gga_7au_100Ry_6s3p3d2f.orb": {
+                    "radiusCutoff": 7,
+                    "energyCutoff": 100,
+                    "basisFunctions": "6s3p3d2f"
+                },
+                "Tc_gga_8au_100Ry_6s3p3d2f.orb": {
+                    "radiusCutoff": 8,
+                    "energyCutoff": 100,
+                    "basisFunctions": "6s3p3d2f"
+                },
+                "Tc_gga_9au_100Ry_6s3p3d2f.orb": {
+                    "radiusCutoff": 9,
+                    "energyCutoff": 100,
+                    "basisFunctions": "6s3p3d2f"
+                }
+            }
+        }
+    },
+    "Ru": {
+        "gga": {
+            "dzp": {
+                "Ru_gga_10au_100Ry_4s2p2d1f.orb": {
+                    "radiusCutoff": 10,
+                    "energyCutoff": 100,
+                    "basisFunctions": "4s2p2d1f"
+                },
+                "Ru_gga_6au_100Ry_4s2p2d1f.orb": {
+                    "radiusCutoff": 6,
+                    "energyCutoff": 100,
+                    "basisFunctions": "4s2p2d1f"
+                },
+                "Ru_gga_7au_100Ry_4s2p2d1f.orb": {
+                    "radiusCutoff": 7,
+                    "energyCutoff": 100,
+                    "basisFunctions": "4s2p2d1f"
+                },
+                "Ru_gga_8au_100Ry_4s2p2d1f.orb": {
+                    "radiusCutoff": 8,
+                    "energyCutoff": 100,
+                    "basisFunctions": "4s2p2d1f"
+                },
+                "Ru_gga_9au_100Ry_4s2p2d1f.orb": {
+                    "radiusCutoff": 9,
+                    "energyCutoff": 100,
+                    "basisFunctions": "4s2p2d1f"
+                }
+            },
+            "tzdp": {
+                "Ru_gga_10au_100Ry_6s3p3d2f.orb": {
+                    "radiusCutoff": 10,
+                    "energyCutoff": 100,
+                    "basisFunctions": "6s3p3d2f"
+                },
+                "Ru_gga_6au_100Ry_6s3p3d2f.orb": {
+                    "radiusCutoff": 6,
+                    "energyCutoff": 100,
+                    "basisFunctions": "6s3p3d2f"
+                },
+                "Ru_gga_7au_100Ry_6s3p3d2f.orb": {
+                    "radiusCutoff": 7,
+                    "energyCutoff": 100,
+                    "basisFunctions": "6s3p3d2f"
+                },
+                "Ru_gga_8au_100Ry_6s3p3d2f.orb": {
+                    "radiusCutoff": 8,
+                    "energyCutoff": 100,
+                    "basisFunctions": "6s3p3d2f"
+                },
+                "Ru_gga_9au_100Ry_6s3p3d2f.orb": {
+                    "radiusCutoff": 9,
+                    "energyCutoff": 100,
+                    "basisFunctions": "6s3p3d2f"
+                }
+            }
+        }
+    },
+    "Rh": {
+        "gga": {
+            "dzp": {
+                "Rh_gga_10au_100Ry_4s2p2d1f.orb": {
+                    "radiusCutoff": 10,
+                    "energyCutoff": 100,
+                    "basisFunctions": "4s2p2d1f"
+                },
+                "Rh_gga_6au_100Ry_4s2p2d1f.orb": {
+                    "radiusCutoff": 6,
+                    "energyCutoff": 100,
+                    "basisFunctions": "4s2p2d1f"
+                },
+                "Rh_gga_7au_100Ry_4s2p2d1f.orb": {
+                    "radiusCutoff": 7,
+                    "energyCutoff": 100,
+                    "basisFunctions": "4s2p2d1f"
+                },
+                "Rh_gga_8au_100Ry_4s2p2d1f.orb": {
+                    "radiusCutoff": 8,
+                    "energyCutoff": 100,
+                    "basisFunctions": "4s2p2d1f"
+                },
+                "Rh_gga_9au_100Ry_4s2p2d1f.orb": {
+                    "radiusCutoff": 9,
+                    "energyCutoff": 100,
+                    "basisFunctions": "4s2p2d1f"
+                }
+            },
+            "tzdp": {
+                "Rh_gga_10au_100Ry_6s3p3d2f.orb": {
+                    "radiusCutoff": 10,
+                    "energyCutoff": 100,
+                    "basisFunctions": "6s3p3d2f"
+                },
+                "Rh_gga_6au_100Ry_6s3p3d2f.orb": {
+                    "radiusCutoff": 6,
+                    "energyCutoff": 100,
+                    "basisFunctions": "6s3p3d2f"
+                },
+                "Rh_gga_7au_100Ry_6s3p3d2f.orb": {
+                    "radiusCutoff": 7,
+                    "energyCutoff": 100,
+                    "basisFunctions": "6s3p3d2f"
+                },
+                "Rh_gga_8au_100Ry_6s3p3d2f.orb": {
+                    "radiusCutoff": 8,
+                    "energyCutoff": 100,
+                    "basisFunctions": "6s3p3d2f"
+                },
+                "Rh_gga_9au_100Ry_6s3p3d2f.orb": {
+                    "radiusCutoff": 9,
+                    "energyCutoff": 100,
+                    "basisFunctions": "6s3p3d2f"
+                }
+            }
+        }
+    },
+    "Pd": {
+        "gga": {
+            "dzp": {
+                "Pd_gga_10au_100Ry_4s2p2d1f.orb": {
+                    "radiusCutoff": 10,
+                    "energyCutoff": 100,
+                    "basisFunctions": "4s2p2d1f"
+                },
+                "Pd_gga_6au_100Ry_4s2p2d1f.orb": {
+                    "radiusCutoff": 6,
+                    "energyCutoff": 100,
+                    "basisFunctions": "4s2p2d1f"
+                },
+                "Pd_gga_7au_100Ry_4s2p2d1f.orb": {
+                    "radiusCutoff": 7,
+                    "energyCutoff": 100,
+                    "basisFunctions": "4s2p2d1f"
+                },
+                "Pd_gga_8au_100Ry_4s2p2d1f.orb": {
+                    "radiusCutoff": 8,
+                    "energyCutoff": 100,
+                    "basisFunctions": "4s2p2d1f"
+                },
+                "Pd_gga_9au_100Ry_4s2p2d1f.orb": {
+                    "radiusCutoff": 9,
+                    "energyCutoff": 100,
+                    "basisFunctions": "4s2p2d1f"
+                }
+            },
+            "tzdp": {
+                "Pd_gga_10au_100Ry_6s3p3d2f.orb": {
+                    "radiusCutoff": 10,
+                    "energyCutoff": 100,
+                    "basisFunctions": "6s3p3d2f"
+                },
+                "Pd_gga_6au_100Ry_6s3p3d2f.orb": {
+                    "radiusCutoff": 6,
+                    "energyCutoff": 100,
+                    "basisFunctions": "6s3p3d2f"
+                },
+                "Pd_gga_7au_100Ry_6s3p3d2f.orb": {
+                    "radiusCutoff": 7,
+                    "energyCutoff": 100,
+                    "basisFunctions": "6s3p3d2f"
+                },
+                "Pd_gga_8au_100Ry_6s3p3d2f.orb": {
+                    "radiusCutoff": 8,
+                    "energyCutoff": 100,
+                    "basisFunctions": "6s3p3d2f"
+                },
+                "Pd_gga_9au_100Ry_6s3p3d2f.orb": {
+                    "radiusCutoff": 9,
+                    "energyCutoff": 100,
+                    "basisFunctions": "6s3p3d2f"
+                }
+            }
+        }
+    },
+    "Ag": {
+        "gga": {
+            "dzp": {
+                "Ag_gga_10au_100Ry_4s2p2d1f.orb": {
+                    "radiusCutoff": 10,
+                    "energyCutoff": 100,
+                    "basisFunctions": "4s2p2d1f"
+                },
+                "Ag_gga_6au_100Ry_4s2p2d1f.orb": {
+                    "radiusCutoff": 6,
+                    "energyCutoff": 100,
+                    "basisFunctions": "4s2p2d1f"
+                },
+                "Ag_gga_7au_100Ry_4s2p2d1f.orb": {
+                    "radiusCutoff": 7,
+                    "energyCutoff": 100,
+                    "basisFunctions": "4s2p2d1f"
+                },
+                "Ag_gga_8au_100Ry_4s2p2d1f.orb": {
+                    "radiusCutoff": 8,
+                    "energyCutoff": 100,
+                    "basisFunctions": "4s2p2d1f"
+                },
+                "Ag_gga_9au_100Ry_4s2p2d1f.orb": {
+                    "radiusCutoff": 9,
+                    "energyCutoff": 100,
+                    "basisFunctions": "4s2p2d1f"
+                }
+            },
+            "tzdp": {
+                "Ag_gga_10au_100Ry_6s3p3d2f.orb": {
+                    "radiusCutoff": 10,
+                    "energyCutoff": 100,
+                    "basisFunctions": "6s3p3d2f"
+                },
+                "Ag_gga_6au_100Ry_6s3p3d2f.orb": {
+                    "radiusCutoff": 6,
+                    "energyCutoff": 100,
+                    "basisFunctions": "6s3p3d2f"
+                },
+                "Ag_gga_7au_100Ry_6s3p3d2f.orb": {
+                    "radiusCutoff": 7,
+                    "energyCutoff": 100,
+                    "basisFunctions": "6s3p3d2f"
+                },
+                "Ag_gga_8au_100Ry_6s3p3d2f.orb": {
+                    "radiusCutoff": 8,
+                    "energyCutoff": 100,
+                    "basisFunctions": "6s3p3d2f"
+                },
+                "Ag_gga_9au_100Ry_6s3p3d2f.orb": {
+                    "radiusCutoff": 9,
+                    "energyCutoff": 100,
+                    "basisFunctions": "6s3p3d2f"
+                }
+            }
+        }
+    },
+    "Cd": {
+        "gga": {
+            "dzp": {
+                "Cd_gga_10au_100Ry_4s2p2d1f.orb": {
+                    "radiusCutoff": 10,
+                    "energyCutoff": 100,
+                    "basisFunctions": "4s2p2d1f"
+                },
+                "Cd_gga_7au_100Ry_4s2p2d1f.orb": {
+                    "radiusCutoff": 7,
+                    "energyCutoff": 100,
+                    "basisFunctions": "4s2p2d1f"
+                },
+                "Cd_gga_8au_100Ry_4s2p2d1f.orb": {
+                    "radiusCutoff": 8,
+                    "energyCutoff": 100,
+                    "basisFunctions": "4s2p2d1f"
+                },
+                "Cd_gga_9au_100Ry_4s2p2d1f.orb": {
+                    "radiusCutoff": 9,
+                    "energyCutoff": 100,
+                    "basisFunctions": "4s2p2d1f"
+                }
+            },
+            "tzdp": {
+                "Cd_gga_10au_100Ry_6s3p3d2f.orb": {
+                    "radiusCutoff": 10,
+                    "energyCutoff": 100,
+                    "basisFunctions": "6s3p3d2f"
+                },
+                "Cd_gga_7au_100Ry_6s3p3d2f.orb": {
+                    "radiusCutoff": 7,
+                    "energyCutoff": 100,
+                    "basisFunctions": "6s3p3d2f"
+                },
+                "Cd_gga_8au_100Ry_6s3p3d2f.orb": {
+                    "radiusCutoff": 8,
+                    "energyCutoff": 100,
+                    "basisFunctions": "6s3p3d2f"
+                },
+                "Cd_gga_9au_100Ry_6s3p3d2f.orb": {
+                    "radiusCutoff": 9,
+                    "energyCutoff": 100,
+                    "basisFunctions": "6s3p3d2f"
+                }
+            }
+        }
+    },
+    "In": {
+        "gga": {
+            "dzp": {
+                "In_gga_10au_100Ry_2s2p2d1f.orb": {
+                    "radiusCutoff": 10,
+                    "energyCutoff": 100,
+                    "basisFunctions": "2s2p2d1f"
+                },
+                "In_gga_7au_100Ry_2s2p2d1f.orb": {
+                    "radiusCutoff": 7,
+                    "energyCutoff": 100,
+                    "basisFunctions": "2s2p2d1f"
+                },
+                "In_gga_8au_100Ry_2s2p2d1f.orb": {
+                    "radiusCutoff": 8,
+                    "energyCutoff": 100,
+                    "basisFunctions": "2s2p2d1f"
+                },
+                "In_gga_9au_100Ry_2s2p2d1f.orb": {
+                    "radiusCutoff": 9,
+                    "energyCutoff": 100,
+                    "basisFunctions": "2s2p2d1f"
+                }
+            },
+            "tzdp": {
+                "In_gga_10au_100Ry_3s3p3d2f.orb": {
+                    "radiusCutoff": 10,
+                    "energyCutoff": 100,
+                    "basisFunctions": "3s3p3d2f"
+                },
+                "In_gga_7au_100Ry_3s3p3d2f.orb": {
+                    "radiusCutoff": 7,
+                    "energyCutoff": 100,
+                    "basisFunctions": "3s3p3d2f"
+                },
+                "In_gga_8au_100Ry_3s3p3d2f.orb": {
+                    "radiusCutoff": 8,
+                    "energyCutoff": 100,
+                    "basisFunctions": "3s3p3d2f"
+                },
+                "In_gga_9au_100Ry_3s3p3d2f.orb": {
+                    "radiusCutoff": 9,
+                    "energyCutoff": 100,
+                    "basisFunctions": "3s3p3d2f"
+                }
+            }
+        }
+    },
+    "Be": {
+        "gga": {
+            "dzp": {
+                "Be_gga_10au_100Ry_4s1p.orb": {
+                    "radiusCutoff": 10,
+                    "energyCutoff": 100,
+                    "basisFunctions": "4s1p"
+                },
+                "Be_gga_7au_100Ry_4s1p.orb": {
+                    "radiusCutoff": 7,
+                    "energyCutoff": 100,
+                    "basisFunctions": "4s1p"
+                },
+                "Be_gga_8au_100Ry_4s1p.orb": {
+                    "radiusCutoff": 8,
+                    "energyCutoff": 100,
+                    "basisFunctions": "4s1p"
+                },
+                "Be_gga_9au_100Ry_4s1p.orb": {
+                    "radiusCutoff": 9,
+                    "energyCutoff": 100,
+                    "basisFunctions": "4s1p"
+                }
+            },
+            "tzdp": {
+                "Be_gga_10au_100Ry_6s2p.orb": {
+                    "radiusCutoff": 10,
+                    "energyCutoff": 100,
+                    "basisFunctions": "6s2p"
+                },
+                "Be_gga_7au_100Ry_6s2p.orb": {
+                    "radiusCutoff": 7,
+                    "energyCutoff": 100,
+                    "basisFunctions": "6s2p"
+                },
+                "Be_gga_8au_100Ry_6s2p.orb": {
+                    "radiusCutoff": 8,
+                    "energyCutoff": 100,
+                    "basisFunctions": "6s2p"
+                },
+                "Be_gga_9au_100Ry_6s2p.orb": {
+                    "radiusCutoff": 9,
+                    "energyCutoff": 100,
+                    "basisFunctions": "6s2p"
+                }
+            }
+        }
+    },
+    "Sn": {
+        "gga": {
+            "dzp": {
+                "Sn_gga_10au_100Ry_2s2p2d1f.orb": {
+                    "radiusCutoff": 10,
+                    "energyCutoff": 100,
+                    "basisFunctions": "2s2p2d1f"
+                },
+                "Sn_gga_6au_100Ry_2s2p2d1f.orb": {
+                    "radiusCutoff": 6,
+                    "energyCutoff": 100,
+                    "basisFunctions": "2s2p2d1f"
+                },
+                "Sn_gga_7au_100Ry_2s2p2d1f.orb": {
+                    "radiusCutoff": 7,
+                    "energyCutoff": 100,
+                    "basisFunctions": "2s2p2d1f"
+                },
+                "Sn_gga_8au_100Ry_2s2p2d1f.orb": {
+                    "radiusCutoff": 8,
+                    "energyCutoff": 100,
+                    "basisFunctions": "2s2p2d1f"
+                },
+                "Sn_gga_9au_100Ry_2s2p2d1f.orb": {
+                    "radiusCutoff": 9,
+                    "energyCutoff": 100,
+                    "basisFunctions": "2s2p2d1f"
+                }
+            },
+            "tzdp": {
+                "Sn_gga_10au_100Ry_3s3p3d2f.orb": {
+                    "radiusCutoff": 10,
+                    "energyCutoff": 100,
+                    "basisFunctions": "3s3p3d2f"
+                },
+                "Sn_gga_6au_100Ry_3s3p3d2f.orb": {
+                    "radiusCutoff": 6,
+                    "energyCutoff": 100,
+                    "basisFunctions": "3s3p3d2f"
+                },
+                "Sn_gga_7au_100Ry_3s3p3d2f.orb": {
+                    "radiusCutoff": 7,
+                    "energyCutoff": 100,
+                    "basisFunctions": "3s3p3d2f"
+                },
+                "Sn_gga_8au_100Ry_3s3p3d2f.orb": {
+                    "radiusCutoff": 8,
+                    "energyCutoff": 100,
+                    "basisFunctions": "3s3p3d2f"
+                },
+                "Sn_gga_9au_100Ry_3s3p3d2f.orb": {
+                    "radiusCutoff": 9,
+                    "energyCutoff": 100,
+                    "basisFunctions": "3s3p3d2f"
+                }
+            }
+        }
+    },
+    "Sb": {
+        "gga": {
+            "dzp": {
+                "Sb_gga_10au_100Ry_2s2p2d1f.orb": {
+                    "radiusCutoff": 10,
+                    "energyCutoff": 100,
+                    "basisFunctions": "2s2p2d1f"
+                },
+                "Sb_gga_6au_100Ry_2s2p2d1f.orb": {
+                    "radiusCutoff": 6,
+                    "energyCutoff": 100,
+                    "basisFunctions": "2s2p2d1f"
+                },
+                "Sb_gga_7au_100Ry_2s2p2d1f.orb": {
+                    "radiusCutoff": 7,
+                    "energyCutoff": 100,
+                    "basisFunctions": "2s2p2d1f"
+                },
+                "Sb_gga_8au_100Ry_2s2p2d1f.orb": {
+                    "radiusCutoff": 8,
+                    "energyCutoff": 100,
+                    "basisFunctions": "2s2p2d1f"
+                },
+                "Sb_gga_9au_100Ry_2s2p2d1f.orb": {
+                    "radiusCutoff": 9,
+                    "energyCutoff": 100,
+                    "basisFunctions": "2s2p2d1f"
+                }
+            },
+            "tzdp": {
+                "Sb_gga_10au_100Ry_3s3p3d2f.orb": {
+                    "radiusCutoff": 10,
+                    "energyCutoff": 100,
+                    "basisFunctions": "3s3p3d2f"
+                },
+                "Sb_gga_6au_100Ry_3s3p3d2f.orb": {
+                    "radiusCutoff": 6,
+                    "energyCutoff": 100,
+                    "basisFunctions": "3s3p3d2f"
+                },
+                "Sb_gga_7au_100Ry_3s3p3d2f.orb": {
+                    "radiusCutoff": 7,
+                    "energyCutoff": 100,
+                    "basisFunctions": "3s3p3d2f"
+                },
+                "Sb_gga_8au_100Ry_3s3p3d2f.orb": {
+                    "radiusCutoff": 8,
+                    "energyCutoff": 100,
+                    "basisFunctions": "3s3p3d2f"
+                },
+                "Sb_gga_9au_100Ry_3s3p3d2f.orb": {
+                    "radiusCutoff": 9,
+                    "energyCutoff": 100,
+                    "basisFunctions": "3s3p3d2f"
+                }
+            }
+        }
+    },
+    "Te": {
+        "gga": {
+            "dzp": {
+                "Te_gga_10au_100Ry_2s2p2d1f.orb": {
+                    "radiusCutoff": 10,
+                    "energyCutoff": 100,
+                    "basisFunctions": "2s2p2d1f"
+                },
+                "Te_gga_6au_100Ry_2s2p2d1f.orb": {
+                    "radiusCutoff": 6,
+                    "energyCutoff": 100,
+                    "basisFunctions": "2s2p2d1f"
+                },
+                "Te_gga_7au_100Ry_2s2p2d1f.orb": {
+                    "radiusCutoff": 7,
+                    "energyCutoff": 100,
+                    "basisFunctions": "2s2p2d1f"
+                },
+                "Te_gga_8au_100Ry_2s2p2d1f.orb": {
+                    "radiusCutoff": 8,
+                    "energyCutoff": 100,
+                    "basisFunctions": "2s2p2d1f"
+                },
+                "Te_gga_9au_100Ry_2s2p2d1f.orb": {
+                    "radiusCutoff": 9,
+                    "energyCutoff": 100,
+                    "basisFunctions": "2s2p2d1f"
+                }
+            },
+            "tzdp": {
+                "Te_gga_10au_100Ry_3s3p3d2f.orb": {
+                    "radiusCutoff": 10,
+                    "energyCutoff": 100,
+                    "basisFunctions": "3s3p3d2f"
+                },
+                "Te_gga_6au_100Ry_3s3p3d2f.orb": {
+                    "radiusCutoff": 6,
+                    "energyCutoff": 100,
+                    "basisFunctions": "3s3p3d2f"
+                },
+                "Te_gga_7au_100Ry_3s3p3d2f.orb": {
+                    "radiusCutoff": 7,
+                    "energyCutoff": 100,
+                    "basisFunctions": "3s3p3d2f"
+                },
+                "Te_gga_8au_100Ry_3s3p3d2f.orb": {
+                    "radiusCutoff": 8,
+                    "energyCutoff": 100,
+                    "basisFunctions": "3s3p3d2f"
+                },
+                "Te_gga_9au_100Ry_3s3p3d2f.orb": {
+                    "radiusCutoff": 9,
+                    "energyCutoff": 100,
+                    "basisFunctions": "3s3p3d2f"
+                }
+            }
+        }
+    },
+    "I": {
+        "gga": {
+            "dzp": {
+                "I_gga_10au_100Ry_2s2p2d1f.orb": {
+                    "radiusCutoff": 10,
+                    "energyCutoff": 100,
+                    "basisFunctions": "2s2p2d1f"
+                },
+                "I_gga_6au_100Ry_2s2p2d1f.orb": {
+                    "radiusCutoff": 6,
+                    "energyCutoff": 100,
+                    "basisFunctions": "2s2p2d1f"
+                },
+                "I_gga_7au_100Ry_2s2p2d1f.orb": {
+                    "radiusCutoff": 7,
+                    "energyCutoff": 100,
+                    "basisFunctions": "2s2p2d1f"
+                },
+                "I_gga_8au_100Ry_2s2p2d1f.orb": {
+                    "radiusCutoff": 8,
+                    "energyCutoff": 100,
+                    "basisFunctions": "2s2p2d1f"
+                },
+                "I_gga_9au_100Ry_2s2p2d1f.orb": {
+                    "radiusCutoff": 9,
+                    "energyCutoff": 100,
+                    "basisFunctions": "2s2p2d1f"
+                }
+            },
+            "tzdp": {
+                "I_gga_10au_100Ry_3s3p3d2f.orb": {
+                    "radiusCutoff": 10,
+                    "energyCutoff": 100,
+                    "basisFunctions": "3s3p3d2f"
+                },
+                "I_gga_6au_100Ry_3s3p3d2f.orb": {
+                    "radiusCutoff": 6,
+                    "energyCutoff": 100,
+                    "basisFunctions": "3s3p3d2f"
+                },
+                "I_gga_7au_100Ry_3s3p3d2f.orb": {
+                    "radiusCutoff": 7,
+                    "energyCutoff": 100,
+                    "basisFunctions": "3s3p3d2f"
+                },
+                "I_gga_8au_100Ry_3s3p3d2f.orb": {
+                    "radiusCutoff": 8,
+                    "energyCutoff": 100,
+                    "basisFunctions": "3s3p3d2f"
+                },
+                "I_gga_9au_100Ry_3s3p3d2f.orb": {
+                    "radiusCutoff": 9,
+                    "energyCutoff": 100,
+                    "basisFunctions": "3s3p3d2f"
+                }
+            }
+        }
+    },
+    "Xe": {
+        "gga": {
+            "dzp": {
+                "Xe_gga_10au_100Ry_2s2p2d1f.orb": {
+                    "radiusCutoff": 10,
+                    "energyCutoff": 100,
+                    "basisFunctions": "2s2p2d1f"
+                },
+                "Xe_gga_7au_100Ry_2s2p2d1f.orb": {
+                    "radiusCutoff": 7,
+                    "energyCutoff": 100,
+                    "basisFunctions": "2s2p2d1f"
+                },
+                "Xe_gga_8au_100Ry_2s2p2d1f.orb": {
+                    "radiusCutoff": 8,
+                    "energyCutoff": 100,
+                    "basisFunctions": "2s2p2d1f"
+                },
+                "Xe_gga_9au_100Ry_2s2p2d1f.orb": {
+                    "radiusCutoff": 9,
+                    "energyCutoff": 100,
+                    "basisFunctions": "2s2p2d1f"
+                }
+            },
+            "tzdp": {
+                "Xe_gga_10au_100Ry_3s3p3d2f.orb": {
+                    "radiusCutoff": 10,
+                    "energyCutoff": 100,
+                    "basisFunctions": "3s3p3d2f"
+                },
+                "Xe_gga_7au_100Ry_3s3p3d2f.orb": {
+                    "radiusCutoff": 7,
+                    "energyCutoff": 100,
+                    "basisFunctions": "3s3p3d2f"
+                },
+                "Xe_gga_8au_100Ry_3s3p3d2f.orb": {
+                    "radiusCutoff": 8,
+                    "energyCutoff": 100,
+                    "basisFunctions": "3s3p3d2f"
+                },
+                "Xe_gga_9au_100Ry_3s3p3d2f.orb": {
+                    "radiusCutoff": 9,
+                    "energyCutoff": 100,
+                    "basisFunctions": "3s3p3d2f"
+                }
+            }
+        }
+    },
+    "Cs": {
+        "gga": {
+            "dzp": {
+                "Cs_gga_10au_100Ry_4s2p1d.orb": {
+                    "radiusCutoff": 10,
+                    "energyCutoff": 100,
+                    "basisFunctions": "4s2p1d"
+                },
+                "Cs_gga_11au_100Ry_4s2p1d.orb": {
+                    "radiusCutoff": 11,
+                    "energyCutoff": 100,
+                    "basisFunctions": "4s2p1d"
+                },
+                "Cs_gga_12au_100Ry_4s2p1d.orb": {
+                    "radiusCutoff": 12,
+                    "energyCutoff": 100,
+                    "basisFunctions": "4s2p1d"
+                },
+                "Cs_gga_9au_100Ry_4s2p1d.orb": {
+                    "radiusCutoff": 9,
+                    "energyCutoff": 100,
+                    "basisFunctions": "4s2p1d"
+                }
+            },
+            "tzdp": {
+                "Cs_gga_10au_100Ry_6s3p2d.orb": {
+                    "radiusCutoff": 10,
+                    "energyCutoff": 100,
+                    "basisFunctions": "6s3p2d"
+                },
+                "Cs_gga_11au_100Ry_6s3p2d.orb": {
+                    "radiusCutoff": 11,
+                    "energyCutoff": 100,
+                    "basisFunctions": "6s3p2d"
+                },
+                "Cs_gga_12au_100Ry_6s3p2d.orb": {
+                    "radiusCutoff": 12,
+                    "energyCutoff": 100,
+                    "basisFunctions": "6s3p2d"
+                },
+                "Cs_gga_9au_100Ry_6s3p2d.orb": {
+                    "radiusCutoff": 9,
+                    "energyCutoff": 100,
+                    "basisFunctions": "6s3p2d"
+                }
+            }
+        }
+    },
+    "Ba": {
+        "gga": {
+            "dzp": {
+                "Ba_gga_10au_100Ry_4s2p2d1f.orb": {
+                    "radiusCutoff": 10,
+                    "energyCutoff": 100,
+                    "basisFunctions": "4s2p2d1f"
+                },
+                "Ba_gga_11au_100Ry_4s2p2d1f.orb": {
+                    "radiusCutoff": 11,
+                    "energyCutoff": 100,
+                    "basisFunctions": "4s2p2d1f"
+                },
+                "Ba_gga_12au_100Ry_4s2p2d1f.orb": {
+                    "radiusCutoff": 12,
+                    "energyCutoff": 100,
+                    "basisFunctions": "4s2p2d1f"
+                },
+                "Ba_gga_9au_100Ry_4s2p2d1f.orb": {
+                    "radiusCutoff": 9,
+                    "energyCutoff": 100,
+                    "basisFunctions": "4s2p2d1f"
+                }
+            },
+            "tzdp": {
+                "Ba_gga_10au_100Ry_6s3p3d2f.orb": {
+                    "radiusCutoff": 10,
+                    "energyCutoff": 100,
+                    "basisFunctions": "6s3p3d2f"
+                },
+                "Ba_gga_11au_100Ry_6s3p3d2f.orb": {
+                    "radiusCutoff": 11,
+                    "energyCutoff": 100,
+                    "basisFunctions": "6s3p3d2f"
+                },
+                "Ba_gga_12au_100Ry_6s3p3d2f.orb": {
+                    "radiusCutoff": 12,
+                    "energyCutoff": 100,
+                    "basisFunctions": "6s3p3d2f"
+                },
+                "Ba_gga_9au_100Ry_6s3p3d2f.orb": {
+                    "radiusCutoff": 9,
+                    "energyCutoff": 100,
+                    "basisFunctions": "6s3p3d2f"
+                }
+            }
+        }
+    },
+    "B": {
+        "gga": {
+            "dzp": {
+                "B_gga_10au_100Ry_2s2p1d.orb": {
+                    "radiusCutoff": 10,
+                    "energyCutoff": 100,
+                    "basisFunctions": "2s2p1d"
+                },
+                "B_gga_6au_100Ry_2s2p1d.orb": {
+                    "radiusCutoff": 6,
+                    "energyCutoff": 100,
+                    "basisFunctions": "2s2p1d"
+                },
+                "B_gga_7au_100Ry_2s2p1d.orb": {
+                    "radiusCutoff": 7,
+                    "energyCutoff": 100,
+                    "basisFunctions": "2s2p1d"
+                },
+                "B_gga_8au_100Ry_2s2p1d.orb": {
+                    "radiusCutoff": 8,
+                    "energyCutoff": 100,
+                    "basisFunctions": "2s2p1d"
+                },
+                "B_gga_9au_100Ry_2s2p1d.orb": {
+                    "radiusCutoff": 9,
+                    "energyCutoff": 100,
+                    "basisFunctions": "2s2p1d"
+                }
+            },
+            "tzdp": {
+                "B_gga_10au_100Ry_3s3p2d.orb": {
+                    "radiusCutoff": 10,
+                    "energyCutoff": 100,
+                    "basisFunctions": "3s3p2d"
+                },
+                "B_gga_6au_100Ry_3s3p2d.orb": {
+                    "radiusCutoff": 6,
+                    "energyCutoff": 100,
+                    "basisFunctions": "3s3p2d"
+                },
+                "B_gga_7au_100Ry_3s3p2d.orb": {
+                    "radiusCutoff": 7,
+                    "energyCutoff": 100,
+                    "basisFunctions": "3s3p2d"
+                },
+                "B_gga_8au_100Ry_3s3p2d.orb": {
+                    "radiusCutoff": 8,
+                    "energyCutoff": 100,
+                    "basisFunctions": "3s3p2d"
+                },
+                "B_gga_9au_100Ry_3s3p2d.orb": {
+                    "radiusCutoff": 9,
+                    "energyCutoff": 100,
+                    "basisFunctions": "3s3p2d"
+                }
+            }
+        }
+    },
+    "C": {
+        "gga": {
+            "dzp": {
+                "C_gga_10au_100Ry_2s2p1d.orb": {
+                    "radiusCutoff": 10,
+                    "energyCutoff": 100,
+                    "basisFunctions": "2s2p1d"
+                },
+                "C_gga_6au_100Ry_2s2p1d.orb": {
+                    "radiusCutoff": 6,
+                    "energyCutoff": 100,
+                    "basisFunctions": "2s2p1d"
+                },
+                "C_gga_7au_100Ry_2s2p1d.orb": {
+                    "radiusCutoff": 7,
+                    "energyCutoff": 100,
+                    "basisFunctions": "2s2p1d"
+                },
+                "C_gga_8au_100Ry_2s2p1d.orb": {
+                    "radiusCutoff": 8,
+                    "energyCutoff": 100,
+                    "basisFunctions": "2s2p1d"
+                },
+                "C_gga_9au_100Ry_2s2p1d.orb": {
+                    "radiusCutoff": 9,
+                    "energyCutoff": 100,
+                    "basisFunctions": "2s2p1d"
+                }
+            },
+            "tzdp": {
+                "C_gga_10au_100Ry_3s3p2d.orb": {
+                    "radiusCutoff": 10,
+                    "energyCutoff": 100,
+                    "basisFunctions": "3s3p2d"
+                },
+                "C_gga_6au_100Ry_3s3p2d.orb": {
+                    "radiusCutoff": 6,
+                    "energyCutoff": 100,
+                    "basisFunctions": "3s3p2d"
+                },
+                "C_gga_7au_100Ry_3s3p2d.orb": {
+                    "radiusCutoff": 7,
+                    "energyCutoff": 100,
+                    "basisFunctions": "3s3p2d"
+                },
+                "C_gga_8au_100Ry_3s3p2d.orb": {
+                    "radiusCutoff": 8,
+                    "energyCutoff": 100,
+                    "basisFunctions": "3s3p2d"
+                },
+                "C_gga_9au_100Ry_3s3p2d.orb": {
+                    "radiusCutoff": 9,
+                    "energyCutoff": 100,
+                    "basisFunctions": "3s3p2d"
+                }
+            }
+        }
+    },
+    "Hf": {
+        "gga": {
+            "dzp": {
+                "Hf_gga_10au_100Ry_4s2p2d2f1g.orb": {
+                    "radiusCutoff": 10,
+                    "energyCutoff": 100,
+                    "basisFunctions": "4s2p2d2f1g"
+                },
+                "Hf_gga_6au_100Ry_4s2p2d2f1g.orb": {
+                    "radiusCutoff": 6,
+                    "energyCutoff": 100,
+                    "basisFunctions": "4s2p2d2f1g"
+                },
+                "Hf_gga_7au_100Ry_4s2p2d2f1g.orb": {
+                    "radiusCutoff": 7,
+                    "energyCutoff": 100,
+                    "basisFunctions": "4s2p2d2f1g"
+                },
+                "Hf_gga_8au_100Ry_4s2p2d2f1g.orb": {
+                    "radiusCutoff": 8,
+                    "energyCutoff": 100,
+                    "basisFunctions": "4s2p2d2f1g"
+                },
+                "Hf_gga_9au_100Ry_4s2p2d2f1g.orb": {
+                    "radiusCutoff": 9,
+                    "energyCutoff": 100,
+                    "basisFunctions": "4s2p2d2f1g"
+                }
+            },
+            "tzdp": {
+                "Hf_gga_10au_100Ry_6s3p3d3f2g.orb": {
+                    "radiusCutoff": 10,
+                    "energyCutoff": 100,
+                    "basisFunctions": "6s3p3d3f2g"
+                },
+                "Hf_gga_6au_100Ry_6s3p3d3f2g.orb": {
+                    "radiusCutoff": 6,
+                    "energyCutoff": 100,
+                    "basisFunctions": "6s3p3d3f2g"
+                },
+                "Hf_gga_7au_100Ry_6s3p3d3f2g.orb": {
+                    "radiusCutoff": 7,
+                    "energyCutoff": 100,
+                    "basisFunctions": "6s3p3d3f2g"
+                },
+                "Hf_gga_8au_100Ry_6s3p3d3f2g.orb": {
+                    "radiusCutoff": 8,
+                    "energyCutoff": 100,
+                    "basisFunctions": "6s3p3d3f2g"
+                },
+                "Hf_gga_9au_100Ry_6s3p3d3f2g.orb": {
+                    "radiusCutoff": 9,
+                    "energyCutoff": 100,
+                    "basisFunctions": "6s3p3d3f2g"
+                }
+            }
+        }
+    },
+    "Ta": {
+        "gga": {
+            "dzp": {
+                "Ta_gga_10au_100Ry_4s2p2d2f1g.orb": {
+                    "radiusCutoff": 10,
+                    "energyCutoff": 100,
+                    "basisFunctions": "4s2p2d2f1g"
+                },
+                "Ta_gga_6au_100Ry_4s2p2d2f1g.orb": {
+                    "radiusCutoff": 6,
+                    "energyCutoff": 100,
+                    "basisFunctions": "4s2p2d2f1g"
+                },
+                "Ta_gga_7au_100Ry_4s2p2d2f1g.orb": {
+                    "radiusCutoff": 7,
+                    "energyCutoff": 100,
+                    "basisFunctions": "4s2p2d2f1g"
+                },
+                "Ta_gga_8au_100Ry_4s2p2d2f1g.orb": {
+                    "radiusCutoff": 8,
+                    "energyCutoff": 100,
+                    "basisFunctions": "4s2p2d2f1g"
+                },
+                "Ta_gga_9au_100Ry_4s2p2d2f1g.orb": {
+                    "radiusCutoff": 9,
+                    "energyCutoff": 100,
+                    "basisFunctions": "4s2p2d2f1g"
+                }
+            },
+            "tzdp": {
+                "Ta_gga_10au_100Ry_6s3p3d3f2g.orb": {
+                    "radiusCutoff": 10,
+                    "energyCutoff": 100,
+                    "basisFunctions": "6s3p3d3f2g"
+                },
+                "Ta_gga_6au_100Ry_6s3p3d3f2g.orb": {
+                    "radiusCutoff": 6,
+                    "energyCutoff": 100,
+                    "basisFunctions": "6s3p3d3f2g"
+                },
+                "Ta_gga_7au_100Ry_6s3p3d3f2g.orb": {
+                    "radiusCutoff": 7,
+                    "energyCutoff": 100,
+                    "basisFunctions": "6s3p3d3f2g"
+                },
+                "Ta_gga_8au_100Ry_6s3p3d3f2g.orb": {
+                    "radiusCutoff": 8,
+                    "energyCutoff": 100,
+                    "basisFunctions": "6s3p3d3f2g"
+                },
+                "Ta_gga_9au_100Ry_6s3p3d3f2g.orb": {
+                    "radiusCutoff": 9,
+                    "energyCutoff": 100,
+                    "basisFunctions": "6s3p3d3f2g"
+                }
+            }
+        }
+    },
+    "W": {
+        "gga": {
+            "dzp": {
+                "W_gga_10au_100Ry_4s2p2d2f1g.orb": {
+                    "radiusCutoff": 10,
+                    "energyCutoff": 100,
+                    "basisFunctions": "4s2p2d2f1g"
+                },
+                "W_gga_6au_100Ry_4s2p2d2f1g.orb": {
+                    "radiusCutoff": 6,
+                    "energyCutoff": 100,
+                    "basisFunctions": "4s2p2d2f1g"
+                },
+                "W_gga_7au_100Ry_4s2p2d2f1g.orb": {
+                    "radiusCutoff": 7,
+                    "energyCutoff": 100,
+                    "basisFunctions": "4s2p2d2f1g"
+                },
+                "W_gga_8au_100Ry_4s2p2d2f1g.orb": {
+                    "radiusCutoff": 8,
+                    "energyCutoff": 100,
+                    "basisFunctions": "4s2p2d2f1g"
+                },
+                "W_gga_9au_100Ry_4s2p2d2f1g.orb": {
+                    "radiusCutoff": 9,
+                    "energyCutoff": 100,
+                    "basisFunctions": "4s2p2d2f1g"
+                }
+            },
+            "tzdp": {
+                "W_gga_10au_100Ry_6s3p3d3f2g.orb": {
+                    "radiusCutoff": 10,
+                    "energyCutoff": 100,
+                    "basisFunctions": "6s3p3d3f2g"
+                },
+                "W_gga_6au_100Ry_6s3p3d3f2g.orb": {
+                    "radiusCutoff": 6,
+                    "energyCutoff": 100,
+                    "basisFunctions": "6s3p3d3f2g"
+                },
+                "W_gga_7au_100Ry_6s3p3d3f2g.orb": {
+                    "radiusCutoff": 7,
+                    "energyCutoff": 100,
+                    "basisFunctions": "6s3p3d3f2g"
+                },
+                "W_gga_8au_100Ry_6s3p3d3f2g.orb": {
+                    "radiusCutoff": 8,
+                    "energyCutoff": 100,
+                    "basisFunctions": "6s3p3d3f2g"
+                },
+                "W_gga_9au_100Ry_6s3p3d3f2g.orb": {
+                    "radiusCutoff": 9,
+                    "energyCutoff": 100,
+                    "basisFunctions": "6s3p3d3f2g"
+                }
+            }
+        }
+    },
+    "Re": {
+        "gga": {
+            "dzp": {
+                "Re_gga_10au_100Ry_4s2p2d1f.orb": {
+                    "radiusCutoff": 10,
+                    "energyCutoff": 100,
+                    "basisFunctions": "4s2p2d1f"
+                },
+                "Re_gga_6au_100Ry_4s2p2d1f.orb": {
+                    "radiusCutoff": 6,
+                    "energyCutoff": 100,
+                    "basisFunctions": "4s2p2d1f"
+                },
+                "Re_gga_7au_100Ry_4s2p2d1f.orb": {
+                    "radiusCutoff": 7,
+                    "energyCutoff": 100,
+                    "basisFunctions": "4s2p2d1f"
+                },
+                "Re_gga_8au_100Ry_4s2p2d1f.orb": {
+                    "radiusCutoff": 8,
+                    "energyCutoff": 100,
+                    "basisFunctions": "4s2p2d1f"
+                },
+                "Re_gga_9au_100Ry_4s2p2d1f.orb": {
+                    "radiusCutoff": 9,
+                    "energyCutoff": 100,
+                    "basisFunctions": "4s2p2d1f"
+                }
+            },
+            "tzdp": {
+                "Re_gga_10au_100Ry_6s3p3d2f.orb": {
+                    "radiusCutoff": 10,
+                    "energyCutoff": 100,
+                    "basisFunctions": "6s3p3d2f"
+                },
+                "Re_gga_6au_100Ry_6s3p3d2f.orb": {
+                    "radiusCutoff": 6,
+                    "energyCutoff": 100,
+                    "basisFunctions": "6s3p3d2f"
+                },
+                "Re_gga_7au_100Ry_6s3p3d2f.orb": {
+                    "radiusCutoff": 7,
+                    "energyCutoff": 100,
+                    "basisFunctions": "6s3p3d2f"
+                },
+                "Re_gga_8au_100Ry_6s3p3d2f.orb": {
+                    "radiusCutoff": 8,
+                    "energyCutoff": 100,
+                    "basisFunctions": "6s3p3d2f"
+                },
+                "Re_gga_9au_100Ry_6s3p3d2f.orb": {
+                    "radiusCutoff": 9,
+                    "energyCutoff": 100,
+                    "basisFunctions": "6s3p3d2f"
+                }
+            }
+        }
+    },
+    "Os": {
+        "gga": {
+            "dzp": {
+                "Os_gga_10au_100Ry_4s2p2d1f.orb": {
+                    "radiusCutoff": 10,
+                    "energyCutoff": 100,
+                    "basisFunctions": "4s2p2d1f"
+                },
+                "Os_gga_6au_100Ry_4s2p2d1f.orb": {
+                    "radiusCutoff": 6,
+                    "energyCutoff": 100,
+                    "basisFunctions": "4s2p2d1f"
+                },
+                "Os_gga_7au_100Ry_4s2p2d1f.orb": {
+                    "radiusCutoff": 7,
+                    "energyCutoff": 100,
+                    "basisFunctions": "4s2p2d1f"
+                },
+                "Os_gga_8au_100Ry_4s2p2d1f.orb": {
+                    "radiusCutoff": 8,
+                    "energyCutoff": 100,
+                    "basisFunctions": "4s2p2d1f"
+                },
+                "Os_gga_9au_100Ry_4s2p2d1f.orb": {
+                    "radiusCutoff": 9,
+                    "energyCutoff": 100,
+                    "basisFunctions": "4s2p2d1f"
+                }
+            },
+            "tzdp": {
+                "Os_gga_10au_100Ry_6s3p3d2f.orb": {
+                    "radiusCutoff": 10,
+                    "energyCutoff": 100,
+                    "basisFunctions": "6s3p3d2f"
+                },
+                "Os_gga_6au_100Ry_6s3p3d2f.orb": {
+                    "radiusCutoff": 6,
+                    "energyCutoff": 100,
+                    "basisFunctions": "6s3p3d2f"
+                },
+                "Os_gga_7au_100Ry_6s3p3d2f.orb": {
+                    "radiusCutoff": 7,
+                    "energyCutoff": 100,
+                    "basisFunctions": "6s3p3d2f"
+                },
+                "Os_gga_8au_100Ry_6s3p3d2f.orb": {
+                    "radiusCutoff": 8,
+                    "energyCutoff": 100,
+                    "basisFunctions": "6s3p3d2f"
+                },
+                "Os_gga_9au_100Ry_6s3p3d2f.orb": {
+                    "radiusCutoff": 9,
+                    "energyCutoff": 100,
+                    "basisFunctions": "6s3p3d2f"
+                }
+            }
+        }
+    },
+    "Ir": {
+        "gga": {
+            "dzp": {
+                "Ir_gga_10au_100Ry_4s2p2d1f.orb": {
+                    "radiusCutoff": 10,
+                    "energyCutoff": 100,
+                    "basisFunctions": "4s2p2d1f"
+                },
+                "Ir_gga_6au_100Ry_4s2p2d1f.orb": {
+                    "radiusCutoff": 6,
+                    "energyCutoff": 100,
+                    "basisFunctions": "4s2p2d1f"
+                },
+                "Ir_gga_7au_100Ry_4s2p2d1f.orb": {
+                    "radiusCutoff": 7,
+                    "energyCutoff": 100,
+                    "basisFunctions": "4s2p2d1f"
+                },
+                "Ir_gga_8au_100Ry_4s2p2d1f.orb": {
+                    "radiusCutoff": 8,
+                    "energyCutoff": 100,
+                    "basisFunctions": "4s2p2d1f"
+                },
+                "Ir_gga_9au_100Ry_4s2p2d1f.orb": {
+                    "radiusCutoff": 9,
+                    "energyCutoff": 100,
+                    "basisFunctions": "4s2p2d1f"
+                }
+            },
+            "tzdp": {
+                "Ir_gga_10au_100Ry_6s3p3d2f.orb": {
+                    "radiusCutoff": 10,
+                    "energyCutoff": 100,
+                    "basisFunctions": "6s3p3d2f"
+                },
+                "Ir_gga_6au_100Ry_6s3p3d2f.orb": {
+                    "radiusCutoff": 6,
+                    "energyCutoff": 100,
+                    "basisFunctions": "6s3p3d2f"
+                },
+                "Ir_gga_7au_100Ry_6s3p3d2f.orb": {
+                    "radiusCutoff": 7,
+                    "energyCutoff": 100,
+                    "basisFunctions": "6s3p3d2f"
+                },
+                "Ir_gga_8au_100Ry_6s3p3d2f.orb": {
+                    "radiusCutoff": 8,
+                    "energyCutoff": 100,
+                    "basisFunctions": "6s3p3d2f"
+                },
+                "Ir_gga_9au_100Ry_6s3p3d2f.orb": {
+                    "radiusCutoff": 9,
+                    "energyCutoff": 100,
+                    "basisFunctions": "6s3p3d2f"
+                }
+            }
+        }
+    },
+    "Pt": {
+        "gga": {
+            "dzp": {
+                "Pt_gga_10au_100Ry_4s2p2d1f.orb": {
+                    "radiusCutoff": 10,
+                    "energyCutoff": 100,
+                    "basisFunctions": "4s2p2d1f"
+                },
+                "Pt_gga_6au_100Ry_4s2p2d1f.orb": {
+                    "radiusCutoff": 6,
+                    "energyCutoff": 100,
+                    "basisFunctions": "4s2p2d1f"
+                },
+                "Pt_gga_7au_100Ry_4s2p2d1f.orb": {
+                    "radiusCutoff": 7,
+                    "energyCutoff": 100,
+                    "basisFunctions": "4s2p2d1f"
+                },
+                "Pt_gga_8au_100Ry_4s2p2d1f.orb": {
+                    "radiusCutoff": 8,
+                    "energyCutoff": 100,
+                    "basisFunctions": "4s2p2d1f"
+                },
+                "Pt_gga_9au_100Ry_4s2p2d1f.orb": {
+                    "radiusCutoff": 9,
+                    "energyCutoff": 100,
+                    "basisFunctions": "4s2p2d1f"
+                }
+            },
+            "tzdp": {
+                "Pt_gga_10au_100Ry_6s3p3d2f.orb": {
+                    "radiusCutoff": 10,
+                    "energyCutoff": 100,
+                    "basisFunctions": "6s3p3d2f"
+                },
+                "Pt_gga_6au_100Ry_6s3p3d2f.orb": {
+                    "radiusCutoff": 6,
+                    "energyCutoff": 100,
+                    "basisFunctions": "6s3p3d2f"
+                },
+                "Pt_gga_7au_100Ry_6s3p3d2f.orb": {
+                    "radiusCutoff": 7,
+                    "energyCutoff": 100,
+                    "basisFunctions": "6s3p3d2f"
+                },
+                "Pt_gga_8au_100Ry_6s3p3d2f.orb": {
+                    "radiusCutoff": 8,
+                    "energyCutoff": 100,
+                    "basisFunctions": "6s3p3d2f"
+                },
+                "Pt_gga_9au_100Ry_6s3p3d2f.orb": {
+                    "radiusCutoff": 9,
+                    "energyCutoff": 100,
+                    "basisFunctions": "6s3p3d2f"
+                }
+            }
+        }
+    },
+    "Au": {
+        "gga": {
+            "dzp": {
+                "Au_gga_10au_100Ry_4s2p2d1f.orb": {
+                    "radiusCutoff": 10,
+                    "energyCutoff": 100,
+                    "basisFunctions": "4s2p2d1f"
+                },
+                "Au_gga_6au_100Ry_4s2p2d1f.orb": {
+                    "radiusCutoff": 6,
+                    "energyCutoff": 100,
+                    "basisFunctions": "4s2p2d1f"
+                },
+                "Au_gga_7au_100Ry_4s2p2d1f.orb": {
+                    "radiusCutoff": 7,
+                    "energyCutoff": 100,
+                    "basisFunctions": "4s2p2d1f"
+                },
+                "Au_gga_8au_100Ry_4s2p2d1f.orb": {
+                    "radiusCutoff": 8,
+                    "energyCutoff": 100,
+                    "basisFunctions": "4s2p2d1f"
+                },
+                "Au_gga_9au_100Ry_4s2p2d1f.orb": {
+                    "radiusCutoff": 9,
+                    "energyCutoff": 100,
+                    "basisFunctions": "4s2p2d1f"
+                }
+            },
+            "tzdp": {
+                "Au_gga_10au_100Ry_6s3p3d2f.orb": {
+                    "radiusCutoff": 10,
+                    "energyCutoff": 100,
+                    "basisFunctions": "6s3p3d2f"
+                },
+                "Au_gga_6au_100Ry_6s3p3d2f.orb": {
+                    "radiusCutoff": 6,
+                    "energyCutoff": 100,
+                    "basisFunctions": "6s3p3d2f"
+                },
+                "Au_gga_7au_100Ry_6s3p3d2f.orb": {
+                    "radiusCutoff": 7,
+                    "energyCutoff": 100,
+                    "basisFunctions": "6s3p3d2f"
+                },
+                "Au_gga_8au_100Ry_6s3p3d2f.orb": {
+                    "radiusCutoff": 8,
+                    "energyCutoff": 100,
+                    "basisFunctions": "6s3p3d2f"
+                },
+                "Au_gga_9au_100Ry_6s3p3d2f.orb": {
+                    "radiusCutoff": 9,
+                    "energyCutoff": 100,
+                    "basisFunctions": "6s3p3d2f"
+                }
+            }
+        }
+    },
+    "N": {
+        "gga": {
+            "dzp": {
+                "N_gga_10au_100Ry_2s2p1d.orb": {
+                    "radiusCutoff": 10,
+                    "energyCutoff": 100,
+                    "basisFunctions": "2s2p1d"
+                },
+                "N_gga_6au_100Ry_2s2p1d.orb": {
+                    "radiusCutoff": 6,
+                    "energyCutoff": 100,
+                    "basisFunctions": "2s2p1d"
+                },
+                "N_gga_7au_100Ry_2s2p1d.orb": {
+                    "radiusCutoff": 7,
+                    "energyCutoff": 100,
+                    "basisFunctions": "2s2p1d"
+                },
+                "N_gga_8au_100Ry_2s2p1d.orb": {
+                    "radiusCutoff": 8,
+                    "energyCutoff": 100,
+                    "basisFunctions": "2s2p1d"
+                },
+                "N_gga_9au_100Ry_2s2p1d.orb": {
+                    "radiusCutoff": 9,
+                    "energyCutoff": 100,
+                    "basisFunctions": "2s2p1d"
+                }
+            },
+            "tzdp": {
+                "N_gga_10au_100Ry_3s3p2d.orb": {
+                    "radiusCutoff": 10,
+                    "energyCutoff": 100,
+                    "basisFunctions": "3s3p2d"
+                },
+                "N_gga_6au_100Ry_3s3p2d.orb": {
+                    "radiusCutoff": 6,
+                    "energyCutoff": 100,
+                    "basisFunctions": "3s3p2d"
+                },
+                "N_gga_7au_100Ry_3s3p2d.orb": {
+                    "radiusCutoff": 7,
+                    "energyCutoff": 100,
+                    "basisFunctions": "3s3p2d"
+                },
+                "N_gga_8au_100Ry_3s3p2d.orb": {
+                    "radiusCutoff": 8,
+                    "energyCutoff": 100,
+                    "basisFunctions": "3s3p2d"
+                },
+                "N_gga_9au_100Ry_3s3p2d.orb": {
+                    "radiusCutoff": 9,
+                    "energyCutoff": 100,
+                    "basisFunctions": "3s3p2d"
+                }
+            }
+        }
+    },
+    "Hg": {
+        "gga": {
+            "dzp": {
+                "Hg_gga_10au_100Ry_4s2p2d1f.orb": {
+                    "radiusCutoff": 10,
+                    "energyCutoff": 100,
+                    "basisFunctions": "4s2p2d1f"
+                },
+                "Hg_gga_6au_100Ry_4s2p2d1f.orb": {
+                    "radiusCutoff": 6,
+                    "energyCutoff": 100,
+                    "basisFunctions": "4s2p2d1f"
+                },
+                "Hg_gga_7au_100Ry_4s2p2d1f.orb": {
+                    "radiusCutoff": 7,
+                    "energyCutoff": 100,
+                    "basisFunctions": "4s2p2d1f"
+                },
+                "Hg_gga_8au_100Ry_4s2p2d1f.orb": {
+                    "radiusCutoff": 8,
+                    "energyCutoff": 100,
+                    "basisFunctions": "4s2p2d1f"
+                },
+                "Hg_gga_9au_100Ry_4s2p2d1f.orb": {
+                    "radiusCutoff": 9,
+                    "energyCutoff": 100,
+                    "basisFunctions": "4s2p2d1f"
+                }
+            },
+            "tzdp": {
+                "Hg_gga_10au_100Ry_6s3p3d2f.orb": {
+                    "radiusCutoff": 10,
+                    "energyCutoff": 100,
+                    "basisFunctions": "6s3p3d2f"
+                },
+                "Hg_gga_6au_100Ry_6s3p3d2f.orb": {
+                    "radiusCutoff": 6,
+                    "energyCutoff": 100,
+                    "basisFunctions": "6s3p3d2f"
+                },
+                "Hg_gga_7au_100Ry_6s3p3d2f.orb": {
+                    "radiusCutoff": 7,
+                    "energyCutoff": 100,
+                    "basisFunctions": "6s3p3d2f"
+                },
+                "Hg_gga_8au_100Ry_6s3p3d2f.orb": {
+                    "radiusCutoff": 8,
+                    "energyCutoff": 100,
+                    "basisFunctions": "6s3p3d2f"
+                },
+                "Hg_gga_9au_100Ry_6s3p3d2f.orb": {
+                    "radiusCutoff": 9,
+                    "energyCutoff": 100,
+                    "basisFunctions": "6s3p3d2f"
+                }
+            }
+        }
+    },
+    "Tl": {
+        "gga": {
+            "dzp": {
+                "Tl_gga_10au_100Ry_2s2p2d1f.orb": {
+                    "radiusCutoff": 10,
+                    "energyCutoff": 100,
+                    "basisFunctions": "2s2p2d1f"
+                },
+                "Tl_gga_6au_100Ry_2s2p2d1f.orb": {
+                    "radiusCutoff": 6,
+                    "energyCutoff": 100,
+                    "basisFunctions": "2s2p2d1f"
+                },
+                "Tl_gga_7au_100Ry_2s2p2d1f.orb": {
+                    "radiusCutoff": 7,
+                    "energyCutoff": 100,
+                    "basisFunctions": "2s2p2d1f"
+                },
+                "Tl_gga_8au_100Ry_2s2p2d1f.orb": {
+                    "radiusCutoff": 8,
+                    "energyCutoff": 100,
+                    "basisFunctions": "2s2p2d1f"
+                },
+                "Tl_gga_9au_100Ry_2s2p2d1f.orb": {
+                    "radiusCutoff": 9,
+                    "energyCutoff": 100,
+                    "basisFunctions": "2s2p2d1f"
+                }
+            },
+            "tzdp": {
+                "Tl_gga_10au_100Ry_3s3p3d2f.orb": {
+                    "radiusCutoff": 10,
+                    "energyCutoff": 100,
+                    "basisFunctions": "3s3p3d2f"
+                },
+                "Tl_gga_6au_100Ry_3s3p3d2f.orb": {
+                    "radiusCutoff": 6,
+                    "energyCutoff": 100,
+                    "basisFunctions": "3s3p3d2f"
+                },
+                "Tl_gga_7au_100Ry_3s3p3d2f.orb": {
+                    "radiusCutoff": 7,
+                    "energyCutoff": 100,
+                    "basisFunctions": "3s3p3d2f"
+                },
+                "Tl_gga_8au_100Ry_3s3p3d2f.orb": {
+                    "radiusCutoff": 8,
+                    "energyCutoff": 100,
+                    "basisFunctions": "3s3p3d2f"
+                },
+                "Tl_gga_9au_100Ry_3s3p3d2f.orb": {
+                    "radiusCutoff": 9,
+                    "energyCutoff": 100,
+                    "basisFunctions": "3s3p3d2f"
+                }
+            }
+        }
+    },
+    "Pb": {
+        "gga": {
+            "dzp": {
+                "Pb_gga_10au_100Ry_2s2p2d1f.orb": {
+                    "radiusCutoff": 10,
+                    "energyCutoff": 100,
+                    "basisFunctions": "2s2p2d1f"
+                },
+                "Pb_gga_6au_100Ry_2s2p2d1f.orb": {
+                    "radiusCutoff": 6,
+                    "energyCutoff": 100,
+                    "basisFunctions": "2s2p2d1f"
+                },
+                "Pb_gga_7au_100Ry_2s2p2d1f.orb": {
+                    "radiusCutoff": 7,
+                    "energyCutoff": 100,
+                    "basisFunctions": "2s2p2d1f"
+                },
+                "Pb_gga_8au_100Ry_2s2p2d1f.orb": {
+                    "radiusCutoff": 8,
+                    "energyCutoff": 100,
+                    "basisFunctions": "2s2p2d1f"
+                },
+                "Pb_gga_9au_100Ry_2s2p2d1f.orb": {
+                    "radiusCutoff": 9,
+                    "energyCutoff": 100,
+                    "basisFunctions": "2s2p2d1f"
+                }
+            },
+            "tzdp": {
+                "Pb_gga_10au_100Ry_3s3p3d2f.orb": {
+                    "radiusCutoff": 10,
+                    "energyCutoff": 100,
+                    "basisFunctions": "3s3p3d2f"
+                },
+                "Pb_gga_6au_100Ry_3s3p3d2f.orb": {
+                    "radiusCutoff": 6,
+                    "energyCutoff": 100,
+                    "basisFunctions": "3s3p3d2f"
+                },
+                "Pb_gga_7au_100Ry_3s3p3d2f.orb": {
+                    "radiusCutoff": 7,
+                    "energyCutoff": 100,
+                    "basisFunctions": "3s3p3d2f"
+                },
+                "Pb_gga_8au_100Ry_3s3p3d2f.orb": {
+                    "radiusCutoff": 8,
+                    "energyCutoff": 100,
+                    "basisFunctions": "3s3p3d2f"
+                },
+                "Pb_gga_9au_100Ry_3s3p3d2f.orb": {
+                    "radiusCutoff": 9,
+                    "energyCutoff": 100,
+                    "basisFunctions": "3s3p3d2f"
+                }
+            }
+        }
+    },
+    "Bi": {
+        "gga": {
+            "dzp": {
+                "Bi_gga_10au_100Ry_2s2p2d1f.orb": {
+                    "radiusCutoff": 10,
+                    "energyCutoff": 100,
+                    "basisFunctions": "2s2p2d1f"
+                },
+                "Bi_gga_7au_100Ry_2s2p2d1f.orb": {
+                    "radiusCutoff": 7,
+                    "energyCutoff": 100,
+                    "basisFunctions": "2s2p2d1f"
+                },
+                "Bi_gga_8au_100Ry_2s2p2d1f.orb": {
+                    "radiusCutoff": 8,
+                    "energyCutoff": 100,
+                    "basisFunctions": "2s2p2d1f"
+                },
+                "Bi_gga_9au_100Ry_2s2p2d1f.orb": {
+                    "radiusCutoff": 9,
+                    "energyCutoff": 100,
+                    "basisFunctions": "2s2p2d1f"
+                }
+            },
+            "tzdp": {
+                "Bi_gga_10au_100Ry_3s3p3d2f.orb": {
+                    "radiusCutoff": 10,
+                    "energyCutoff": 100,
+                    "basisFunctions": "3s3p3d2f"
+                },
+                "Bi_gga_7au_100Ry_3s3p3d2f.orb": {
+                    "radiusCutoff": 7,
+                    "energyCutoff": 100,
+                    "basisFunctions": "3s3p3d2f"
+                },
+                "Bi_gga_8au_100Ry_3s3p3d2f.orb": {
+                    "radiusCutoff": 8,
+                    "energyCutoff": 100,
+                    "basisFunctions": "3s3p3d2f"
+                },
+                "Bi_gga_9au_100Ry_3s3p3d2f.orb": {
+                    "radiusCutoff": 9,
+                    "energyCutoff": 100,
+                    "basisFunctions": "3s3p3d2f"
+                }
+            }
+        }
+    },
+    "O": {
+        "gga": {
+            "dzp": {
+                "O_gga_10au_100Ry_2s2p1d.orb": {
+                    "radiusCutoff": 10,
+                    "energyCutoff": 100,
+                    "basisFunctions": "2s2p1d"
+                },
+                "O_gga_6au_100Ry_2s2p1d.orb": {
+                    "radiusCutoff": 6,
+                    "energyCutoff": 100,
+                    "basisFunctions": "2s2p1d"
+                },
+                "O_gga_7au_100Ry_2s2p1d.orb": {
+                    "radiusCutoff": 7,
+                    "energyCutoff": 100,
+                    "basisFunctions": "2s2p1d"
+                },
+                "O_gga_8au_100Ry_2s2p1d.orb": {
+                    "radiusCutoff": 8,
+                    "energyCutoff": 100,
+                    "basisFunctions": "2s2p1d"
+                },
+                "O_gga_9au_100Ry_2s2p1d.orb": {
+                    "radiusCutoff": 9,
+                    "energyCutoff": 100,
+                    "basisFunctions": "2s2p1d"
+                }
+            },
+            "tzdp": {
+                "O_gga_10au_100Ry_3s3p2d.orb": {
+                    "radiusCutoff": 10,
+                    "energyCutoff": 100,
+                    "basisFunctions": "3s3p2d"
+                },
+                "O_gga_6au_100Ry_3s3p2d.orb": {
+                    "radiusCutoff": 6,
+                    "energyCutoff": 100,
+                    "basisFunctions": "3s3p2d"
+                },
+                "O_gga_7au_100Ry_3s3p2d.orb": {
+                    "radiusCutoff": 7,
+                    "energyCutoff": 100,
+                    "basisFunctions": "3s3p2d"
+                },
+                "O_gga_8au_100Ry_3s3p2d.orb": {
+                    "radiusCutoff": 8,
+                    "energyCutoff": 100,
+                    "basisFunctions": "3s3p2d"
+                },
+                "O_gga_9au_100Ry_3s3p2d.orb": {
+                    "radiusCutoff": 9,
+                    "energyCutoff": 100,
+                    "basisFunctions": "3s3p2d"
+                }
+            }
+        }
+    },
+    "F": {
+        "gga": {
+            "dzp": {
+                "F_gga_10au_100Ry_2s2p1d.orb": {
+                    "radiusCutoff": 10,
+                    "energyCutoff": 100,
+                    "basisFunctions": "2s2p1d"
+                },
+                "F_gga_6au_100Ry_2s2p1d.orb": {
+                    "radiusCutoff": 6,
+                    "energyCutoff": 100,
+                    "basisFunctions": "2s2p1d"
+                },
+                "F_gga_7au_100Ry_2s2p1d.orb": {
+                    "radiusCutoff": 7,
+                    "energyCutoff": 100,
+                    "basisFunctions": "2s2p1d"
+                },
+                "F_gga_8au_100Ry_2s2p1d.orb": {
+                    "radiusCutoff": 8,
+                    "energyCutoff": 100,
+                    "basisFunctions": "2s2p1d"
+                },
+                "F_gga_9au_100Ry_2s2p1d.orb": {
+                    "radiusCutoff": 9,
+                    "energyCutoff": 100,
+                    "basisFunctions": "2s2p1d"
+                }
+            },
+            "tzdp": {
+                "F_gga_10au_100Ry_3s3p2d.orb": {
+                    "radiusCutoff": 10,
+                    "energyCutoff": 100,
+                    "basisFunctions": "3s3p2d"
+                },
+                "F_gga_6au_100Ry_3s3p2d.orb": {
+                    "radiusCutoff": 6,
+                    "energyCutoff": 100,
+                    "basisFunctions": "3s3p2d"
+                },
+                "F_gga_7au_100Ry_3s3p2d.orb": {
+                    "radiusCutoff": 7,
+                    "energyCutoff": 100,
+                    "basisFunctions": "3s3p2d"
+                },
+                "F_gga_8au_100Ry_3s3p2d.orb": {
+                    "radiusCutoff": 8,
+                    "energyCutoff": 100,
+                    "basisFunctions": "3s3p2d"
+                },
+                "F_gga_9au_100Ry_3s3p2d.orb": {
+                    "radiusCutoff": 9,
+                    "energyCutoff": 100,
+                    "basisFunctions": "3s3p2d"
+                }
             }
         }
     }

@@ -1,7 +1,7 @@
 import json
 from fp2a_keywordsProcessing import keywordsWrite
 from fp2a_qe2qeJson import isNonStandardSectionTitle
-from fp2a_numericalOrbitalManager import findNAOByElement, findNAOByElementANDFunctional
+from fp2a_numericalOrbitalManager import findNAOByCutoff
 
 def discrepantConversion(keyword, value):
     if keyword == 'calculation':
@@ -44,13 +44,15 @@ def discrepantConversion(keyword, value):
         elif value == 14:
             return 'triclinic'
         else:
-            raise ValueError('ibrav = ' + str(value) + ' is not supported in ABACUS')
+            raise ValueError('*ERROR: ibrav = ' + str(value) + ' is not supported in ABACUS')
     else:
         return value
 
 def hubbardManifoldToNumber(manifold):
     if manifold == 'unknown_manifold_from_old_qe_versions':
-        print('|-Hubbard warning: no information for determining the angular momentum of the element, assuming disabled')
+        print('|-Hubbard warning: For you are using Quantum ESPRESSO < 7.1, \n'
+             +'|                  no information for determining the angular momentum of the element, \n'
+             +'|                  therefore ASSUMING DFT+U DISABLED')
         return '-1'
     elif manifold[-1] == 's':
         return '0'
@@ -87,7 +89,7 @@ def generateABACUSFiles(
     ABACUSKpointsFile = 'KPT',
     qeVersion_7_1 = True,
     overwriteKeywords = {},
-    additionalKeywords = {"numerical_orbitals": {"use_nao": False, "nao_dir": "./"}},
+    additionalKeywords = {"numerical_orbitals": {"use_nao": False}},
     boolUpdateInformation = False
     ):
 
@@ -110,10 +112,10 @@ def generateABACUSFiles(
     if mode == 'on-the-fly':
         if qeInputScriptJson == None:
             qeInputScript = {}
-            raise Exception('qeInputScriptJson is not provided')
+            raise Exception('*ERROR: qeInputScriptJson is not provided')
         if keywordConversionJson == None:
             keywordConversion = {}
-            raise Exception('keywordConversionJson is not provided')
+            raise Exception('*ERROR: keywordConversionJson is not provided')
         else:
             qeInputScript = qeInputScriptJson
             keywordConversion = keywordConversionJson
@@ -126,7 +128,7 @@ def generateABACUSFiles(
     else:
         qeInputScript = {}
         keywordConversion = {}
-        raise Exception('mode is not valid')
+        raise Exception('*ERROR: mode is not valid')
 
     with open(ABACUSInputFile, 'w') as f:
         f.writelines('INPUT_PARAMETERS\n')
@@ -135,7 +137,7 @@ def generateABACUSFiles(
         else:
             f.writelines('basis_type pw\n')
         if len(qeInputScript.keys()) == 0:
-            raise Exception('QE input script is empty')
+            raise Exception('*ERROR: QE input script is empty')
 
         for section in qeInputScript:
 
@@ -207,7 +209,8 @@ def generateABACUSFiles(
             if keyword != 'numerical_orbitals':
                 f.writelines(keyword + ' ' + keywordsWrite(additionalKeywords[keyword]) + '\n')
             else:
-                f.writelines('#numerical_orbitals are added\n')
+                if additionalKeywords[keyword]["use_nao"]:
+                    f.writelines('#numerical_orbitals are added\n')
 
     with open(ABACUSStructureFile, 'w') as f:
         f.writelines('ATOMIC_SPECIES\n')
@@ -219,22 +222,37 @@ def generateABACUSFiles(
                 + ' ' 
                 + keywordsWrite(qeInputScript['ATOMIC_SPECIES']['pseudopotentials'][ityp])
                 + '\n')
+        # add numerical orbitals
         if additionalKeywords["numerical_orbitals"]["use_nao"]:
             f.writelines('\nNUMERICAL_ORBITAL\n')
-            for ityp in range(qeInputScript['system']['ntyp']):
-                naoList = findNAOByElement(qeInputScript['ATOMIC_SPECIES']['elements'][ityp])
-                if len(naoList) == 0:
-                    raise Exception('ERROR: No NAO file found for element ' + qeInputScript['ATOMIC_SPECIES']['elements'][ityp])
-                elif len(naoList) > 1:
-                    print('|-Numerical orbitals: More than one NAO file found for element ' + qeInputScript['ATOMIC_SPECIES']['elements'][ityp]
-                          + ', using the first one.')
+            if len(additionalKeywords["numerical_orbitals"]["atom_species"]) == 0:
+                print("|-Numerical orbitals: no atom species specified in fp2a.inp, will use atom species from ATOMIC_SPECIES")
+                atomSpecies = qeInputScript['ATOMIC_SPECIES']['elements']
+            else:
+                atomSpecies = additionalKeywords["numerical_orbitals"]["atom_species"]
 
-                if len(naoList) > 0:
-                    f.writelines(
-                        qeInputScript['ATOMIC_SPECIES']['elements'][ityp] 
-                        + ' ' 
-                        + keywordsWrite(naoList[0])
-                        + '\n')
+            naoSelectMode = additionalKeywords["numerical_orbitals"]["select_nao"]
+            print("|-Numerical orbitals: select_nao mode: " + naoSelectMode)
+            for idxSpecies in range(len(atomSpecies)):
+                if naoSelectMode == 'radius_min' or naoSelectMode == 'radius_max':
+                    threshold = additionalKeywords["numerical_orbitals"]["cutoff_list_radius"][idxSpecies]
+                elif naoSelectMode == 'energy_min' or naoSelectMode == 'energy_max':
+                    threshold = additionalKeywords["numerical_orbitals"]["cutoff_list_energy"][idxSpecies]
+                elif naoSelectMode == 'energy_min_radius_min' or naoSelectMode == 'energy_min_radius_max' or naoSelectMode == 'energy_max_radius_min' or naoSelectMode == 'energy_max_radius_max':
+                    threshold = [
+                        additionalKeywords["numerical_orbitals"]["cutoff_list_energy"][idxSpecies], 
+                        additionalKeywords["numerical_orbitals"]["cutoff_list_radius"][idxSpecies]
+                        ]
+                else:
+                    raise ValueError("Numerical orbitals: select_nao mode not recognized")
+                naoFileName = findNAOByCutoff(
+                    element = atomSpecies[idxSpecies],
+                    threshold = threshold,
+                    zetaNotation = additionalKeywords["numerical_orbitals"]["basis_type"],
+                    mode = naoSelectMode
+                )
+                f.writelines(atomSpecies[idxSpecies] + ' ' + keywordsWrite(naoFileName) + '\n')
+        # end of numerical orbitals
         f.writelines('\nLATTICE_CONSTANT\n1.0\n')
         f.writelines('\nLATTICE_VECTORS\n')
         for cell_vector in qeInputScript['CELL_PARAMETERS']['cell']:
@@ -300,12 +318,18 @@ def generateABACUSFiles(
                         + keywordsWrite(qeInputScript['K_POINTS']['w_kpts'][i] )
                         + '\n')
                 f2.writelines('\n\n')
+    print('*- fp2a (Quantum ESPRESSO-specific version) finished.')
 
 if __name__ == '__main__':
     
+    import fp2a_io
+    _, overwriteKeywords, additionalKeywords = fp2a_io.readInputScript()
+
     generateABACUSFiles(
         mode = 'file',
-        qeInputScriptJsonFile = "example13_run_example_0.json",
+        qeInputScriptJsonFile = "test_qe6_7_in_0.json",
         keywordConversionJsonFile = "depuis_le_abacus_rotated-qac.json",
-        qeVersion_7_1 = True
+        qeVersion_7_1 = False,
+        overwriteKeywords = overwriteKeywords,
+        additionalKeywords = additionalKeywords
     )

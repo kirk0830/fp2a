@@ -18,26 +18,33 @@ def keywordsRead(keyword):
     For a number which should be float but the format of read-in is string, this function will convert it to float.\n
     @param keyword: the keyword value read-in from the input script\n
     @return: the post-processed keyword value\n
+    (have overloaded the function for list of keywords)
     """
-    keywordLowerCase = keyword.lower()
-    if keywordLowerCase == ".true.":
-        return True
-    elif keywordLowerCase == ".false.":
-        return False
+    if type(keyword) == list:
+        returnList = []
+        for ikeyword in keyword:
+            returnList.append(keywordsRead(ikeyword))
+        return returnList
     else:
-        dotIndex = keyword.find('.')
-        if dotIndex != -1:
-            try:
-                return float(keyword)
-            except ValueError:
-                scientificNotation = re.split('([eEdD])', keyword)
+        keywordLowerCase = keyword.lower()
+        if keywordLowerCase == ".true.":
+            return True
+        elif keywordLowerCase == ".false.":
+            return False
+        else:
+            dotIndex = keyword.find('.')
+            if dotIndex != -1:
                 try:
-                    return float(scientificNotation[0]) * 10 ** int(scientificNotation[2])
+                    return float(keyword)
+                except ValueError:
+                    scientificNotation = re.split('([eEdD])', keyword)
+                    try:
+                        return float(scientificNotation[0]) * 10 ** int(scientificNotation[2])
+                    except ValueError:
+                        return keyword
+            else:
+                try:
+                    return int(keyword)
                 except ValueError:
                     return keyword
-        else:
-            try:
-                return int(keyword)
-            except ValueError:
-                return keyword
-                
+                    

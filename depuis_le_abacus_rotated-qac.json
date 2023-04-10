@@ -1,0 +1,307 @@
+{
+    "column 1: qe parameter": [
+        "__description__",
+        "column 2: cp2k parameter",
+        "column 3: comments and ps."
+    ],
+    "prefix": [
+        "suffix",
+        "NaN",
+        "not quite important, so omitted"
+    ],
+    "ntyp": [
+        "ntype",
+        "NaN",
+        "cp2k does not need to define number of atom types"
+    ],
+    "calculation": [
+        "calculation",
+        "global/run_type",
+        "c'est ca"
+    ],
+    "ibrav": [
+        "latname",
+        "force_eval/subsys/cell/symmetry",
+        "c'est ca"
+    ],
+    "starting_wfc": [
+        "init_wfc",
+        "force_eval/dft/scf/scf_guess",
+        "c'est ca"
+    ],
+    "ion_velocities": [
+        "init_vel",
+        "force_eval/subsys/velocity",
+        "qe and cp2k read this parameter from input script"
+    ],
+    "input_dft": [
+        "dft_functional",
+        "force_eval/dft/xc/xc_functional",
+        "c'est ca"
+    ],
+    "disk_io": [
+        "mem_saver",
+        "global/save_mem",
+        "in qe the 'disk_io' parameter is for controlling io on hard disk, but if set to medium, medium memory cost, set to low, high memory cost. in cp2k, there is also another parameter when calculating hybrid functional: force_eval/dft/xc/hf/memory/max_memory"
+    ],
+    "atomic_positions": [
+        "stru_file",
+        "force_eval/subsys/topology/coord_file_name",
+        "qe requires provide all coordinates in input script, cp2k can define structure both in force_eval/subsys/coord section or in a separate file"
+    ],
+    "kpoints": [
+        "kpoint_file",
+        "force_eval/dft/kpoints/kpoint or scheme",
+        "c'est ca"
+    ],
+    "pseudo_dir": [
+        "pseudo_dir",
+        "force_eval/dft/pesudo_file_name",
+        "c'est ca"
+    ],
+    "outdir": [
+        "orbital_dir",
+        "NaN",
+        "cp2k will output all orbitals in present directory in wfn file"
+    ],
+    "ecutwfc": [
+        "ecutwfc",
+        "force_eval/dft/mgrid/cutoff",
+        "c'est ca"
+    ],
+    "nr1s": [
+        "nx",
+        "NaN",
+        "qe also as another parameter 'nr1' for hard part of 3-d FFT of charge density, while for cp2k, fft-revelant parameters are not found :("
+    ],
+    "nr2s": [
+        "ny",
+        "NaN",
+        "qe also as another parameter 'nr2' for hard part of 3-d FFT of charge density, while for cp2k, fft-revelant parameters are not found :("
+    ],
+    "nr3s": [
+        "nz",
+        "NaN",
+        "qe also as another parameter 'nr3' for hard part of 3-d FFT of charge density, while for cp2k, fft-revelant parameters are not found :("
+    ],
+    "diago_thr_init": [
+        "pw_diag_thr",
+        "NaN",
+        "for cp2k the similar settings are in force_eval/dft/scf/diagonalization section, but no such a parameter is found"
+    ],
+    "diago_cg_maxiter": [
+        "pw_diag_nmax",
+        "NaN",
+        "qe also has another parameter called 'diago_ppcg_maxiter', is for ppcg diagonalization method, while cp2k does not have such developed diagonalization technique..."
+    ],
+    "diago_david_ndim": [
+        "pw_diag_ndim",
+        "NaN",
+        "c'est ca"
+    ],
+    "diagonalization": [
+        "ks_solver",
+        "force_eval/dft/scf/diagonalization/algorithm .OR. force_eval/dft/scf/ot/minimizer",
+        "for qe there are more options for pw: ppcg, paro and rmm-paro. for cp2k, diagonalization is just one of methods for solving ks equation, the other choice is ot, Orbital Transformation method, but it is not encouraged for metal system, and encouraged for insulator system."
+    ],
+    "nbnd": [
+        "nbands",
+        "force_eval/dft/added_mos",
+        "added_mos is for adding addtional orbitals, not for defining total number of bands to calculate. For both abacus and qe, nbands is somewhat smart to determine its value, while for cp2k, there will always be warning like MOs are insufficient for smearing method."
+    ],
+    "nspin": [
+        "nspin",
+        "force_eval/dft/uks",
+        "totally the same for qe but different for cp2k. uks T means nspin=2, otherwise nspin=1. for non-collinear case...I have not heard about this in cp2k."
+    ],
+    "occupations .AND. smearing": [
+        "smearing_method",
+        "force_eval/dft/scf/smear/method",
+        "for qe, there are more options for pw: fermi-dirac, marzari-vanderbilt, gaussian, methfessel-paxton, and fixed occupations. but one should first select 'smearing' in occupation keyword, then specify different kind of smearing. for cp2k, only fermi-dirac is supported."
+    ],
+    "degauss": [
+        "smearing_sigma",
+        "force_eval/dft/scf/smear/electronic_temperature",
+        "there is also another parameter in abacus called smearing_sigma_temp, corresponds directly to the electronic_temperature in cp2k"
+    ],
+    "mixing_mode": [
+        "mixing_type",
+        "force_eval/dft/scf/mixing/method",
+        "c'est ca"
+    ],
+    "mixing_beta": [
+        "mixing_beta",
+        "force_eval/dft/scf/mixing/alpha",
+        "abacus can automatically set this parameter if set to -10.0 manually. for detailed information, see this parameter in https://abacus.deepmodeling.com/en/latest/advanced/input_files/input-main.html#electronic-structure-sdft"
+    ],
+    "mixing_ndim": [
+        "mixing_ndim",
+        "force_eval/dft/scf/mixing/n_buffer",
+        "c'est ca"
+    ],
+    "gamma": [
+        "gamma_only",
+        "NaN",
+        "in cp2k if gamma-point only calculation is needed, directly avoiding use of kpoints section.and for gamma-only calculation, ot always shows superior performance than diagonalization."
+    ],
+    "electron_maxstep": [
+        "scf_nmax",
+        "force_eval/dft/scf/max_scf",
+        "c'est ca"
+    ],
+    "conv_thr": [
+        "scf_thr",
+        "force_eval/dft/scf/eps_scf",
+        "c'est ca"
+    ],
+    "wfc_extrapolation .AND. pot_extrapolation": [
+        "chg_extrap",
+        "force_eval/qs/extrapolation .AND. force_eval/qs/extrapolation_order",
+        "extrapolation-related parameters used in these three codes are not exactly the same but have similar functionalities. in abacus the chg_extrap is for controlling Methods to do extrapolation of density when ABACUS is doing geometry relaxations, in qe those two parameters are only valid for md, in cp2k extrapolation is used everywhere."
+    ],
+    "lspinorb": [
+        "lspinorb",
+        "force_eval/dft/xas_tdp/spin_orbit_coupling",
+        "warning: generally soc is not heard to be supported in cp2k, this is the only one relevant parameter I can find. in qe, it works the same as abacus."
+    ],
+    "noncolin": [
+        "noncolin",
+        "NaN",
+        "cp2k does not support noncollinear calculations."
+    ],
+    "nstep": [
+        "md_nstep",
+        "motion/md/thermostat/steps",
+        "abacus manual: the total number of md steps."
+    ],
+    "tprnfor": [
+        "cal_force",
+        "motion/print/forces .AND. force_eval/print/forces",
+        "it seems that in qe and cp2k, force is automatically calculated and for user can set is whether print it or not."
+    ],
+    "forc_conv_thr .AND. etot_conv_thr": [
+        "force_thr",
+        "motion/geo_opt/max_force .AND. motion/geo_opt/rms_force .AND. motion/geo_opt/max_displacement .AND. motion/geo_opt/rms_displacement",
+        "cp2k uses four thresholds for controlling convergence "
+    ],
+    "w_1": [
+        "relax_bfgs_w1",
+        "NaN",
+        "abacus manual: This variable controls the Wolfe condition for BFGS algorithm used in geometry relaxation. You can look into the paper Phys.Chem.Chem.Phys.,2000,2,2177 for more information."
+    ],
+    "w_2": [
+        "relax_bfgs_w2",
+        "NaN",
+        "abacus manual: This variable controls the Wolfe condition for BFGS algorithm used in geometry relaxation. You can look into the paper Phys.Chem.Chem.Phys.,2000,2,2177 for more information."
+    ],
+    "trust_radius_max": [
+        "relax_bfgs_rmax",
+        "motion/geo_opt/bfgs/trust_radius",
+        "c'est ca"
+    ],
+    "trust_radius_min": [
+        "relax_bfgs_rmin",
+        "NaN",
+        "c'est ca"
+    ],
+    "trust_radius_ini": [
+        "relax_bfgs_init",
+        "NaN",
+        "c'est ca"
+    ],
+    "tstress": [
+        "cal_stress",
+        "motion/print/stress .AND. force_eval/print/stress_tensor",
+        "the same as cal_force"
+    ],
+    "press_conv_thr": [
+        "stress_thr",
+        "NaN",
+        "relevant parameter is not found in cp2k?"
+    ],
+    "press": [
+        "md_pfirst",
+        "motion/md/barostat/pressure",
+        "abacus manual: This is the target pressure (KBar) used in npt ensemble simulation, the default value of md_plast is md_pfirst. If md_plast is set to be different from md_pfirst, ABACUS will automatically change the target pressure from md_pfirst to md_plast."
+    ],
+    "cell_dofree": [
+        "fix_ibrav",
+        "motion/cell_opt/keep_symmetry .AND. motion/cell_opt/keep_angles .AND. motion/cell_opt/keep_space_group",
+        "these three codes controls fixing of cell geometry in different ways."
+    ],
+    "ion_dynamics": [
+        "md_type",
+        "motion/md/thermostat/ensemble",
+        "it seems abacus md module is not so easy to understand, ensemble and theromostat"
+    ],
+    "cell_factor": [
+        "cell_factor",
+        "NaN",
+        "identical parameter description found in qe and abacus. while in abacus, default is 1.2, in qe, it is 2.0 for variable-cell calculations, 1.0 otherwise."
+    ],
+    "emin": [
+        "dos_emin_ev",
+        "NaN",
+        "cp2k does not have such control."
+    ],
+    "emax": [
+        "dos_emax_ev",
+        "NaN",
+        "cp2k does not have such control."
+    ],
+    "ion_temperature": [
+        "md_thermostat",
+        "motion/md/thermostat/type",
+        "abacus manual: specify the thermostat based on the velocity Verlet algorithm (useful when md_type is set to 0)."
+    ],
+    "dt": [
+        "md_dt",
+        "motion/md/thermostat/timestep",
+        "abacus manual: This is the time step(fs) used in md simulation."
+    ],
+    "tempw": [
+        "md_tfirst",
+        "temperature",
+        "for this parameter and pressure, abacus is similar with lammps, user can set initial and final temperatures/pressures."
+    ],
+    "nraise ": [
+        "md_tfreq",
+        "motion/md/thermostat/nose/timecon .OR. motion/md/thermostat/csvr/timecon",
+        "abacus manual: control the frequency of the temperature oscillations during the simulation. If it is too large, the temperature will fluctuate violently; if it is too small, the temperature will take a very long time to equilibrate with the atomic system."
+    ],
+    "lda_plus_u": [
+        "dft_plus_u",
+        "NaN",
+        "abacus manual: If set to 1, ABCUS will calculate plus U correction, which is especially important for correlated electron."
+    ],
+    "vdw_corr": [
+        "vdw_method",
+        "force_eval/dft/xc/vdw_potential/pair_potential/type .AND. force_eval/dft/xc/vdw_potential/non_local/type",
+        "cp2k supports more kinds of vdw correction, including rVV10, vdw-DF, etc."
+    ],
+    "london_s6": [
+        "vdw_s6",
+        "force_eval/dft/xc/vdw_potential/pair_potential/d3_scaling .AND. force_eval/dft/xc/vdw_potential/pair_potential/d3bj_scaling",
+        "c'est ca"
+    ],
+    "dftd3_threebody": [
+        "vdw_abc",
+        "force_eval/dft/xc/vdw_potential/pair_potential/calculate_c9_term",
+        "c'est ca"
+    ],
+    "london_rcut": [
+        "vdw_cutoff_radius",
+        "force_eval/dft/xc/vdw_potential/pair_potential/r_cutoff",
+        "abacus manual: If vdw_cutoff_type is set to radius, this variable specifies the radius of the cutoff sphere. For DFT-D2, the default value is 56.6918, while for DFT-D3, the default value is 95."
+    ],
+    "lberry": [
+        "berry_phase",
+        "NaN",
+        "abacus manual: 1, calculate berry phase; 0, not calculate berry phase."
+    ],
+    "gdir": [
+        "gdir",
+        "NaN",
+        "abacus manual:"
+    ]
+}
