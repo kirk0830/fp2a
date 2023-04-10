@@ -3,7 +3,7 @@ from fp2a_keywordsProcessing import keywordsWrite
 from fp2a_qe2qeJson import isNonStandardSectionTitle
 from fp2a_numericalOrbitalManager import findNAOByCutoff
 
-def discrepantConversion(keyword, value):
+def discrepantKeywordsConversion(keyword, value):
     # This function can only complete single line conversion
     # for more complicated version, program in generateABACUSFiles function :(
     if keyword == 'vdw_corr':
@@ -34,6 +34,61 @@ def discrepantConversion(keyword, value):
     else:
         return value
 
+def discrepantModuleConversion(qeDict, module = 'smearing'):
+
+    if module == 'smearing':
+        print('|-Runtime information: keyword \'occupations\' is needed to specially treated:')
+        if qeDict["system"]["occupations"] == 'smearing':
+            print('|-Runtime information: keyword \'occupations\' is set to \'smearing\'')
+            if 'smearing' in qeDict["system"]:
+                print('|-Runtime information: keyword \'smearing\' is set to \'' 
+                    + qeDict["system"]["smearing"] + '\'')
+                optionListGaussian = ['gaussian', 'gauss']
+                optionListFermiDirac = ['fermi-dirac', 'f-d', 'fd']
+                optionListMethfesselPaxton = ['methfessel-paxton', 'm-p', 'mp']
+                if optionListGaussian.count(qeDict["system"]["smearing"]) > 0:
+                    return ['smearing_method'], ['gaussian']
+                elif optionListFermiDirac.count(qeDict["system"]["smearing"]) > 0:
+                    return ['smearing_method'], ['fermi-dirac']
+                elif optionListMethfesselPaxton.count(qeDict["system"]["smearing"]) > 0:
+                    return ['smearing_method'], ['methfessel-paxton']
+                else:
+                    print('|-Runtime information: keyword \'smearing\' is not supported by ABACUS, set to default \'gaussian\'')
+                    return ['smearing_method'], ['gaussian']
+            else:
+                print('|-Runtime information: keyword \'smearing\' is not set, default is \'gaussian\'')
+                return ['smearing_method'], ['gaussian']
+        else:
+            print('|-Runtime information: keyword \'occupations\' is not supported by ABACUS, set to default \'fixed\'')
+            return ['smearing_method'], ['fixed']
+        
+    elif module == 'vdw':
+        optionListD2 = ['grimme-d2', 'Grimme-D2', 'DFT-D', 'dft-d']
+        optionListD3 = ['grimme-d3', 'Grimme-D3', 'DFT-D3', 'dft-d3']
+        if optionListD2.count(qeDict["system"]["vdw_corr"]) > 0:
+            return ['vdw_method'], ['d2']
+        elif optionListD3.count(qeDict["system"]["vdw_corr"]) > 0:
+            if 'dftd3_version' in qeDict["system"]:
+                if qeDict["system"]["dftd3_version"] == 2:
+                    raise Exception('*ERROR: parameter conflict! you set vdw_corr to dft-d3 but dftd3_version to 2, which means dft-d2')
+                elif qeDict["system"]["dftd3_version"] == 3:
+                    return ['vdw_method'], ['d3_0']
+                elif qeDict["system"]["dftd3_version"] == 4:
+                    return ['vdw_method'], ['d3_bj']
+                elif qeDict["system"]["dftd3_version"] == 5:
+                    print('|-Conversion warning: DFTD3 version 5 (Grimme-D3M (zero damping)) is not implemented in abacus, will use version 3 instead')
+                    return ['vdw_method'], ['d3_0']
+                elif qeDict["system"]["dftd3_version"] == 6:
+                    print('|-Conversion warning: DFTD3 version 6 (Grimme-D3M (BJ damping)) is not implemented in abacus, will use version 4 instead')
+                    return ['vdw_method'], ['d3_bj']
+                else:
+                    raise Exception('*ERROR: DFTD3 version is not valid')
+            else:
+                return ['vdw_method'], ['d3_0']
+        else:
+            return ['vdw_method'], ['none']
+    else:
+        return [''], ['']
 def hubbardManifoldToNumber(manifold):
     if manifold == 'unknown_manifold_from_old_qe_versions':
         print('|-Hubbard warning: For you are using Quantum ESPRESSO < 7.1, \n'
@@ -148,7 +203,7 @@ def generateABACUSFiles(
                             print('|-Runtime information: converted keyword: ' + keywordConversion[keyword][0])
                             print('|-Runtime information: pass its value: ' + str(qeInputScript[section][keyword]))
                         convertedKeyword = keywordConversion[keyword][0]
-                        value = discrepantConversion(keyword, qeInputScript[section][keyword])
+                        value = discrepantKeywordsConversion(keyword, qeInputScript[section][keyword])
                         if convertedKeyword in overwriteKeywords.keys():
                             print('|-Overwrite: will overwrite keyword ' + keyword 
                             + ' with value ' + keywordsWrite(overwriteKeywords[convertedKeyword]))
@@ -157,42 +212,13 @@ def generateABACUSFiles(
                         # subscript 0 is the position of abacus keyword in the list of values
                     else:
                         if keyword == 'occupations':
-                            print('|-Runtime information: keyword \'occupations\' is needed to specially treated:')
-                            if qeInputScript["system"]["occupations"] == 'smearing':
-                                print('|-Runtime information: keyword \'occupations\' is set to \'smearing\'')
-                                if 'smearing' in qeInputScript["system"]:
-                                    print('|-Runtime information: keyword \'smearing\' is set to \'' 
-                                    + qeInputScript["system"]["smearing"] + '\'')
-                                    if qeInputScript["system"]["smearing"] == 'gaussian' or qeInputScript["system"]["smearing"] == 'gauss':
-                                        f.writelines('smearing_method gaussian\n')
-                                    elif qeInputScript["system"]["smearing"] == 'fermi-dirac' or qeInputScript["system"]["smearing"] == 'f-d' or qeInputScript["system"]["smearing"] == 'fd':
-                                        f.writelines('smearing_method fd\n')
-                                    elif qeInputScript["system"]["smearing"] == 'methfessel-paxton' or qeInputScript["system"]["smearing"] == 'm-p' or qeInputScript["system"]["smearing"] == 'mp':
-                                        f.writelines('smearing_method mp\n')
-                                else:
-                                    print('|-Runtime information: keyword \'smearing\' is not set, default is \'gaussian\'')
-                                    f.writelines('smearing_method gaussian\n')
+                            keywordToWrite, valueToWrite = discrepantModuleConversion(qeInputScript, module = 'smearing')
+                            for i in range(len(keywordToWrite)):
+                                f.writelines(keywordToWrite[i] + ' ' + keywordsWrite(valueToWrite[i]) + '\n')
                         if keyword == 'vdw_corr':
-                            optionListD2 = ['grimme-d2', 'Grimme-D2', 'DFT-D', 'dft-d']
-                            optionListD3 = ['grimme-d3', 'Grimme-D3', 'DFT-D3', 'dft-d3']
-                            if optionListD2.count(qeInputScript["system"]["vdw_corr"]) > 0:
-                                f.writelines('vdw_method d2\n')
-                            elif optionListD3.count(qeInputScript["system"]["vdw_corr"]) > 0:
-                                if 'dftd3_version' in qeInputScript["system"]:
-                                    if qeInputScript["system"]["dftd3_version"] == 2:
-                                        raise Exception('*ERROR: parameter conflict! you set vdw_corr to dft-d3 but dftd3_version to 2, which means dft-d2')
-                                    elif qeInputScript["system"]["dftd3_version"] == 3:
-                                        f.writelines('vdw_method d3_0\n')
-                                    elif qeInputScript["system"]["dftd3_version"] == 4:
-                                        f.writelines('vdw_method d3_bj\n')
-                                    elif qeInputScript["system"]["dftd3_version"] == 5:
-                                        print('|-Conversion warning: DFTD3 version 5 (Grimme-D3M (zero damping)) is not implemented in abacus, will use version 3 instead')
-                                        f.writelines('vdw_method d3_0\n')
-                                    elif qeInputScript["system"]["dftd3_version"] == 6:
-                                        print('|-Conversion warning: DFTD3 version 6 (Grimme-D3M (BJ damping)) is not implemented in abacus, will use version 4 instead')
-                                        f.writelines('vdw_method d3_bj\n')
-                                    else:
-                                        raise Exception('*ERROR: DFTD3 version is not valid')
+                            keywordToWrite, valueToWrite = discrepantModuleConversion(qeInputScript, module = 'vdw')
+                            for i in range(len(keywordToWrite)):
+                                f.writelines(keywordToWrite[i] + ' ' + keywordsWrite(valueToWrite[i]) + '\n')
                         print('|-Conversion warning: Keyword ' + keyword + ' not found in conversion table')
 
         # proceeding non-standard section that unrevelant with STRU and KPT/KLINE files
