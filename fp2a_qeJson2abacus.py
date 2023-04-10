@@ -6,13 +6,6 @@ from fp2a_numericalOrbitalManager import findNAOByCutoff
 def discrepantKeywordsConversion(keyword, value):
     # This function can only complete single line conversion
     # for more complicated version, program in generateABACUSFiles function :(
-    if keyword == 'vdw_corr':
-        optionListD2 = ['grimme-d2', 'Grimme-D2', 'DFT-D', 'dft-d']
-        optionListD3 = ['grimme-d3', 'Grimme-D3', 'DFT-D3', 'dft-d3']
-        if optionListD2.count(value) > 0:
-            return 'd2'
-        elif optionListD3.count(value) > 0:
-            return 'd3_0'
     if keyword == 'calculation':
         optionListDirect = ['scf', 'relax', 'nscf', 'md']
         if optionListDirect.count(value) > 0:
@@ -35,6 +28,7 @@ def discrepantKeywordsConversion(keyword, value):
         return value
 
 def discrepantModuleConversion(qeDict, module = 'smearing'):
+
 
     if module == 'smearing':
         print('|-Runtime information: keyword \'occupations\' is needed to specially treated:')
@@ -87,6 +81,7 @@ def discrepantModuleConversion(qeDict, module = 'smearing'):
                 return ['vdw_method'], ['d3_0']
         else:
             return ['vdw_method'], ['none']
+    
     else:
         return [''], ['']
 def hubbardManifoldToNumber(manifold):
