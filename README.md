@@ -1,5 +1,5 @@
 # FP2A: Convert input script of first-principle software to ABACUS
-Author: Yike Huang, member of ABACUS developer team.
+Author: Yike Huang  
 ## Basic usage  
 Just need to enter one-line command in your prompt:  
 `python fp2a_driver.py`  
