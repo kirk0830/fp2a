@@ -337,12 +337,7 @@
     "lda_plus_u": [
         "dft_plus_u",
         "NaN",
-        "abacus manual: If set to 1, ABCUS will calculate plus U correction, which is especially important for correlated electron."
-    ],
-    "vdw_corr": [
-        "vdw_method",
-        "force_eval/dft/xc/vdw_potential/pair_potential/type .AND. force_eval/dft/xc/vdw_potential/non_local/type",
-        "cp2k supports more kinds of vdw correction, including rVV10, vdw-DF, etc."
+        "abacus manual: If set to 1, ABACUS will calculate plus U correction, which is especially important for correlated electron."
     ],
     "london_s6": [
         "vdw_s6",

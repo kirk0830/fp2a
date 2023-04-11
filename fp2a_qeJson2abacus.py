@@ -1,7 +1,9 @@
 import json
+import os
 from fp2a_keywordsProcessing import keywordsWrite
 from fp2a_qe2qeJson import isNonStandardSectionTitle
 from fp2a_numericalOrbitalManager import findNAOByCutoff
+from fp2a_jsonRotation import jsonRotate
 
 def discrepantKeywordsConversion(keyword, value):
     # This function can only complete single line conversion
@@ -81,7 +83,8 @@ def discrepantModuleConversion(qeDict, module = 'smearing'):
                 return ['vdw_method'], ['d3_0']
         else:
             return ['vdw_method'], ['none']
-    
+    #elif module == 'SOLVANTS':
+    #    pass
     else:
         return [''], ['']
 def hubbardManifoldToNumber(manifold):
@@ -157,24 +160,37 @@ def generateABACUSFiles(
             keywordConversion = keywordConversionJson
 
     elif mode == 'file':
-        with open(qeInputScriptJsonFile, 'r') as f:
-            qeInputScript = json.load(f)
-        with open(keywordConversionJsonFile, 'r') as f:
-            keywordConversion = json.load(f)
+        if os.path.isfile(qeInputScriptJsonFile) == False:
+            raise Exception('*ERROR: qeInputScriptJsonFile does not exist')
+        else:
+            with open(qeInputScriptJsonFile, 'r') as f:
+                qeInputScript = json.load(f)
+        if os.path.isfile(keywordConversionJsonFile) == False:
+            print('*WARNING: keywordConversionJsonFile does not exist, try to generate it...')
+            if os.path.isfile('depuis_le_abacus.json'):
+                print('|-Runtime information: depuis_le_abacus.json found, will use it to generate keywordConversion dictionary')
+                keywordConversionJsonFile = jsonRotate(rotateSequence = 'qac', sourceDictionaryFileName='depuis_le_abacus.json')
+                with open(keywordConversionJsonFile, 'r') as f:
+                    keywordConversion = json.load(f)
+            else:
+                raise Exception('*ERROR: keywordConversionJsonFile does not exist and depuis_le_abacus.json does not exist')
+        else:
+            with open(keywordConversionJsonFile, 'r') as f:
+                keywordConversion = json.load(f)
     else:
         qeInputScript = {}
         keywordConversion = {}
         raise Exception('*ERROR: mode is not valid')
-
+    discrepantModuleKeywordsExclude = [
+        'smearing', 'dftd3_version'
+    ]
+# INPUT file write from here ======================================================================
     with open(ABACUSInputFile, 'w') as f:
         f.writelines('INPUT_PARAMETERS\n')
         if additionalKeywords["numerical_orbitals"]["use_nao"]:
             f.writelines('basis_type lcao\n')
             print('|-Numerical orbitals: change solver to genelpa')
-            if 'diagonalization' in qeInputScript["electrons"]:
-                qeInputScript["electrons"]["diagonalization"] = "genelpa"
-            else:
-                qeInputScript["electrons"]["diagonalization"] = "genelpa"
+            qeInputScript["electrons"]["diagonalization"] = "genelpa"
         else:
             f.writelines('basis_type pw\n')
         if len(qeInputScript.keys()) == 0:
@@ -199,6 +215,8 @@ def generateABACUSFiles(
                             print('|-Runtime information: pass its value: ' + str(qeInputScript[section][keyword]))
                         convertedKeyword = keywordConversion[keyword][0]
                         value = discrepantKeywordsConversion(keyword, qeInputScript[section][keyword])
+                        print('|-Runtime information: comment in depuis_le_abacus.json\n| ' 
+                            + ' '*21 + 'Keyword: ' + convertedKeyword + '\n| ' + ' '*21 + 'Comment: ' + keywordConversion[keyword][-1])
                         if convertedKeyword in overwriteKeywords.keys():
                             print('|-Overwrite: will overwrite keyword ' + keyword 
                             + ' with value ' + keywordsWrite(overwriteKeywords[convertedKeyword]))
@@ -206,6 +224,7 @@ def generateABACUSFiles(
                         f.writelines(convertedKeyword + ' ' + keywordsWrite(value) + '\n')
                         # subscript 0 is the position of abacus keyword in the list of values
                     else:
+    # Discrapant module conversion ========================================================
                         if keyword == 'occupations':
                             keywordToWrite, valueToWrite = discrepantModuleConversion(qeInputScript, module = 'smearing')
                             for i in range(len(keywordToWrite)):
@@ -251,7 +270,8 @@ def generateABACUSFiles(
                 f.writelines('hubbard_u ' + hubbard_u + '\n')
 
             elif section == 'SOLVANTS':
-                pass
+                print('|-Conversion warning: a direct conversion from QE-RISM to ABACUS-Implicit solvation model is risky. You should really know what you are doing.')
+                print('|-Runtime information: .')
             elif section == 'OCCUPATIONS':
                 pass
         for keyword in additionalKeywords:
@@ -260,7 +280,7 @@ def generateABACUSFiles(
             else:
                 if additionalKeywords[keyword]["use_nao"]:
                     f.writelines('#numerical_orbitals are added\n')
-
+# STRU file write from here =======================================================================
     with open(ABACUSStructureFile, 'w') as f:
         f.writelines('ATOMIC_SPECIES\n')
         for ityp in range(qeInputScript['system']['ntyp']):
@@ -338,7 +358,7 @@ def generateABACUSFiles(
                     + ' ' + keywordsWrite(abs(qeInputScript['ATOMIC_POSITIONS']['constraints'][lineIndex][2]-1))
                     + '\n')
             f.writelines('\n')
-
+# KPT  file write from here========================================================================
     with open(ABACUSKpointsFile, 'w', encoding='utf-8') as f:
 
         f.writelines('K_POINTS\n')
