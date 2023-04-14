@@ -56,7 +56,7 @@ def readInputScript(fileName = 'fp2a.inp'):
                     overwriteKeywords[words[0]] = keywordsRead(words[1])
                 
     return basicConversion, overwriteKeywords, additionalKeywords
-
+# unit test
 if __name__ == '__main__':
     basicConversion, overwriteKeywords, additionalKeywords = readInputScript()
     print("basicConversion = ", basicConversion)

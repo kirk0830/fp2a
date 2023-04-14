@@ -40,7 +40,7 @@ def NAODatabaseGenerator(
         words = re.split(pattern = "_", string = folderName)
         #atomic_index = words[0]
         element = words[1]
-        zetaNotation = words[2].lower()
+        zetaSelection = words[2].lower()
         os.chdir(folderName)
         fileNames = [file for file in os.listdir() if os.path.isfile(file)]
         for fileName in fileNames:
@@ -63,11 +63,11 @@ def NAODatabaseGenerator(
                     NAOdictionary[element] = {}
                 if functional not in NAOdictionary[element]:
                     NAOdictionary[element][functional] = {}
-                if zetaNotation not in NAOdictionary[element][functional]:
-                    NAOdictionary[element][functional][zetaNotation] = {}
-                if fileName not in NAOdictionary[element][functional][zetaNotation]:
-                    NAOdictionary[element][functional][zetaNotation][fileName] = {}
-                NAOdictionary[element][functional][zetaNotation][fileName] = {
+                if zetaSelection not in NAOdictionary[element][functional]:
+                    NAOdictionary[element][functional][zetaSelection] = {}
+                if fileName not in NAOdictionary[element][functional][zetaSelection]:
+                    NAOdictionary[element][functional][zetaSelection][fileName] = {}
+                NAOdictionary[element][functional][zetaSelection][fileName] = {
                     "radiusCutoff": radiusCutoff,
                     "energyCutoff": energyCutoff,
                     "basisFunctions": basisFunctions
@@ -95,7 +95,7 @@ def findNAOByElement(element):
     if element in NAOdictionary:
         returnList = []
         for functional in NAOdictionary[element]:
-            returnList += list(NAOdictionary[element][functional][zetaNotation].keys())
+            returnList += list(NAOdictionary[element][functional][zetaSelection].keys())
         return returnList
     else:
         print("The element is not in the NAO database.")
@@ -105,7 +105,7 @@ def findNAOByElementANDFunctional(element, functional):
     NAOdictionary = openNAODatabase()
     if element in NAOdictionary:
         if functional in NAOdictionary[element]:
-            return list(NAOdictionary[element][functional][zetaNotation].keys())
+            return list(NAOdictionary[element][functional][zetaSelection].keys())
         else:
             print("The functional is not in the NAO database.")
             return []
@@ -113,7 +113,7 @@ def findNAOByElementANDFunctional(element, functional):
         print("The element is not in the NAO database.")
         return []
 '''
-def findNAOByCutoff(element, threshold, functional = 'gga', zetaNotation = 'dzp' , mode = 'radius_min'):
+def findNAOByCutoff(element, threshold, functional = 'gga', zetaSelection = 'dzp' , mode = 'radius_min'):
     '''
     # findNAOByCutoff\n
     @param element: the element of the NAO\n
@@ -129,7 +129,7 @@ def findNAOByCutoff(element, threshold, functional = 'gga', zetaNotation = 'dzp'
     7. energy_max_radius_min: find the NAO with the largest energy cutoff smaller than the threshold and the smallest radius cutoff larger than the threshold\n
     8. energy_max_radius_max: find the NAO with the largest energy cutoff smaller than the threshold and the largest radius cutoff smaller than the threshold\n
     @param functional: the functional of the NAO\n
-    @param zetaNotation: the zeta notation of the NAO\n
+    @param zetaSelection: the zeta notation of the NAO\n
     @param mode: the mode of the search\n
     @return: the NAO file name  
     '''
@@ -139,110 +139,110 @@ def findNAOByCutoff(element, threshold, functional = 'gga', zetaNotation = 'dzp'
         NAOfileNameCache = ''
         energyCutoffCache = -1
         if functional in NAOdictionary[element]:
-            for fileName in NAOdictionary[element][functional][zetaNotation]:
+            for fileName in NAOdictionary[element][functional][zetaSelection]:
                 if mode == 'radius_min':
                     # for selecting a NAO with the smallest radius cutoff, the radius cutoff must be larger than the threshold
                     # say, add a definitive value to the smallest radius cutoff
-                    if NAOdictionary[element][functional][zetaNotation][fileName]['radiusCutoff'] >= threshold:
+                    if NAOdictionary[element][functional][zetaSelection][fileName]['radiusCutoff'] >= threshold:
                         if NAOfileNameCache == '':
-                            radiusCutoffCache = NAOdictionary[element][functional][zetaNotation][fileName]['radiusCutoff']
+                            radiusCutoffCache = NAOdictionary[element][functional][zetaSelection][fileName]['radiusCutoff']
                             NAOfileNameCache = fileName
                         else:
-                            if NAOdictionary[element][functional][zetaNotation][fileName]['radiusCutoff'] < radiusCutoffCache:
-                                radiusCutoffCache = NAOdictionary[element][functional][zetaNotation][fileName]['radiusCutoff']
+                            if NAOdictionary[element][functional][zetaSelection][fileName]['radiusCutoff'] < radiusCutoffCache:
+                                radiusCutoffCache = NAOdictionary[element][functional][zetaSelection][fileName]['radiusCutoff']
                                 NAOfileNameCache = fileName
                 elif mode == 'radius_max':
                     # for selecting a NAO with the largest radius cutoff, the radius cutoff must be smaller than the threshold
                     # say, add a definitive value to the largest radius cutoff
-                    if NAOdictionary[element][functional][zetaNotation][fileName]['radiusCutoff'] <= threshold:
+                    if NAOdictionary[element][functional][zetaSelection][fileName]['radiusCutoff'] <= threshold:
                         if NAOfileNameCache == '':
-                            radiusCutoffCache = NAOdictionary[element][functional][zetaNotation][fileName]['radiusCutoff']
+                            radiusCutoffCache = NAOdictionary[element][functional][zetaSelection][fileName]['radiusCutoff']
                             NAOfileNameCache = fileName
                         else:
-                            if NAOdictionary[element][functional][zetaNotation][fileName]['radiusCutoff'] > radiusCutoffCache:
-                                radiusCutoffCache = NAOdictionary[element][functional][zetaNotation][fileName]['radiusCutoff']
+                            if NAOdictionary[element][functional][zetaSelection][fileName]['radiusCutoff'] > radiusCutoffCache:
+                                radiusCutoffCache = NAOdictionary[element][functional][zetaSelection][fileName]['radiusCutoff']
                                 NAOfileNameCache = fileName
 
                 elif mode == 'energy_min':
                     # similarly.
-                    if NAOdictionary[element][functional][zetaNotation][fileName]['energyCutoff'] >= threshold:
+                    if NAOdictionary[element][functional][zetaSelection][fileName]['energyCutoff'] >= threshold:
                         if NAOfileNameCache == '':
-                            energyCutoffCache = NAOdictionary[element][functional][zetaNotation][fileName]['energyCutoff']
+                            energyCutoffCache = NAOdictionary[element][functional][zetaSelection][fileName]['energyCutoff']
                             NAOfileNameCache = fileName
                         else:
-                            if NAOdictionary[element][functional][zetaNotation][fileName]['energyCutoff'] < energyCutoffCache:
-                                energyCutoffCache = NAOdictionary[element][functional][zetaNotation][fileName]['energyCutoff']
+                            if NAOdictionary[element][functional][zetaSelection][fileName]['energyCutoff'] < energyCutoffCache:
+                                energyCutoffCache = NAOdictionary[element][functional][zetaSelection][fileName]['energyCutoff']
                                 NAOfileNameCache = fileName
 
                 elif mode == 'energy_max':
-                    if NAOdictionary[element][functional][zetaNotation][fileName]['energyCutoff'] <= threshold:
+                    if NAOdictionary[element][functional][zetaSelection][fileName]['energyCutoff'] <= threshold:
                         if NAOfileNameCache == '':
-                            energyCutoffCache = NAOdictionary[element][functional][zetaNotation][fileName]['energyCutoff']
+                            energyCutoffCache = NAOdictionary[element][functional][zetaSelection][fileName]['energyCutoff']
                             NAOfileNameCache = fileName
                         else:
-                            if NAOdictionary[element][functional][zetaNotation][fileName]['energyCutoff'] > energyCutoffCache:
-                                energyCutoffCache = NAOdictionary[element][functional][zetaNotation][fileName]['energyCutoff']
+                            if NAOdictionary[element][functional][zetaSelection][fileName]['energyCutoff'] > energyCutoffCache:
+                                energyCutoffCache = NAOdictionary[element][functional][zetaSelection][fileName]['energyCutoff']
                                 NAOfileNameCache = fileName
  
                 elif mode == 'energy_min_radius_min':
-                    if NAOdictionary[element][functional][zetaNotation][fileName]['energyCutoff'] >= threshold[0]:
-                        if NAOdictionary[element][functional][zetaNotation][fileName]['radiusCutoff'] >= threshold[1]:
+                    if NAOdictionary[element][functional][zetaSelection][fileName]['energyCutoff'] >= threshold[0]:
+                        if NAOdictionary[element][functional][zetaSelection][fileName]['radiusCutoff'] >= threshold[1]:
                             if NAOfileNameCache == '':
-                                radiusCutoffCache = NAOdictionary[element][functional][zetaNotation][fileName]['radiusCutoff']
-                                energyCutoffCache = NAOdictionary[element][functional][zetaNotation][fileName]['energyCutoff']
+                                radiusCutoffCache = NAOdictionary[element][functional][zetaSelection][fileName]['radiusCutoff']
+                                energyCutoffCache = NAOdictionary[element][functional][zetaSelection][fileName]['energyCutoff']
                                 NAOfileNameCache = fileName
                             else:
-                                if NAOdictionary[element][functional][zetaNotation][fileName]['radiusCutoff'] < radiusCutoffCache and NAOdictionary[element][functional][zetaNotation][fileName]['energyCutoff'] < energyCutoffCache:
-                                    radiusCutoffCache = NAOdictionary[element][functional][zetaNotation][fileName]['radiusCutoff']
-                                    energyCutoffCache = NAOdictionary[element][functional][zetaNotation][fileName]['energyCutoff']
+                                if NAOdictionary[element][functional][zetaSelection][fileName]['radiusCutoff'] < radiusCutoffCache and NAOdictionary[element][functional][zetaSelection][fileName]['energyCutoff'] < energyCutoffCache:
+                                    radiusCutoffCache = NAOdictionary[element][functional][zetaSelection][fileName]['radiusCutoff']
+                                    energyCutoffCache = NAOdictionary[element][functional][zetaSelection][fileName]['energyCutoff']
                                     NAOfileNameCache = fileName
                 elif mode == 'energy_min_radius_max':
-                    if NAOdictionary[element][functional][zetaNotation][fileName]['energyCutoff'] >= threshold[0]:
-                        if NAOdictionary[element][functional][zetaNotation][fileName]['radiusCutoff'] <= threshold[1]:
+                    if NAOdictionary[element][functional][zetaSelection][fileName]['energyCutoff'] >= threshold[0]:
+                        if NAOdictionary[element][functional][zetaSelection][fileName]['radiusCutoff'] <= threshold[1]:
                             if NAOfileNameCache == '':
-                                radiusCutoffCache = NAOdictionary[element][functional][zetaNotation][fileName]['radiusCutoff']
-                                energyCutoffCache = NAOdictionary[element][functional][zetaNotation][fileName]['energyCutoff']
+                                radiusCutoffCache = NAOdictionary[element][functional][zetaSelection][fileName]['radiusCutoff']
+                                energyCutoffCache = NAOdictionary[element][functional][zetaSelection][fileName]['energyCutoff']
                                 NAOfileNameCache = fileName
                             else:
-                                if NAOdictionary[element][functional][zetaNotation][fileName]['radiusCutoff'] > radiusCutoffCache and NAOdictionary[element][functional][zetaNotation][fileName]['energyCutoff'] < energyCutoffCache:
-                                    radiusCutoffCache = NAOdictionary[element][functional][zetaNotation][fileName]['radiusCutoff']
-                                    energyCutoffCache = NAOdictionary[element][functional][zetaNotation][fileName]['energyCutoff']
+                                if NAOdictionary[element][functional][zetaSelection][fileName]['radiusCutoff'] > radiusCutoffCache and NAOdictionary[element][functional][zetaSelection][fileName]['energyCutoff'] < energyCutoffCache:
+                                    radiusCutoffCache = NAOdictionary[element][functional][zetaSelection][fileName]['radiusCutoff']
+                                    energyCutoffCache = NAOdictionary[element][functional][zetaSelection][fileName]['energyCutoff']
                                     NAOfileNameCache = fileName
                 elif mode == 'energy_max_radius_min':
-                    if NAOdictionary[element][functional][zetaNotation][fileName]['energyCutoff'] <= threshold[0]:
-                        if NAOdictionary[element][functional][zetaNotation][fileName]['radiusCutoff'] >= threshold[1]:
+                    if NAOdictionary[element][functional][zetaSelection][fileName]['energyCutoff'] <= threshold[0]:
+                        if NAOdictionary[element][functional][zetaSelection][fileName]['radiusCutoff'] >= threshold[1]:
                             if NAOfileNameCache == '':
-                                radiusCutoffCache = NAOdictionary[element][functional][zetaNotation][fileName]['radiusCutoff']
-                                energyCutoffCache = NAOdictionary[element][functional][zetaNotation][fileName]['energyCutoff']
+                                radiusCutoffCache = NAOdictionary[element][functional][zetaSelection][fileName]['radiusCutoff']
+                                energyCutoffCache = NAOdictionary[element][functional][zetaSelection][fileName]['energyCutoff']
                                 NAOfileNameCache = fileName
                             else:
-                                if NAOdictionary[element][functional][zetaNotation][fileName]['radiusCutoff'] < radiusCutoffCache and NAOdictionary[element][functional][zetaNotation][fileName]['energyCutoff'] > energyCutoffCache:
-                                    radiusCutoffCache = NAOdictionary[element][functional][zetaNotation][fileName]['radiusCutoff']
-                                    energyCutoffCache = NAOdictionary[element][functional][zetaNotation][fileName]['energyCutoff']
+                                if NAOdictionary[element][functional][zetaSelection][fileName]['radiusCutoff'] < radiusCutoffCache and NAOdictionary[element][functional][zetaSelection][fileName]['energyCutoff'] > energyCutoffCache:
+                                    radiusCutoffCache = NAOdictionary[element][functional][zetaSelection][fileName]['radiusCutoff']
+                                    energyCutoffCache = NAOdictionary[element][functional][zetaSelection][fileName]['energyCutoff']
                                     NAOfileNameCache = fileName
                 elif mode == 'energy_max_radius_max':
-                    if NAOdictionary[element][functional][zetaNotation][fileName]['energyCutoff'] <= threshold[0]:
-                        if NAOdictionary[element][functional][zetaNotation][fileName]['radiusCutoff'] <= threshold[1]:
+                    if NAOdictionary[element][functional][zetaSelection][fileName]['energyCutoff'] <= threshold[0]:
+                        if NAOdictionary[element][functional][zetaSelection][fileName]['radiusCutoff'] <= threshold[1]:
                             if NAOfileNameCache == '':
-                                radiusCutoffCache = NAOdictionary[element][functional][zetaNotation][fileName]['radiusCutoff']
-                                energyCutoffCache = NAOdictionary[element][functional][zetaNotation][fileName]['energyCutoff']
+                                radiusCutoffCache = NAOdictionary[element][functional][zetaSelection][fileName]['radiusCutoff']
+                                energyCutoffCache = NAOdictionary[element][functional][zetaSelection][fileName]['energyCutoff']
                                 NAOfileNameCache = fileName
                             else:
-                                if NAOdictionary[element][functional][zetaNotation][fileName]['radiusCutoff'] > radiusCutoffCache and NAOdictionary[element][functional][zetaNotation][fileName]['energyCutoff'] > energyCutoffCache:
-                                    radiusCutoffCache = NAOdictionary[element][functional][zetaNotation][fileName]['radiusCutoff']
-                                    energyCutoffCache = NAOdictionary[element][functional][zetaNotation][fileName]['energyCutoff']
+                                if NAOdictionary[element][functional][zetaSelection][fileName]['radiusCutoff'] > radiusCutoffCache and NAOdictionary[element][functional][zetaSelection][fileName]['energyCutoff'] > energyCutoffCache:
+                                    radiusCutoffCache = NAOdictionary[element][functional][zetaSelection][fileName]['radiusCutoff']
+                                    energyCutoffCache = NAOdictionary[element][functional][zetaSelection][fileName]['energyCutoff']
                                     NAOfileNameCache = fileName
                 elif mode == 'energy_min_radius_min':
-                    if NAOdictionary[element][functional][zetaNotation][fileName]['energyCutoff'] >= threshold[0]:
-                        if NAOdictionary[element][functional][zetaNotation][fileName]['radiusCutoff'] >= threshold[1]:
+                    if NAOdictionary[element][functional][zetaSelection][fileName]['energyCutoff'] >= threshold[0]:
+                        if NAOdictionary[element][functional][zetaSelection][fileName]['radiusCutoff'] >= threshold[1]:
                             if NAOfileNameCache == '':
-                                radiusCutoffCache = NAOdictionary[element][functional][zetaNotation][fileName]['radiusCutoff']
-                                energyCutoffCache = NAOdictionary[element][functional][zetaNotation][fileName]['energyCutoff']
+                                radiusCutoffCache = NAOdictionary[element][functional][zetaSelection][fileName]['radiusCutoff']
+                                energyCutoffCache = NAOdictionary[element][functional][zetaSelection][fileName]['energyCutoff']
                                 NAOfileNameCache = fileName
                             else:
-                                if NAOdictionary[element][functional][zetaNotation][fileName]['radiusCutoff'] < radiusCutoffCache and NAOdictionary[element][functional][zetaNotation][fileName]['energyCutoff'] < energyCutoffCache:
-                                    radiusCutoffCache = NAOdictionary[element][functional][zetaNotation][fileName]['radiusCutoff']
-                                    energyCutoffCache = NAOdictionary[element][functional][zetaNotation][fileName]['energyCutoff']
+                                if NAOdictionary[element][functional][zetaSelection][fileName]['radiusCutoff'] < radiusCutoffCache and NAOdictionary[element][functional][zetaSelection][fileName]['energyCutoff'] < energyCutoffCache:
+                                    radiusCutoffCache = NAOdictionary[element][functional][zetaSelection][fileName]['radiusCutoff']
+                                    energyCutoffCache = NAOdictionary[element][functional][zetaSelection][fileName]['energyCutoff']
                                     NAOfileNameCache = fileName
                 else:
                     print("Based on present selection rule, numerical orbital is not found in the NAO database.")
@@ -252,6 +252,7 @@ def findNAOByCutoff(element, threshold, functional = 'gga', zetaNotation = 'dzp'
     else:
         raise ValueError("The element is not in the NAO database.")
 
+# unit test
 if __name__ == "__main__":
     print("This module is not intended to be run directly.")
     

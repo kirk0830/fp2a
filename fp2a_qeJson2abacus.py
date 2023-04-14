@@ -31,6 +31,8 @@ def discrepantKeywordsConversion(keyword, value):
 
 def discrepantModuleConversion(qeDict, module = 'smearing'):
 
+    # in this function I package up conversion of set of keywords controlling the same module
+    # for example, smearing_method (ABACUS) is controlled by occupations and smearing (QE)
 
     if module == 'smearing':
         print('|-Runtime information: keyword \'occupations\' is needed to specially treated:')
@@ -83,8 +85,42 @@ def discrepantModuleConversion(qeDict, module = 'smearing'):
                 return ['vdw_method'], ['d3_0']
         else:
             return ['vdw_method'], ['none']
-    #elif module == 'SOLVANTS':
-    #    pass
+    
+    elif module == 'lda_plus_u':
+        # this module is only for qe < 7.1
+        hubbardUList = []
+        ntyp = qeDict["system"]["ntyp"]
+        # first scan if all hubbard parameters are corectly defined
+        for idxType in range(ntyp):
+            if f'Hubbard_U({idxType+1})' not in qeDict["system"]:
+                raise Exception(f'*ERROR: Hubbard_U for atom type-{idxType+1} is not set')
+        for keyword in qeDict["system"]:
+            if keyword.startswith('starting_ns_eigenvalue'):
+                print('|-Conversion warning: starting_ns_eigenvalue is not supported in ABACUS, will be ignored')
+        for idxType in range(ntyp):
+            hubbardU = qeDict["system"][f'Hubbard_U({idxType+1})']
+            hubbardUList.append(hubbardU)
+        returnValue = ' '.join([str(x) for x in hubbardUList])
+        return ['hubbard_u'], [returnValue]
+
+    elif module == 'noncolin':
+        ntyp = qeDict["system"]["ntyp"]
+        valueList = []
+        keywordList = []
+        for ityp in range(ntyp):
+            angle12List = []
+            if f'angle1({ityp+1})' in qeDict["system"]:
+                angle12List.append(qeDict["system"][f'angle1({ityp+1})'])
+            else:
+                raise Exception(f'*ERROR: noncolinear parameter angle1 for atom type-{ityp+1} is not set')
+            if f'angle2({ityp+1})' in qeDict["system"]:
+                angle12List.append(qeDict["system"][f'angle2({ityp+1})'])
+            else:
+                raise Exception(f'*ERROR: noncolinear parameter angle2 for atom type-{ityp+1} is not set')
+            keywordList.append(['angle1', 'angle2'])
+            valueList.append(angle12List)
+
+        return keywordList, valueList
     else:
         return [''], ['']
 def hubbardManifoldToNumber(manifold):
@@ -147,7 +183,9 @@ def generateABACUSFiles(
     dictionary named numerical orbitals\n
     """
     qeNonstandardSections = []
-
+    discrepantModuleKeywordsExclude = [
+        'smearing', 'dftd3_version'
+    ]
     if mode == 'on-the-fly':
         if qeInputScriptJson == None:
             qeInputScript = {}
@@ -181,9 +219,7 @@ def generateABACUSFiles(
         qeInputScript = {}
         keywordConversion = {}
         raise Exception('*ERROR: mode is not valid')
-    discrepantModuleKeywordsExclude = [
-        'smearing', 'dftd3_version'
-    ]
+
 # INPUT file write from here ======================================================================
     with open(ABACUSInputFile, 'w') as f:
         f.writelines('INPUT_PARAMETERS\n')
@@ -225,15 +261,21 @@ def generateABACUSFiles(
                         # subscript 0 is the position of abacus keyword in the list of values
                     else:
     # Discrapant module conversion ========================================================
-                        if keyword == 'occupations':
+    # relevant keywords are not included in conversion table
+                        if discrepantModuleKeywordsExclude.count(keyword) > 0:
+                            continue
+                        elif keyword == 'occupations':
                             keywordToWrite, valueToWrite = discrepantModuleConversion(qeInputScript, module = 'smearing')
                             for i in range(len(keywordToWrite)):
                                 f.writelines(keywordToWrite[i] + ' ' + keywordsWrite(valueToWrite[i]) + '\n')
-                        if keyword == 'vdw_corr':
+                        elif keyword == 'vdw_corr':
                             keywordToWrite, valueToWrite = discrepantModuleConversion(qeInputScript, module = 'vdw')
                             for i in range(len(keywordToWrite)):
                                 f.writelines(keywordToWrite[i] + ' ' + keywordsWrite(valueToWrite[i]) + '\n')
-                        print('|-Conversion warning: Keyword ' + keyword + ' not found in conversion table')
+                        elif keyword.startswith('Hubbard_U(') and qeVersion_7_1 == False:
+                            print('|-Conversion warning: Keyword ' + keyword + ' is deprecated in QE version >= 7.1')
+                        else:
+                            print('|-Conversion warning: Keyword ' + keyword + ' not found in conversion table')
 
         # proceeding non-standard section that unrevelant with STRU and KPT/KLINE files
         for section in qeNonstandardSections:
@@ -271,7 +313,9 @@ def generateABACUSFiles(
 
             elif section == 'SOLVANTS':
                 print('|-Conversion warning: a direct conversion from QE-RISM to ABACUS-Implicit solvation model is risky. You should really know what you are doing.')
-                print('|-Runtime information: .')
+                if qeInputScript["system"]["trism"]:
+                    print('*Warning: conversion of solvation from QE to ABACUS is discouraged.')
+                pass
             elif section == 'OCCUPATIONS':
                 pass
         for keyword in additionalKeywords:
@@ -317,7 +361,7 @@ def generateABACUSFiles(
                 naoFileName = findNAOByCutoff(
                     element = atomSpecies[idxSpecies],
                     threshold = threshold,
-                    zetaNotation = additionalKeywords["numerical_orbitals"]["basis_type"],
+                    zetaSelection = additionalKeywords["numerical_orbitals"]["basis_type"],
                     mode = naoSelectMode
                 )
                 f.writelines(atomSpecies[idxSpecies] + ' ' + keywordsWrite(naoFileName) + '\n')
@@ -330,21 +374,31 @@ def generateABACUSFiles(
                 + keywordsWrite(cell_vector[1]) + ' ' 
                 + keywordsWrite(cell_vector[2]) + '\n')
         f.writelines('\nATOMIC_POSITIONS\nCartesian\n\n')
+
         for ityp in range(qeInputScript['system']['ntyp']):
             f.writelines(qeInputScript['ATOMIC_SPECIES']['elements'][ityp] + '\n')
-            try:
+        # ================ write starting_magnetization of present species =================
+            if 'nspin' in qeInputScript['system']:
                 if qeInputScript['system']['nspin'] == 1:
                     f.writelines('0.0\n')
-                else:
+                elif qeInputScript['system']['nspin'] == 2:
                     try:
                         f.writelines(keywordsWrite(
-                            qeInputScript['system']['starting_magnetization({})'.format(str(ityp))]
+                            qeInputScript['ATOMIC_SPECIES']['starting_magnetization'][ityp]
                             ) + '\n')
                     except KeyError:
-                        f.writelines('0.0\n')
-            except KeyError:
+                        raise Exception('*ERROR: nspin = 2 but starting_megnetization is not defined, this is not a complete qe input.')
+            elif 'noncolin' in qeInputScript['system']:
+                if qeInputScript['system']['noncolin']:
+                        f.writelines(keywordsWrite(1.0) + '\n')
+            else:
+                print('|-Conversion warning: nspin will set to 1 as default. But possible to leave odd number of electrons requiring RKS error.')
                 f.writelines('0.0\n')
-            lineIndices = fromElementFindLinesInXYZ(qeInputScript['ATOMIC_SPECIES']['elements'][ityp], qeInputScript['ATOMIC_POSITIONS']['elements'])
+        # ================ write XYZ, constraint, mag and angle1 and 2 =================
+            lineIndices = fromElementFindLinesInXYZ(
+                qeInputScript['ATOMIC_SPECIES']['elements'][ityp], 
+                qeInputScript['ATOMIC_POSITIONS']['elements']
+                )
             f.writelines(str(len(lineIndices)) + '\n')
             for lineIndex in lineIndices:
                 f.writelines(
@@ -352,11 +406,31 @@ def generateABACUSFiles(
                     + ' ' + keywordsWrite(qeInputScript['ATOMIC_POSITIONS']['coordinates'][lineIndex][1])
                     + ' ' + keywordsWrite(qeInputScript['ATOMIC_POSITIONS']['coordinates'][lineIndex][2])
                     + ' ')
-                f.writelines(
-                    keywordsWrite(abs(qeInputScript['ATOMIC_POSITIONS']['constraints'][lineIndex][0]-1))
+                f.writelines('m '
+                    + keywordsWrite(abs(qeInputScript['ATOMIC_POSITIONS']['constraints'][lineIndex][0]-1))
                     + ' ' + keywordsWrite(abs(qeInputScript['ATOMIC_POSITIONS']['constraints'][lineIndex][1]-1))
                     + ' ' + keywordsWrite(abs(qeInputScript['ATOMIC_POSITIONS']['constraints'][lineIndex][2]-1))
-                    + '\n')
+                    + ' '
+                    )
+                if 'nspin' in qeInputScript['system']:
+                    if qeInputScript['system']['nspin'] == 2:
+                        f.writelines(
+                            'mag '+keywordsWrite(qeInputScript['ATOMIC_SPECIES']['starting_magnetization'][ityp])
+                            + ' '
+                        )
+                if 'noncolin' in qeInputScript['system']:
+                    if qeInputScript['system']['noncolin']:
+                        f.writelines(
+                            'mag '+keywordsWrite(qeInputScript['ATOMIC_SPECIES']['starting_magnetization'][ityp])
+                            + ' '
+                        )
+                        f.writelines(
+                            'angle1 ' + keywordsWrite(qeInputScript['ATOMIC_SPECIES']['noncolinear_angle1and2'][ityp][0])
+                          +' angle2 '  + keywordsWrite(qeInputScript['ATOMIC_SPECIES']['noncolinear_angle1and2'][ityp][1])
+                          +'\n'
+                        )
+                else:
+                    f.writelines('\n')
             f.writelines('\n')
 # KPT  file write from here========================================================================
     with open(ABACUSKpointsFile, 'w', encoding='utf-8') as f:
@@ -389,6 +463,7 @@ def generateABACUSFiles(
                 f2.writelines('\n\n')
     print('*- fp2a (Quantum ESPRESSO-specific version) finished.')
 
+# unit test
 if __name__ == '__main__':
     
     import fp2a_io
@@ -396,7 +471,7 @@ if __name__ == '__main__':
 
     generateABACUSFiles(
         mode = 'file',
-        qeInputScriptJsonFile = "test_qe6_7_in_0.json",
+        qeInputScriptJsonFile = "test_noncolinear_qe7.1.json",
         keywordConversionJsonFile = "depuis_le_abacus_rotated-qac.json",
         qeVersion_7_1 = False,
         overwriteKeywords = overwriteKeywords,

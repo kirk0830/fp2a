@@ -25,6 +25,7 @@ def jsonRotate(rotateSequence, sourceDictionaryFileName = "depuis_le_abacus.json
         json.dump(rotatedDictionary, rotatedDictionaryFile, indent=4)
     return rotatedDictionaryFileName
 
+# unit test
 if __name__ == '__main__':
     rotateSequence = "qac" # means qe keyword is the key and abacus, cp2k keywords are the values
     jsonRotate(rotateSequence)

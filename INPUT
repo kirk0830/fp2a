@@ -1,27 +1,19 @@
 INPUT_PARAMETERS
 basis_type lcao
 calculation scf
-md_nstep 200
-orbital_dir ./
-suffix r_rs444k222_Pt1
+suffix Fe
 pseudo_dir ./
-smearing_sigma 0.002
-ecutwfc 40
-latname none
-ntype 3
+orbital_dir ./
+latname bcc
+ntype 1
+noncolin 1
+lspinorb 1
 smearing_method gaussian
-vdw_method d3_0
-dft_plus_u 1
-scf_thr 1e-06
-scf_nmax 200
-mixing_beta 0.5
-mixing_type plain
-init_wfc random
+smearing_sigma 0.01
+ecutwfc 60.0
+scf_thr 1e-10
 ks_solver genelpa
-md_type bfgs
-fix_ibrav all
-cell_factor 2
-stress_thr 0.2
-orbital_corr -1 -1 -1
-hubbard_u 0 7.5 0
+dft_plus_u 1
+orbital_corr 2
+hubbard_u 2.2
 #numerical_orbitals are added

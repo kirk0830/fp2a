@@ -1,5 +1,6 @@
 import json
 import numpy as np
+import re
 from fp2a_keywordsProcessing import keywordsRead
 # pre-set data
 nonStandardSectionTitles = [
@@ -40,6 +41,27 @@ def isNSSTwithSectionParameter(line):
         return True
     else:
         return False
+def split_sentence(sentence):
+    # written by AIva
+    parts = []
+    current_part = ''
+    inside_parenthesis = False
+    
+    for char in sentence:
+        if char == ',' and not inside_parenthesis:
+            parts.append(current_part.strip())
+            current_part = ''
+        else:
+            current_part += char
+            if char == '(':
+                inside_parenthesis = True
+            elif char == ')':
+                inside_parenthesis = False
+    
+    if current_part:
+        parts.append(current_part.strip())
+    
+    return parts
 
 def qe2qeJson(fileName, boolVersion7_1 = True, parseMode = 'single', boolDebugMode = False):
 
@@ -378,6 +400,7 @@ def qe2qeJson(fileName, boolVersion7_1 = True, parseMode = 'single', boolDebugMo
                     if len(words) > 1:
                         unit = words[1].replace('(','').replace(')','').replace('{','').replace('}','')
                         sectionTitle = cleanLine.split()[0]
+# ========================= K_POINTS initialization ===============================
                 if sectionTitle == "K_POINTS":
                     if unit.lower() == 'gamma':
                         quantumESPRESSOInput["K_POINTS"] = {"mode": "mk", "unit": unit,"grid":[1, 1, 1], "shift":[0, 0, 0]}
@@ -394,16 +417,26 @@ def qe2qeJson(fileName, boolVersion7_1 = True, parseMode = 'single', boolDebugMo
                         else:
                             quantumESPRESSOInput["K_POINTS"] = {"mode": "mk", "unit": unit,"grid":[], "shift":[]}
                             boolReadKpath = False
+# ========================= ATOMIC_SPECIES initialization ===============================
                 elif sectionTitle == "ATOMIC_SPECIES":
                     boolReadAtomicSpeciesSection = True
-                    quantumESPRESSOInput["ATOMIC_SPECIES"] = {"elements":[], "masses":[], "pseudopotentials":[]}
+                    quantumESPRESSOInput["ATOMIC_SPECIES"] = {
+                        "elements":[], 
+                        "masses":[], 
+                        "pseudopotentials":[], 
+                        "starting_magnetization": [],
+                        "noncolinear_angle1and2": [],
+                        "starting_ns_eigenvalue": [],
+                        }
+# ========================= ATOMIC_POSITIONS initialization ===============================
                 elif sectionTitle == "ATOMIC_POSITIONS":
                     boolReadAtomicPositionsSection = True
                     quantumESPRESSOInput["ATOMIC_POSITIONS"] = {"unit": unit, "elements":[], "coordinates":[], "constraints":[]}
+# ========================= CELL_PARAMETERS initialization ===============================
                 elif sectionTitle == "CELL_PARAMETERS":
                     boolReadCellParametersSection = True
                     quantumESPRESSOInput["CELL_PARAMETERS"] = {"unit": unit,"cell":[]}
-
+# ========================= HUBBARD initialization ===============================
                 elif sectionTitle == "HUBBARD" and boolVersion7_1:
                     boolReadHubbardSection = True
                     theNextLineSplit = lines[idx+1].strip().split()
@@ -423,18 +456,19 @@ def qe2qeJson(fileName, boolVersion7_1 = True, parseMode = 'single', boolDebugMo
                     #             }, 
                     # 'hopping': {'1-4s-19-2p': ['Fe', 'O', 0.75]}
                     # }
+# ========================= SOLVENTS initialization ===============================
                 elif sectionTitle == "SOLVENTS" and boolVersion7_1:
                     boolReadSolventsSection = True
                     quantumESPRESSOInput["SOLVENTS"] = {"unit": unit, "labels":[], "densities":[], "molecules":[]}
                 else:
                     quantumESPRESSOInput[sectionTitle] = {}
-            # =================== non-title lines =======================
+# =================== non-title lines =======================
             else:
                 if not boolReadInputScript:
                     # linux command line
                     continue
                 else:
-            # ============= keywords of standard section ================
+# ============= keywords-read-in of standard section ================
                     if cleanLine.startswith('!'): continue # comment line
                     if boolReadStandardSection:
                         if cleanLine.startswith('/'):
@@ -445,7 +479,8 @@ def qe2qeJson(fileName, boolVersion7_1 = True, parseMode = 'single', boolDebugMo
                             if commaIndex != -1:
                                 # meaning there are keywords definition seperated by comma
                                 # this happens usually in standard section
-                                keywordsDefinition = cleanLine.split(',')
+                                #keywordsDefinition = cleanLine.split(',')
+                                keywordsDefinition = split_sentence(cleanLine)
                                 keywordsDefinition = [
                                     keywordDefinition.strip() for keywordDefinition in keywordsDefinition if len(keywordDefinition.strip()) > 0
                                     ]
@@ -456,13 +491,14 @@ def qe2qeJson(fileName, boolVersion7_1 = True, parseMode = 'single', boolDebugMo
                                 # quite common word definition line
                                 keywordsKeyValuePair = keywordsParse(cleanLine)
                                 quantumESPRESSOInput[sectionTitle][keywordsKeyValuePair[0]] = keywordsRead(keywordsKeyValuePair[1])
-            # ============= keywords of non-standard section ============
-            # not standard section, e.g., ATOMIC_SPECIES
-            # but addtionally for KPOINTS, keywords should not be read as other sections
-            # for case reading kpoints line
+# ============= keywords-read-in of non-standard section ============
+# not standard section, e.g., ATOMIC_SPECIES
+# but addtionally for KPOINTS, keywords should not be read as other sections
+# for case reading kpoints line
                     else:
                         if boolReadNonstandardSection:
                             words = cleanLine.split()
+# ========================= K_POINTS keywords write =======================
                             if boolReadKpointsSection:
                                 if boolReadKpath:
                                     if len(words) < 2:
@@ -496,13 +532,54 @@ def qe2qeJson(fileName, boolVersion7_1 = True, parseMode = 'single', boolDebugMo
                                         ]
                                     boolReadKpointsSection = False
                                     boolReadNonstandardSection = False
+# ========================= ATOMIC_SPECIES keywords write =======================
                             elif boolReadAtomicSpeciesSection:
+                                # ========================= elements, masses and pp =======================
                                 quantumESPRESSOInput["ATOMIC_SPECIES"]["elements"].append(words[0])
                                 quantumESPRESSOInput["ATOMIC_SPECIES"]["masses"].append(keywordsRead(words[1]))
                                 quantumESPRESSOInput["ATOMIC_SPECIES"]["pseudopotentials"].append(words[2])
+                                idxAtomicSpecies = len(quantumESPRESSOInput["ATOMIC_SPECIES"]["elements"]) - 1
+                                # ========================= starting_magnetization =======================
+                                if 'nspin' in quantumESPRESSOInput["system"]:
+                                    if quantumESPRESSOInput["system"]["nspin"] != 1:
+                                        quantumESPRESSOInput["ATOMIC_SPECIES"]["starting_magnetization"].append(
+                                            quantumESPRESSOInput["system"][f"starting_magnetization({idxAtomicSpecies+1})"]
+                                            )
+                                        # because starting_magnetization is atomic species specific, so move it to atomic species section
+                                        quantumESPRESSOInput["system"].pop(f"starting_magnetization({idxAtomicSpecies+1})")
+                                # ========================= noncolinear angle1 and 2 =======================
+                                if 'noncolin' in quantumESPRESSOInput["system"]:
+                                    if quantumESPRESSOInput["system"]["noncolin"]:
+                                        quantumESPRESSOInput["ATOMIC_SPECIES"]["starting_magnetization"].append(
+                                            quantumESPRESSOInput["system"][f"starting_magnetization({idxAtomicSpecies+1})"]
+                                            )
+                                        quantumESPRESSOInput["ATOMIC_SPECIES"]["noncolinear_angle1and2"].append([
+                                            quantumESPRESSOInput["system"][f"angle1({idxAtomicSpecies+1})"],
+                                            quantumESPRESSOInput["system"][f"angle2({idxAtomicSpecies+1})"]
+                                        ])
+                                        # similarly for noncolinear, the angle1 and 2 are atomic species specific
+                                        quantumESPRESSOInput["system"].pop(f"starting_magnetization({idxAtomicSpecies+1})")
+                                        quantumESPRESSOInput["system"].pop(f"angle1({idxAtomicSpecies+1})")
+                                        quantumESPRESSOInput["system"].pop(f"angle2({idxAtomicSpecies+1})")
+                                # ========================= starting_ns_eigenvalue =======================
+                                starting_ns_eigenvalue_dict = {}
+                                popStarting_ns_eigenvalueList = []
+                                for keyword in quantumESPRESSOInput["system"].keys():
+                                    
+                                    if keyword.startswith('starting_ns_eigenvalue(') and keyword.endswith(f'{idxAtomicSpecies+1})'):
+                                        s_n_e_words = re.split(r'\(|\)|\,', keyword)
+                                        starting_ns_eigenvalue_dict[
+                                            f"({s_n_e_words[-3]}, {s_n_e_words[-2]})"
+                                            ] = quantumESPRESSOInput["system"][keyword]
+                                        popStarting_ns_eigenvalueList.append(keyword)
+                                for starting_ns_eigenvalue in popStarting_ns_eigenvalueList:
+                                    quantumESPRESSOInput["system"].pop(starting_ns_eigenvalue)
+                                quantumESPRESSOInput["ATOMIC_SPECIES"]["starting_ns_eigenvalue"].append(starting_ns_eigenvalue_dict) 
+                                # ========================= check if all atomic species are read =======================
                                 if len(quantumESPRESSOInput["ATOMIC_SPECIES"]["elements"]) == quantumESPRESSOInput["system"]["ntyp"]:
                                     boolReadAtomicSpeciesSection = False
                                     boolReadNonstandardSection = False
+# ========================= ATOMIC_POSITIONS keywords write =======================
                             elif boolReadAtomicPositionsSection:
                                 quantumESPRESSOInput["ATOMIC_POSITIONS"]["elements"].append(words[0])
                                 quantumESPRESSOInput["ATOMIC_POSITIONS"]["coordinates"].append([
@@ -515,6 +592,7 @@ def qe2qeJson(fileName, boolVersion7_1 = True, parseMode = 'single', boolDebugMo
                                 if len(quantumESPRESSOInput["ATOMIC_POSITIONS"]["elements"]) == quantumESPRESSOInput["system"]["nat"]:
                                     boolReadAtomicPositionsSection = False
                                     boolReadNonstandardSection = False
+# ========================= CELL_PARAMETERS keywords write =======================                                    
                             elif boolReadCellParametersSection:
                                 quantumESPRESSOInput["CELL_PARAMETERS"]["cell"].append([
                                     keywordsRead(words[0]), 
@@ -524,6 +602,7 @@ def qe2qeJson(fileName, boolVersion7_1 = True, parseMode = 'single', boolDebugMo
                                 if len(quantumESPRESSOInput["CELL_PARAMETERS"]["cell"]) == 3:
                                     boolReadCellParametersSection = False
                                     boolReadNonstandardSection = False
+# ========================= HUBBARD keywords write =======================
                             elif boolReadHubbardSection and boolVersion7_1:
                                 # for nonstandard section, there is no signal where it needs, but one needs to check manually
                                 # {
@@ -572,6 +651,7 @@ def qe2qeJson(fileName, boolVersion7_1 = True, parseMode = 'single', boolDebugMo
                                     elif parseMode == 'single':
                                         createHubbardSection()
                                         resetStatus()
+# ========================= SOLVENTS keywords write =======================
                             elif boolReadSolventsSection and boolVersion7_1:
                                 quantumESPRESSOInput["SOLVENTS"]["labels"].append(words[0])
                                 quantumESPRESSOInput["SOLVENTS"]["densities"].append(keywordsRead(words[1]))
@@ -579,6 +659,7 @@ def qe2qeJson(fileName, boolVersion7_1 = True, parseMode = 'single', boolDebugMo
                                 if len(quantumESPRESSOInput["SOLVENTS"]["labels"]) == quantumESPRESSOInput["rism"]["nsolv"]:
                                     boolReadSolventsSection = False
                                     boolReadNonstandardSection = False
+# ========================= others keywords write =======================
                             else:
                                 keywordsKeyValuePair = keywordsParse(cleanLine)
                                 quantumESPRESSOInput[sectionTitle][keywordsKeyValuePair[0]] = keywordsKeyValuePair[1]
@@ -602,9 +683,17 @@ def qe2qeJson(fileName, boolVersion7_1 = True, parseMode = 'single', boolDebugMo
 
     return returnList
 
+# unit test
 if __name__ == "__main__":
 
+       
 
+    [desiredDictionary] = qe2qeJson(fileName='test_noncolinear_qe7.1.in', boolVersion7_1 = True, parseMode='single')
+
+    with open('test_noncolinear_qe7.1.json', 'w') as outfile:
+        json.dump(desiredDictionary, outfile, indent=4)
+
+    """
     inputScriptFullFileName = "EXX_example\\run_example"
     jsonFileNamePrefix = inputScriptFullFileName.replace('\\', '_').replace('.', '_')
     DictionariesList = qe2qeJson(inputScriptFullFileName, boolVersion7_1 = True, parseMode='examples')
@@ -612,7 +701,7 @@ if __name__ == "__main__":
         #print("Dictionary "+str(i)+": "+str(dictionary))
         with open(jsonFileNamePrefix +'_'+ str(i) + '.json', 'w') as outfile:
             json.dump(dictionary, outfile, indent=4)
-
+    """
     """
     current_dir = osgetcwd()
     print("Validity check for input script parsing")
